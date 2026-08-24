@@ -1,0 +1,100 @@
+\item controlled software cryptanalysis with independent train and holdout corpora.
+\end{enumerate}
+The next evidence gate is independent cryptanalytic evaluation by external testers using the frozen challenge protocol.
+
+\chapter{Frozen Cryptographic Anchor}
+\section{Message protection}
+Each message is protected by a 256-bit master secret, fresh 256-bit salt, fresh 96-bit nonce, HKDF-SHA3-512 key derivation, and ChaCha20-Poly1305 authenticated encryption. Let $K_M$ denote the master key, $s$ the salt, $n$ the nonce, $A$ authenticated metadata and $P$ plaintext. A message key is derived as
+\begin{align}
+PRK &= \operatorname{HMAC\!\_SHA3\!\_512}(s,K_M),\\
+K_i &= \operatorname{HKDFExpand}(PRK,\mathrm{info}_i,32),
+\end{align}
+and the authenticated envelope is
+\begin{equation}
+(C,T)=\operatorname{ChaCha20Poly1305.Enc}(K_i,n,P,A).
+\end{equation}
+Authenticated metadata binds the active genome generation, 36D surface commitment, internal tick, lineage, and user AAD.
+
+\section{Conformance vectors}
+\begin{table}[ht]
+\centering\small
+\caption{Native cryptographic algebra conformance snapshot.}
+\begin{tabular}{lll}
+\toprule
+Primitive & Reference & Status\\
+\midrule
+ChaCha quarter round & RFC 8439 & PASS\\
+ChaCha20 block & RFC 8439 & PASS\\
+ChaCha20 stream & RFC 8439 & PASS\\
+Poly1305 & RFC 8439 & PASS\\
+ChaCha20-Poly1305 AEAD & RFC 8439 & PASS\\
+HKDF construction & RFC 5869 / SHA3-512 PRF & PASS\\
+SHA3-256 / SHA3-512 / SHAKE256 & FIPS 202 & PASS\\
+BLAKE2b & RFC 7693 & PASS\\
+AEAD tag mutation failure & fail-closed test & PASS\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Native PNCS cryptographic algebra}
+The PNCS representation exposes cryptographic structure compositionally rather than treating the complete cipher as a single opaque opcode. Its relation alphabet contains
+\begin{equation}
+\begin{aligned}
+\mathcal{R}=\{&\mathrm{IDENTITY},\mathrm{DIFFERENCE},\mathrm{COMPOSITION},\mathrm{TRANSFORM},\\
+&\mathrm{CONDITION},\mathrm{RESOLVE},\mathrm{DERIVE},\mathrm{ORDER}\}.
+\end{aligned}
+\end{equation}
+The v0.1 algebra contains 69 PNV operator definitions; the DNCrypt v0.2 native program contains 63 operator definitions. The current execution program composes byte operations, modular arithmetic, rotations, Keccak rounds, BLAKE2b mixing, HKDF, and AEAD binding into a deterministic graph.
+
+\chapter[State, Genome and Persistent Surface]{State, Genome and Persistent\\Surface}
+\section{State representation}
+Let the active state be
+\begin{equation}
+\Sigma_t=(G_t,S_t,\tau_t,L_t),
+\end{equation}
+where $G_t\in\mathbb{R}^{36}$ is the public genome state, $S_t\in\mathbb{R}^{36}$ is the persistent cipher surface, $\tau_t\in\mathbb{N}$ is the internal tick and $L_t$ is provenance lineage.
+
+The internal tick is part of the cryptographic state contract. Host wall-clock time remains outside that state transition. Promotion advances the existing surface instead of resetting it:
+\begin{equation}
+S_{t+1}=\mathcal{T}(S_t,G_{t+1}),\qquad \tau_{t+1}>\tau_t.
+\end{equation}
+
+\section{Adversarial evolution}
+For parent genome $G_t$, a vectorized mutation proposal creates a candidate population
+\begin{equation}
+\mathcal{P}_t=\{G_t^{(1)},\ldots,G_t^{(N)}\}.
+\end{equation}
+An external evaluator returns bounded metrics. Exact request identity, generation, population commitment, and one-record-per-candidate coverage are validated before selection.
+
+A candidate metric vector is written
+\begin{equation}
+f(G)=\bigl(\ell,p,\Delta_b,\Delta_\alpha,a,-q\bigr),
+\end{equation}
+where $\ell$ is structural leakage, $p$ predictability, $\Delta_b$ adversarial bit advantage, $\Delta_\alpha$ scaling advantage, $a$ avalanche bias, and $q$ throughput. Selection minimizes the first five objectives and maximizes throughput through the sign convention above.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[node distance=10mm and 10mm, every node/.style={font=\sffamily\small}, box/.style={draw=DNCblue,rounded corners,fill=DNClight,minimum width=34mm,minimum height=10mm,align=center}, arr/.style={-{Stealth[length=2.2mm]},thick,DNCcyan}]
+\node[box] (parent) {Parent genome\\+ surface};
+\node[box,right=of parent] (mut) {Vectorized\\mutation population};
+\node[box,right=of mut] (eval) {External bounded\\cryptanalysis};
+\node[box,below=of eval] (pareto) {Exact coverage\\+ Pareto filter};
+\node[box,left=of pareto] (gate) {Fail-closed\\promotion gate};
+\node[box,left=of gate] (child) {Promoted child\\+ transitioned surface};
+\draw[arr] (parent)--(mut);\draw[arr] (mut)--(eval);\draw[arr] (eval)--(pareto);\draw[arr] (pareto)--(gate);\draw[arr] (gate)--(child);\draw[arr] (child)--(parent);
+\end{tikzpicture}
+\caption{Adaptive DNCrypt evolution loop around the frozen security anchor.}
+\end{figure}
+
+\chapter[Provenance and Fail-Closed Promotion]{Provenance and Fail-Closed\\Promotion}
+\section{Dual append-only lineage}
+DNCrypt maintains two append-only provenance streams. The message ledger binds ciphertext receipts to exact historical genome and surface states. The evolution ledger binds proposal and promotion receipts to parent genome, population commitment, policy digest, external evaluation digest, selected child and resulting surface transition.
+
+The relation between the streams is established by genome identifier, generation, surface commitment, and receipt digest. This makes historical decryption and evolutionary audit separate but joinable operations.
+
+\section{Promotion predicate}
+A simplified promotion predicate is
+\begin{equation}
+\Pi(G^*)=I_{\mathrm{dec}}\land I_{\mathrm{int}}\land I_{\mathrm{coverage}}\land I_{\mathrm{Pareto}}\land I_{\mathrm{risk}}\land I_{\mathrm{throughput}},
+\end{equation}
+with promotion accepted exactly when $\Pi(G^*)=1$. Missing records, duplicate candidate identifiers, request mismatch, generation mismatch, decrypt failure, integrity failure, insufficient risk improvement, or throughput regression beyond policy cause rejection.
