@@ -1,0 +1,18 @@
+PNV 1
+EPISTEMIC CHYBA
+MODE READ_ONLY
+
+# PNCS 36D Entropy Topology v0.1
+OP ENTROPY36.FRAME TRANSFORM live_phi36 timestamped_phase_frame phase_frame
+OP ENTROPY36.UNWRAP TRANSFORM phase_frame_sequence phase_unwrap lifted_phase_sequence
+OP ENTROPY36.COORD_ACCEL DERIVE lifted_coordinate second_difference signed_residual
+OP ENTROPY36.BIT TRANSFORM signed_residual sign_partition binary_sample
+OP ENTROPY36.HMIN DERIVE binary_stream mcv_markov_lag minimum_entropy_estimate
+OP ENTROPY36.MI DERIVE binary_stream_pair mutual_information dependence_bits
+OP ENTROPY36.PAIR_PREDICT DERIVE binary_stream_pair agreement_predictor predictor_advantage
+OP ENTROPY36.SELECT CONDITION coordinate_health independent_pair_threshold selected_coordinate
+OP ENTROPY36.INTERLEAVE COMPOSITION selected_coordinate_streams ORDER combined_stream
+OP ENTROPY36.HEALTH CONDITION combined_stream min_entropy_predictor_rct_apt admitted_stream
+OP ENTROPY36.CONDITION TRANSFORM admitted_stream SHAKE256 conditioned_seed
+PATH.ENTROPY36.TOPOLOGY COMPOSITION ENTROPY36.FRAME ENTROPY36.UNWRAP ENTROPY36.COORD_ACCEL ENTROPY36.BIT ENTROPY36.HMIN ENTROPY36.MI ENTROPY36.PAIR_PREDICT ENTROPY36.SELECT ENTROPY36.INTERLEAVE ENTROPY36.HEALTH ENTROPY36.CONDITION
+EMIT PATH.ENTROPY36.TOPOLOGY

@@ -1,0 +1,18 @@
+{
+  "evaluation_request_id": "0b9f3d7d13fa5f21612726cc5e1edfc03deb2954d34cde200664e48e1b610574",
+  "evidence_status": "synthetic_orchestration_fixture",
+  "ledger_verified": true,
+  "message_receipt": "f9f0fae2c0ba2c2a85b908d31dd513a7c85be2060949d9fe7ad6f723e1bb8b78",
+  "parent_genome_id": "052f6330b0212e312e446d8a7396f25083d941554c8c8af1aa3a8801336ebb78",
+  "parent_tick": 0,
+  "population_commitment": "58a28030986072b2c01fba7ac9130afaed931178e70e26bf983573d5c1b813ef",
+  "population_size": 64,
+  "promoted": true,
+  "promotion_receipt_digest": "bb779f841a7f6f23547d50cb0ffc9ea6d8342210edd61ba30fe504114d9701a4",
+  "proposal_receipt_digest": "2099ef284daabf11c815b1c468657234d5182c2e58f53abc4f43e92911bad105",
+  "schema": "dncrypt.smoke-demo/v0.2",
+  "selected_generation": 1,
+  "selected_genome_id": "ea23c411ff2b1851dbfec9bbaad175c244a1550a800b36f912955e2b225ce8ba",
+  "selected_tick": 2,
+  "status": "PASS"
+}

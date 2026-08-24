@@ -1,0 +1,19 @@
+{
+  "crypto_algebra": "PNCS_CRYPTOGRAPHIC_ALGEBRA_V0_1",
+  "deterministic_crypto_native": true,
+  "dimension": 36,
+  "epistemic_status": "CHYBA",
+  "external_entropy_effect_only": true,
+  "primitives": [
+    {"algorithm":"SHAKE-256","binding":"CRYPTO.SHAKE256","primitive_id":"pncs:crypto-primitive:sha256:742ca18b367e62e4e14c607918fee5599aaa13a9108284a3c6b1d88310b8bef2","protocol_scope":["genome","phase36","omega","mutation_population"],"role":"deterministic_expansion","schema":"PNCS_DNCRYPT_NATIVE_CRYPTO_PRIMITIVE_V0_2","source_protocol":"DNCrypt/v0.2","source_specifications":["FIPS 202"]},
+    {"algorithm":"BLAKE2b-256","binding":"CRYPTO.BLAKE2B_256","primitive_id":"pncs:crypto-primitive:sha256:b5e6911449a7bb2d6b7f4a9cebcc0dea445dc425c88d8d872330350f468db97e","protocol_scope":["genome_id","population_commitment","surface_commitment","receipts","entropy_commitment"],"role":"content_commitment","schema":"PNCS_DNCRYPT_NATIVE_CRYPTO_PRIMITIVE_V0_2","source_protocol":"DNCrypt/v0.2","source_specifications":["RFC 7693"]},
+    {"algorithm":"SHA3-256","binding":"CRYPTO.SHA3_256","primitive_id":"pncs:crypto-primitive:sha256:f65a442a3dedb9a9d90123bdba1665462417495843c02f28e6f81c596c2a544e","protocol_scope":["envelope_receipt"],"role":"independent_receipt_digest","schema":"PNCS_DNCRYPT_NATIVE_CRYPTO_PRIMITIVE_V0_2","source_protocol":"DNCrypt/v0.2","source_specifications":["FIPS 202"]},
+    {"algorithm":"HKDF-SHA3-512","binding":"CRYPTO.HKDF.SHA3_512","primitive_id":"pncs:crypto-primitive:sha256:4df83bf0de7a34700abab53b1b52bb2a1d156a75c12e0ede72d973fae19df3c4","protocol_scope":["message_key"],"role":"message_key_derivation","schema":"PNCS_DNCRYPT_NATIVE_CRYPTO_PRIMITIVE_V0_2","source_protocol":"DNCrypt/v0.2","source_specifications":["RFC 5869","FIPS 202"]},
+    {"algorithm":"ChaCha20-Poly1305","binding":"CRYPTO.CHACHA20_POLY1305.ENCRYPT|CRYPTO.CHACHA20_POLY1305.DECRYPT","primitive_id":"pncs:crypto-primitive:sha256:b31bedc3a6ec33558b036808eee93fa9dac19f1938df5608f7ecf2437728dc3b","protocol_scope":["encrypt","decrypt"],"role":"aead","schema":"PNCS_DNCRYPT_NATIVE_CRYPTO_PRIMITIVE_V0_2","source_protocol":"DNCrypt/v0.2","source_specifications":["RFC 8439"]},
+    {"algorithm":"OS CSPRNG","binding":"EFFECT_BOUNDARY:effect.os_csprng","primitive_id":"pncs:crypto-primitive:sha256:605623e21cf543448979d9096028984b6fd047bfa8717151944efd2198a4081b","protocol_scope":["initial_genome","mutation","message_salt_nonce"],"role":"entropy_source","schema":"PNCS_DNCRYPT_NATIVE_CRYPTO_PRIMITIVE_V0_2","source_protocol":"DNCrypt/v0.2","source_specifications":["OS entropy API"]}
+  ],
+  "registry_sha256": "7377666f475bfdfa5e9efff2fa76dcaf6dbe998144efd40d03d4fb72e1d88d9c",
+  "schema": "PNCS_DNCRYPT_NATIVE_CRYPTO_REGISTRY_V0_2",
+  "source_archive": "DNCRYPT_FULL_V0_2.zip",
+  "source_protocol": "DNCrypt/v0.2"
+}

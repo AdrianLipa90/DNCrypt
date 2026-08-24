@@ -1,0 +1,13 @@
+{
+  "compileall": "PASS",
+  "external_adversary_embedded": false,
+  "github_mutated": false,
+  "lineage_sidecar_match": true,
+  "lineage_sidecar_sha256": "ad884f38b18d5dff889a7554c1abadd25a7059be4f7c374cd810d8aaf9789131",
+  "lineage_v0_1_sha256": "ad884f38b18d5dff889a7554c1abadd25a7059be4f7c374cd810d8aaf9789131",
+  "pytest": "21 passed",
+  "schema": "dncrypt.local-validation/v0.2",
+  "smoke_demo": "PASS",
+  "smoke_evidence_status": "synthetic_orchestration_fixture",
+  "status": "PASS"
+}

@@ -1,0 +1,36 @@
+{
+  "dynamic_mask": true,
+  "live_window": {
+    "frame_count": 72,
+    "max_pair_mi_bits": 0.17759577404501092,
+    "max_pair_predictor_advantage": 0.24285714285714288,
+    "selected_budget_bits": 592.7280896164347,
+    "selected_coordinates": [19,33,22,21,28,9,30,24,7,11,32,29,16],
+    "selected_count": 13
+  },
+  "schema": "PNCS_36D_ENTROPY_TOPOLOGY_RECEIPT_V0_1",
+  "status": "PASS",
+  "validation_window": {
+    "combined_health": {
+      "adaptive_proportion_pass": true,
+      "bias": 0.003361344537815114,
+      "estimated_min_entropy_per_bit": 0.8997315599688158,
+      "gate_pass": true,
+      "lag_min_entropy_bits": 0.8997315599688158,
+      "lag_predictor_probability": 0.5359864521591872,
+      "markov_min_entropy_bits": 0.9713362417478564,
+      "max_run": 10,
+      "mcv_min_entropy_bits": 0.9903336654065202,
+      "ones": 591,
+      "predictor_advantage": 0.035986452159187166,
+      "repetition_count_pass": true,
+      "sample_count": 1190,
+      "zeros": 599
+    },
+    "combined_samples": 1190,
+    "max_selected_pair_adv": 0.11428571428571432,
+    "max_selected_pair_mi": 0.038316433128342084,
+    "selected_count": 17,
+    "selection": [29,10,11,26,2,15,35,12,5,33,20,19,17,31,8,14,23]
+  }
+}

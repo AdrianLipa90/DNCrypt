@@ -1,0 +1,26 @@
+{
+  "artifacts": {
+    "docs/PNCS_PHASE_ENTROPY_V0_1.md": {"bytes":5455,"sha256":"b6c472bfdff2b7ccbaa1e11a304c85c20a51a16e0477c04b1738e2015428d05b"},
+    "native/experimental/PNCS_PHASE_ENTROPY_V0_1.pnv": {"bytes":2735,"sha256":"c93df62e8af1a64e3dc750eba29bcb321c6086a6613155f61a078e3479e328fa"},
+    "native/programs/DNCRYPT_NATIVE_PNCS_V0_3.pnv": {"bytes":7133,"sha256":"fce582c44971c7646bafc9d8120a9ffe537a1e21d6c986fca8dfcd15ec77b2d5"},
+    "provenance/PNCS_DNCRYPT_PHASE_ENTROPY_INTEGRATION_RECEIPT_V0_1.json": {"bytes":1830,"sha256":"a255c1d5989954216e3dc0a99a64ae013ff6c2beaee7e8721cadfb3e8ec9cb1b"},
+    "provenance/PNCS_PHASE_ENTROPY_LIVE_EVIDENCE_V0_1.json": {"bytes":1910,"sha256":"1af8ed5ec48fc84f783e24abc9af3e3723cadd0ef87260c5ede2de93e1820256"},
+    "registry/programs/PNCS_PHASE_ENTROPY_REGISTRY_V0_1.json": {"bytes":1673,"sha256":"3ab86c5367c68221091fb62c878c74935ee194e4b8a9c30c9dd04e8f13d1961b"},
+    "src/phasenav_natural_code/phase_entropy_v01.py": {"bytes":18210,"sha256":"b0ad8917fe42f8719f7365f0723ca45e5cbef91579de7558359dabee9736a433"},
+    "tests/test_phase_entropy_v01.py": {"bytes":5803,"sha256":"09d65f57efe4d6d3474f4b9a26c872528dbaeeb9634409ed2939e73defc70063"}
+  },
+  "direct_extraction_entropy_budget_enforced": true,
+  "evidence_status": "IMPLEMENTATION_CONFORMANCE_PROTOTYPE",
+  "geometry": {"balanced_conditional_entropy_nats":0.6931471805599453,"fiber_cardinality":2,"projection":"R/(4piZ)->R/(2piZ)"},
+  "rbg_expansion": "PNCS_SHAKE256_PURPOSE_COUNTER_DOMAIN_SEPARATED",
+  "rbg_seed_bits": 256,
+  "receipt_sha256": "59d7004eb20b3a82771c530caa0cab57b7aba4902e0e7b4ac7e8a35ff9d67feb",
+  "schema": "PNCS_PHASE_ENTROPY_CONFORMANCE_V0_1",
+  "standards_direction": ["NIST_SP_800_90B","NIST_SP_800_90C"],
+  "status": "PASS",
+  "tests": {
+    "compileall": {"status":"PASS"},
+    "dncrypt_v0_2_reference_suite": {"failed":0,"passed":21,"status":"PASS"},
+    "pncs_crypto_plus_phase_entropy_repo_layout": {"failed":0,"passed":28,"status":"PASS"}
+  }
+}

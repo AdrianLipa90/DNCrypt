@@ -1,0 +1,10 @@
+{
+  "binding_policy": "reference and provenance boundary; evaluator implementation is external",
+  "canon_allowed": false,
+  "external_adversary_binding": "digest_reference_only",
+  "external_adversary_reference_sha256": "530fab25f1c00da93178477fb3af99536920cadc12a51acf9428e99faa7ee0e6",
+  "origins_dna_observed_main_merge_commit": "b50627124f70b06905a9c059c92a133fa6d089cb",
+  "origins_dna_repository": "AdrianLipa90/Origins-DNA",
+  "schema": "dncrypt.source-bindings/v0.2",
+  "v0_1_lineage_archive": "lineage/DNCRYPT_FULL_V0_1.zip"
+}
