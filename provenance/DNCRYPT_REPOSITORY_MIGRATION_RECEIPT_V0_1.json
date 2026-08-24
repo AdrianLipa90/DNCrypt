@@ -1,0 +1,30 @@
+{
+  "schema": "DNCRYPT_REPOSITORY_MIGRATION_RECEIPT_V0_1",
+  "status": "PASS",
+  "repository": "AdrianLipa90/DNCrypt",
+  "default_branch": "main",
+  "merge_commit": "df1c6bd628b328d55bc617e50e63384849eb2f8f",
+  "post_merge_alignment_commit": "6530e2774bebd367b39725d8bc02b960080fb23a",
+  "verified_local_repo_layout_tests": {
+    "passed": 53,
+    "failed": 0,
+    "status": "PASS"
+  },
+  "github_status_checks": {
+    "reported_count": 0,
+    "status": "NO_STATUS_CHECKS_CONFIGURED"
+  },
+  "byte_exact_alignment_blobs": {
+    "native/experimental/PNCS_CRYPTOGRAPHIC_ALGEBRA_V0_1.pnv": "c8891c35ba6728f0b479d5df86ce9b9d1f054f88",
+    "provenance/PNCS_36D_ENTROPY_TOPOLOGY_RECEIPT_V0_1.json": "bc5e48173b4fd9c4ac2772bc618e367a5464640e",
+    "provenance/PNCS_CRYPTOGRAPHIC_ALGEBRA_CONFORMANCE_V0_1.json": "9c7d288847237174f44922783b1c7233ce4289cc",
+    "provenance/PNCS_PHASE_ENTROPY_CONFORMANCE_V0_1.json": "7d53cdbbaa0eee2f5c4d448d1eae474555226b87",
+    "registry/programs/DNCRYPT_NATIVE_CRYPTO_REGISTRY_V0_2.json": "bcac7048c35a16b7e4e78e703028664388fe7625",
+    "registry/programs/PNCS_PHASE_ENTROPY_REGISTRY_V0_1.json": "d9774a9a525b3b994eb0576f8849a298e57a0c4b"
+  },
+  "lineage_blob": {
+    "path": "lineage/DNCRYPT_FULL_V0_1.zip",
+    "git_blob_sha": "b8515f701819f613780f2ea7e469c7e4410e2b91"
+  },
+  "canonical_development_repository": true
+}
