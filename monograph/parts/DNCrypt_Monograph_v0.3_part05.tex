@@ -1,0 +1,57 @@
+\chapter{Conclusion}
+DNCrypt currently combines a standard authenticated-encryption anchor with an adaptive 36D public state, auditable evolutionary lineage, phase-derived entropy conditioning, and dynamic entropy-topology selection. The implementation has passed its internal conformance and integration suites, and the first controlled train/holdout cryptanalysis challenge has produced a reproducible baseline in which adaptive selection did not demonstrate holdout advantage over the static anchor. That result establishes a concrete optimization target for a generalization-aware promotion rule and provides a frozen protocol for external cryptanalysis.
+
+The project therefore moves forward with three explicit evidence gates: independent challenge execution, robust multi-fold promotion, and hardened implementation and side-channel evaluation.
+
+\appendix
+\chapter{Core Equations at a Glance}
+\begin{align}
+\theta &= \Theta\bmod 2\pi,\\
+b &= \left\lfloor\frac{\Theta\bmod4\pi}{2\pi}\right\rfloor,\\
+H(b) &= \ln2\quad\text{for balanced lifts},\\
+\Hmin(X) &= -\log_2\max_x P(X=x),\\
+G_E &= (V,E,w),\quad w_{ij}=I(X_i;X_j),\\
+\Sigma_t &= (G_t,S_t,\tau_t,L_t),\\
+\Pi(G^*) &= I_{dec}\land I_{int}\land I_{coverage}\land I_{Pareto}\land I_{risk}\land I_{throughput}.
+\end{align}
+
+\chapter{Reference Values}
+\begin{table}[ht]
+\centering\small
+\caption{Selected measured values from current provenance.}
+\begin{tabular}{lr}
+\toprule
+Quantity & Value\\
+\midrule
+Live phase frames & 48\\
+Raw phase-noise samples & 1702\\
+Estimated min-entropy/sample & 0.899784 bit\\
+Estimated aggregate min-entropy & 1531.43 bit\\
+Phase predictor advantage & 0.035967\\
+Topology validation selected channels & 17/36\\
+Topology max selected MI & 0.038316 bit\\
+Topology combined min-entropy/sample & 0.899732 bit\\
+Challenge adaptive wins & 4/12\\
+Challenge static wins & 8/12\\
+Challenge sign-test $p$ & 0.387695\\
+Mean holdout risk delta & +0.023501\\
+Mean adaptive/static throughput & 0.985506\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\chapter{Bibliography and Standards}
+\begin{thebibliography}{99}
+\bibitem{shannon1948} C. E. Shannon, ``A Mathematical Theory of Communication,'' \emph{Bell System Technical Journal}, 1948.
+\bibitem{rfc8439} Y. Nir and A. Langley, \emph{ChaCha20 and Poly1305 for IETF Protocols}, RFC 8439, 2018.
+\bibitem{rfc5869} H. Krawczyk and P. Eronen, \emph{HMAC-based Extract-and-Expand Key Derivation Function (HKDF)}, RFC 5869, 2010.
+\bibitem{fips202} National Institute of Standards and Technology, \emph{SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions}, FIPS PUB 202, 2015.
+\bibitem{rfc7693} M.-J. Saarinen and J.-P. Aumasson, \emph{The BLAKE2 Cryptographic Hash and Message Authentication Code}, RFC 7693, 2015.
+\bibitem{sp80090b} National Institute of Standards and Technology, \emph{Recommendation for the Entropy Sources Used for Random Bit Generation}, SP 800-90B.
+\end{thebibliography}
+
+\backmatter
+\chapter*{Artifact Provenance}
+This monograph was generated from the canonical DNCrypt repository state and the evidence artifacts present in the local repository staging on 24 August 2026. Numerical benchmark values are reproduced from the frozen Cryptanalysis Challenge v0.1 evidence. Repository receipts separate local test-suite results from GitHub status-check availability.
+
+\end{document}
