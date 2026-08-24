@@ -4,9 +4,9 @@
       "bytes": 3566,
       "sha256": "c049e535486445dc02a4500c0aa4d872344faae6ee58ae46070ad541a882dcf7"
     },
-    "evidence/CRYPTANALYSIS_CHALLENGE_V0_1.json": {
-      "bytes": 36158,
-      "sha256": "3250c9281199eaff23f8ea48c988711619f4fcb1d463bcf6545cec471b1d8f77"
+    "evidence/CRYPTANALYSIS_CHALLENGE_V0_1_SUMMARY.json": {
+      "bytes": 1421,
+      "sha256": "7511bb4dc5276e6b505a5aab6d68e9aafe6c05275350591630defca1f64108e7"
     },
     "protocols/CRYPTANALYSIS_CHALLENGE_V0_1.json": {
       "bytes": 1157,
@@ -26,6 +26,11 @@
   "date": "2026-08-24",
   "epistemic_status": "REFERENCE_BENCHMARK; independent external cryptanalysis is the next evidence gate",
   "evidence_class": "CONTROLLED_SOFTWARE_CRYPTANALYSIS_BENCHMARK",
+  "full_local_result": {
+    "path": "evidence/CRYPTANALYSIS_CHALLENGE_V0_1.json",
+    "bytes": 36158,
+    "sha256": "3250c9281199eaff23f8ea48c988711619f4fcb1d463bcf6545cec471b1d8f77"
+  },
   "repo_test_suite": {
     "failed": 0,
     "passed": 54,
