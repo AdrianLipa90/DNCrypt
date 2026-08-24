@@ -1,0 +1,34 @@
+{
+  "commitment_blake2b": "e08595637366fb182c4b6418d4275f5a2f9415211eb95149256f75dd63924c49",
+  "comparison": "STATIC_DNCRYPT_FROZEN_ANCHOR_vs_ADAPTIVE_DNCRYPT",
+  "configuration": {
+    "generations": 3,
+    "holdout_messages": 192,
+    "message_bytes": 256,
+    "minimum_throughput_ratio": 0.5,
+    "population_size": 24,
+    "replicates": 12,
+    "seed_hex": "08f20e774084f15644071b5c69670e02c3949e33c33ea54ad873fb565c7007fb",
+    "train_messages": 64
+  },
+  "evidence_class": "CONTROLLED_SOFTWARE_CRYPTANALYSIS_BENCHMARK",
+  "primary_endpoint": "independent_holdout_adversarial_risk",
+  "schema": "dncrypt.cryptanalysis-challenge/v0.1",
+  "status": "PASS",
+  "summary": {
+    "adaptive_holdout_wins": 4,
+    "mean_generalization_gap_holdout_minus_train_delta": 0.01656650482163155,
+    "mean_holdout_risk_delta_adaptive_minus_static": 0.023500555411110718,
+    "mean_promotions": 3.0,
+    "mean_throughput_ratio_adaptive_over_static": 0.9855056029404525,
+    "mean_train_risk_delta_adaptive_minus_static": 0.006934050589479167,
+    "median_holdout_risk_delta_adaptive_minus_static": 0.03654006176708241,
+    "median_throughput_ratio_adaptive_over_static": 0.9707493971107373,
+    "median_train_risk_delta_adaptive_minus_static": -0.003357461706766096,
+    "replicates": 12,
+    "sign_test_two_sided_p": 0.3876953125,
+    "static_holdout_wins": 8,
+    "ties": 0
+  },
+  "verdict": "NO_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+}

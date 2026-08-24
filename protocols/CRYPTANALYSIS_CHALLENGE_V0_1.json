@@ -1,0 +1,38 @@
+{
+  "schema": "dncrypt.cryptanalysis-challenge-protocol/v0.1",
+  "evidence_class": "CONTROLLED_SOFTWARE_CRYPTANALYSIS_BENCHMARK",
+  "primary_endpoint": "independent_holdout_adversarial_risk",
+  "comparison": [
+    "STATIC_DNCRYPT_FROZEN_ANCHOR",
+    "ADAPTIVE_DNCRYPT"
+  ],
+  "configuration": {
+    "replicates": 12,
+    "generations": 3,
+    "population_size": 24,
+    "train_messages": 64,
+    "holdout_messages": 192,
+    "message_bytes": 256,
+    "minimum_throughput_ratio": 0.5,
+    "seed_derivation": "SHA256('DNCrypt Cryptanalysis Challenge v0.1 frozen seed')"
+  },
+  "attack_indicators": [
+    "ciphertext_bit_bias",
+    "lag1_bit_predictability",
+    "byte_frequency_chi_square_deviation",
+    "chosen_plaintext_avalanche_deviation",
+    "decrypt_failures",
+    "integrity_failures",
+    "throughput"
+  ],
+  "decision_rule": {
+    "advantage_label": "HOLDOUT_ADVANTAGE_DEMONSTRATED",
+    "requirements": [
+      "mean_holdout_delta_adaptive_minus_static < 0",
+      "adaptive_holdout_wins > static_holdout_wins",
+      "exact_two_sided_sign_test_p < 0.05"
+    ]
+  },
+  "holdout_isolation_required": true,
+  "fail_closed_integrity_required": true
+}
