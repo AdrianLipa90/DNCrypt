@@ -65,6 +65,7 @@ def build_topology(frames:Sequence[PhaseFrame], *, mi_cutoff:float=0.08, pair_ad
         p=pairmap[(min(c.index,s.index),max(c.index,s.index))]
         if p['mutual_information_bits']>mi_cutoff or p['pair_predictor_advantage']>pair_adv_cutoff: ok=False; break
       if ok:selected.append(c)
+    # Conservative budget: sum selected per-channel lower estimates; dependence constrained by selection thresholds.
     budget=sum(c.estimated_bits for c in selected)
     return {'schema':'PNCS_36D_ENTROPY_TOPOLOGY_V0_1','frame_count':len(frames),'channels':[c.payload for c in channels], 'pairs':pairs, 'selection':{'mi_cutoff':mi_cutoff,'pair_predictor_advantage_cutoff':pair_adv_cutoff,'selected_coordinates':[c.index for c in selected],'selected_count':len(selected),'conservative_selected_budget_bits':budget}, 'max_pair_mi_bits':max((p['mutual_information_bits'] for p in pairs),default=0.0),'max_pair_predictor_advantage':max((p['pair_predictor_advantage'] for p in pairs),default=0.0)}
 
