@@ -1,0 +1,17 @@
+{
+  "schema": "dncrypt.frozen-protocol/v0.1",
+  "version": "0.1.0",
+  "status": "IMPLEMENTATION_CONFORMANCE_PROTOTYPE",
+  "anchor_aead": "ChaCha20-Poly1305",
+  "master_key_bits": 256,
+  "message_kdf": "HKDF-SHA3-512",
+  "salt_bits": 256,
+  "nonce_bits": 96,
+  "genome_dimensions": 36,
+  "surface_dimensions": 36,
+  "mutation_adversary": "external_report_only",
+  "provenance": ["BLAKE2b-256", "SHA3-256", "parent_receipt_chain"],
+  "dna_transport": "reversible_2bit_ACGT",
+  "network_required": false,
+  "canon_allowed": false
+}

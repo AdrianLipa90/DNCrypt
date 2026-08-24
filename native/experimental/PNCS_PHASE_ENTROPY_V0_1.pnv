@@ -1,0 +1,50 @@
+PNV 1
+EPISTEMIC CHYBA
+MODE READ_ONLY
+
+# PNCS Phase Entropy v0.1
+# Geometry: the 4pi -> 2pi projection carries a binary sheet distinction.
+# A balanced sheet variable has Shannon entropy ln(2) nats.
+# Runtime entropy admission is controlled by measured unpredictability/health evidence.
+
+OP K.IDENTITY IDENTITY value
+OP K.DISTINGUISH DIFFERENCE left right
+OP K.COMPOSE COMPOSITION left relation right
+OP K.TRANSFORM TRANSFORM source map target
+OP K.CONDITION CONDITION subject relation object
+OP K.RESOLVE RESOLVE relation
+OP K.DERIVE DERIVE premises result
+OP K.ORDER ORDER before after
+
+# Double-cover geometry.
+OP ENTROPY.MOD2PI TRANSFORM theta modulo_2pi observable_phase
+OP ENTROPY.MOD4PI TRANSFORM theta modulo_4pi double_phase
+OP ENTROPY.SHEET DERIVE double_phase interval_2pi sheet_bit
+OP ENTROPY.DOUBLE_COVER COMPOSITION ENTROPY.MOD4PI ENTROPY.MOD2PI ENTROPY.SHEET
+OP ENTROPY.SHANNON_HALF DERIVE balanced_sheet_probability shannon_entropy ln2_nats
+
+# Time-trajectory observables.
+OP ENTROPY.UNWRAP DERIVE wrapped_phase_sequence principal_delta unwrapped_phase_sequence
+OP ENTROPY.TIMING_INTERVAL DIFFERENCE frame_time_next frame_time
+OP ENTROPY.TIMING_JITTER DIFFERENCE timing_interval_next timing_interval
+OP ENTROPY.PHASE_STEP DIFFERENCE unwrapped_phase_next unwrapped_phase
+OP ENTROPY.PHASE_ACCELERATION DIFFERENCE phase_step_next phase_step
+OP ENTROPY.SIGN_BIT TRANSFORM nonzero_signed_residual sign binary_bit
+
+# Empirical health/min-entropy gate.
+OP ENTROPY.MCV_MIN_ENTROPY DERIVE binary_samples most_common_probability min_entropy_bits
+OP ENTROPY.MARKOV_MIN_ENTROPY DERIVE binary_transitions maximum_conditional_probability min_entropy_bits
+OP ENTROPY.REPETITION_COUNT CONDITION max_run below cutoff
+OP ENTROPY.ADAPTIVE_PROPORTION CONDITION window_ones within bounds
+OP ENTROPY.PREDICTOR_ADVANTAGE DIFFERENCE maximum_conditional_probability 0.5
+OP ENTROPY.HEALTH_GATE COMPOSITION ENTROPY.MCV_MIN_ENTROPY ENTROPY.MARKOV_MIN_ENTROPY ENTROPY.REPETITION_COUNT ENTROPY.ADAPTIVE_PROPORTION ENTROPY.PREDICTOR_ADVANTAGE K.CONDITION K.RESOLVE
+
+# Conditioning uses the already-native SHAKE256 path; SHAKE extracts/conditions admitted source evidence.
+OP ENTROPY.CONDITION_SHAKE256 COMPOSITION ENTROPY.HEALTH_GATE CRYPTO.SHAKE256
+OP ENTROPY.DNCRYPT_MESSAGE_44 DERIVE admitted_phase_entropy 44_bytes salt_nonce_entropy
+OP ENTROPY.DNCRYPT_MUTATION_N64 DERIVE admitted_phase_entropy population_size_x64 mutation_entropy
+
+OP PATH.PNCS.PHASE_ENTROPY COMPOSITION ENTROPY.DOUBLE_COVER K.ORDER ENTROPY.UNWRAP K.ORDER ENTROPY.TIMING_JITTER ENTROPY.PHASE_ACCELERATION K.ORDER ENTROPY.HEALTH_GATE K.ORDER ENTROPY.CONDITION_SHAKE256
+
+VECTOR V.PATH.PNCS.PHASE_ENTROPY "PNCS.phase_entropy.double_cover.v0.1" PRECISE
+EMIT PATH.PNCS.PHASE_ENTROPY

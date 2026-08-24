@@ -1,0 +1,19 @@
+{
+  "canon_allowed": false,
+  "compileall": "PASS",
+  "features": [
+    "exact-bound external adversarial fitness bus",
+    "vectorized mutation population",
+    "Pareto multi-objective selection",
+    "fail-closed promotion gate",
+    "continuous 36D surface transition",
+    "append-only evolution provenance"
+  ],
+  "noema_write_performed": false,
+  "project": "DNCrypt",
+  "schema": "noema.writeback-candidate/dncrypt-v0.2",
+  "smoke_demo": "PASS",
+  "status": "IMPLEMENTATION_CONFORMANCE_PROTOTYPE",
+  "tests": "21/21 PASS",
+  "version": "0.2.0"
+}
