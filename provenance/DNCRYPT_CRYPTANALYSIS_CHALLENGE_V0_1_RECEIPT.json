@@ -1,0 +1,52 @@
+{
+  "artifacts": {
+    "docs/CRYPTANALYSIS_CHALLENGE_V0_1.md": {
+      "bytes": 3566,
+      "sha256": "c049e535486445dc02a4500c0aa4d872344faae6ee58ae46070ad541a882dcf7"
+    },
+    "evidence/CRYPTANALYSIS_CHALLENGE_V0_1.json": {
+      "bytes": 36158,
+      "sha256": "3250c9281199eaff23f8ea48c988711619f4fcb1d463bcf6545cec471b1d8f77"
+    },
+    "protocols/CRYPTANALYSIS_CHALLENGE_V0_1.json": {
+      "bytes": 1157,
+      "sha256": "d1cb727008fb00dd69008a558c65c391333b5f8b5e3f9debc57d66fdccaab258"
+    },
+    "tests/test_cryptanalysis_challenge_v01.py": {
+      "bytes": 1274,
+      "sha256": "993714f38a1fc067a160ea0f81fa18dfec038e35a064fb0000b32be159691719"
+    },
+    "tools/cryptanalysis_challenge_v01.py": {
+      "bytes": 11367,
+      "sha256": "da9346929d4ac67eaf974d4d03d81fa7d13e08ef87d828ae38efc8d484613635"
+    }
+  },
+  "benchmark_commitment_blake2b": "e08595637366fb182c4b6418d4275f5a2f9415211eb95149256f75dd63924c49",
+  "benchmark_verdict": "NO_HOLDOUT_ADVANTAGE_DEMONSTRATED",
+  "date": "2026-08-24",
+  "epistemic_status": "REFERENCE_BENCHMARK; independent external cryptanalysis is the next evidence gate",
+  "evidence_class": "CONTROLLED_SOFTWARE_CRYPTANALYSIS_BENCHMARK",
+  "repo_test_suite": {
+    "failed": 0,
+    "passed": 54,
+    "status": "PASS"
+  },
+  "repository": "AdrianLipa90/DNCrypt",
+  "schema": "DNCRYPT_CRYPTANALYSIS_CHALLENGE_V0_1_RECEIPT",
+  "status": "PASS",
+  "summary": {
+    "adaptive_holdout_wins": 4,
+    "mean_generalization_gap_holdout_minus_train_delta": 0.01656650482163155,
+    "mean_holdout_risk_delta_adaptive_minus_static": 0.023500555411110718,
+    "mean_promotions": 3.0,
+    "mean_throughput_ratio_adaptive_over_static": 0.9855056029404525,
+    "mean_train_risk_delta_adaptive_minus_static": 0.006934050589479167,
+    "median_holdout_risk_delta_adaptive_minus_static": 0.03654006176708241,
+    "median_throughput_ratio_adaptive_over_static": 0.9707493971107373,
+    "median_train_risk_delta_adaptive_minus_static": -0.003357461706766096,
+    "replicates": 12,
+    "sign_test_two_sided_p": 0.3876953125,
+    "static_holdout_wins": 8,
+    "ties": 0
+  }
+}
