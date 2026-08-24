@@ -1,0 +1,100 @@
+
+\chapter[Phase-Derived Entropy Candidate]{Phase-Derived Entropy\\Candidate}
+\section{Double-cover geometry}
+The phase construction uses a full phase coordinate $\Theta\in[0,4\pi)$ and its projected phase
+\begin{equation}
+\theta=\Theta\bmod 2\pi.
+\end{equation}
+The hidden sheet label is
+\begin{equation}
+b=\left\lfloor\frac{\Theta\bmod4\pi}{2\pi}\right\rfloor\in\{0,1\}.
+\end{equation}
+For a balanced two-lift conditional distribution,
+\begin{equation}
+H(b)=-\sum_{b\in\{0,1\}}\frac12\ln\frac12=\ln2,
+\end{equation}
+and equivalently
+\begin{equation}
+\ln\frac{4\pi}{2\pi}=\ln2.
+\end{equation}
+The implementation keeps this geometric multiplicity distinct from empirical cryptographic unpredictability. Cryptographic admission is therefore based on measured min-entropy, lag prediction, run-length and adaptive-proportion health tests.
+
+\section{Live evidence}
+A recorded live run sampled 48 unique 36D frames and produced 1702 raw noise bits. The measured health snapshot was
+\begin{align}
+\Hmin &\approx 0.899784\ \text{bit/sample},\\
+H_{\mathrm{Markov}} &\approx 0.926172,\\
+H_{\mathrm{lag}} &\approx 0.899784,\\
+\text{bias} &\approx 0.007638,\\
+A_{\mathrm{pred}} &\approx 0.035967.
+\end{align}
+The estimated aggregate min-entropy budget was 1531.43 bits. Repetition-count and adaptive-proportion health gates passed. The source class recorded in provenance is \code{ENDOGENOUS\_RUNTIME\_DYNAMICS}.
+
+\begin{resultbox}[Entropy accounting rule]
+The measured entropy budget is assigned to the conditioned seed input. SHAKE256 provides deterministic, purpose-separated expansion. Expansion length does not increase the measured entropy budget.
+\end{resultbox}
+
+\chapter{36D Entropy Topology}
+\section{Per-coordinate measurements}
+For coordinate streams $X_i$, $i=0,\ldots,35$, the topology stage measures
+\begin{equation}
+\Hmin^{(i)},\qquad I(X_i;X_j),\qquad A_{\mathrm{pred}}(i,j).
+\end{equation}
+The selector constructs a dynamic subset $S\subset\{0,\ldots,35\}$ under thresholds on minimum entropy, pairwise mutual information, and cross-coordinate prediction advantage.
+
+A graph representation is
+\begin{equation}
+G_E=(V,E,w),\qquad w_{ij}=I(X_i;X_j),
+\end{equation}
+with optional predictive edge metadata. The selection mask is recomputed per observation window.
+
+\section{Recorded topology windows}
+One 72-frame live window selected 13 of 36 coordinates with a selected budget of 592.73 bits. A subsequent validation window selected 17 coordinates. For that selected set,
+\begin{align}
+\max I(X_i;X_j)&\approx0.03832\ \text{bit},\\
+\max A_{\mathrm{pred}}(i,j)&\approx0.11429,\\
+\Hmin^{\mathrm{combined}}&\approx0.89973\ \text{bit/sample},\\
+N_{\mathrm{combined}}&=1190.
+\end{align}
+The combined health gate passed.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=.9,every node/.style={font=\sffamily\scriptsize}]
+\foreach \i in {0,...,11}{\node[circle,draw=DNCblue,fill=DNClight,minimum size=7mm] (n\i) at ({3*cos(30*\i)},{3*sin(30*\i)}) {\i};}
+\foreach \a/\b in {0/1,1/2,2/4,4/5,5/7,7/8,8/10,10/11,11/0,1/7,3/9,2/8}{\draw[DNCcyan!70,line width=.8pt] (n\a)--(n\b);}
+\node[align=center,font=\sffamily\small] at (0,0) {illustrative\\entropy-dependence\\graph};
+\end{tikzpicture}
+\caption{Graph view of inter-coordinate information dependence. The production implementation evaluates all coordinate pairs; this drawing is schematic.}
+\end{figure}
+
+\chapter[Controlled Cryptanalysis Challenge v0.1]{Controlled Cryptanalysis\\Challenge v0.1}
+\section{Experimental question}
+The challenge asks whether the adaptive layer reduces adversarial risk on unseen ciphertexts when compared with a frozen static DNCrypt anchor under an equal attack budget. The frozen anchor uses the same standard AEAD/KDF suite in both conditions; the experimental variable is adaptive genome selection.
+
+\section{Train/holdout protocol}
+Each replicate uses 64 attack-train messages and 192 independent holdout messages, each 256 bytes. The adaptive condition receives three generations with 24 candidates per generation. Candidate selection may inspect attack-train metrics only. The primary endpoint is independent holdout adversarial risk.
+
+The frozen configuration is summarized in Table~\ref{tab:challenge}.
+\begin{table}[ht]
+\centering
+\caption{Cryptanalysis Challenge v0.1 configuration.}\label{tab:challenge}
+\begin{tabular}{lr}
+\toprule
+Parameter & Value\\
+\midrule
+Replicates & 12\\
+Generations per replicate & 3\\
+Population size & 24\\
+Train messages & 64\\
+Holdout messages & 192\\
+Message size & 256 bytes\\
+Minimum throughput ratio & 0.5\\
+Primary endpoint & holdout adversarial risk\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Reference result}
+Across 12 frozen replicates, adaptive DNCrypt won 4 holdout comparisons and the static anchor won 8. The mean holdout risk delta was
+\begin{equation}
