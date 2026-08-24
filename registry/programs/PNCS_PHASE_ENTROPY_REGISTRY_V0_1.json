@@ -14,11 +14,26 @@
     "repetition_cutoff": 32
   },
   "files": {
-    "DNCRYPT_NATIVE_PNCS_V0_3.pnv": {"bytes": 7133, "sha256": "fce582c44971c7646bafc9d8120a9ffe537a1e21d6c986fca8dfcd15ec77b2d5"},
-    "PNCS_DNCRYPT_PHASE_ENTROPY_INTEGRATION_RECEIPT_V0_1.json": {"bytes": 1830, "sha256": "a255c1d5989954216e3dc0a99a64ae013ff6c2beaee7e8721cadfb3e8ec9cb1b"},
-    "PNCS_PHASE_ENTROPY_LIVE_EVIDENCE_V0_1.json": {"bytes": 1910, "sha256": "1af8ed5ec48fc84f783e24abc9af3e3723cadd0ef87260c5ede2de93e1820256"},
-    "PNCS_PHASE_ENTROPY_V0_1.pnv": {"bytes": 2735, "sha256": "c93df62e8af1a64e3dc750eba29bcb321c6086a6613155f61a078e3479e328fa"},
-    "phase_entropy_v01.py": {"bytes": 18210, "sha256": "b0ad8917fe42f8719f7365f0723ca45e5cbef91579de7558359dabee9736a433"}
+    "DNCRYPT_NATIVE_PNCS_V0_3.pnv": {
+      "bytes": 7133,
+      "sha256": "fce582c44971c7646bafc9d8120a9ffe537a1e21d6c986fca8dfcd15ec77b2d5"
+    },
+    "PNCS_DNCRYPT_PHASE_ENTROPY_INTEGRATION_RECEIPT_V0_1.json": {
+      "bytes": 1830,
+      "sha256": "a255c1d5989954216e3dc0a99a64ae013ff6c2beaee7e8721cadfb3e8ec9cb1b"
+    },
+    "PNCS_PHASE_ENTROPY_LIVE_EVIDENCE_V0_1.json": {
+      "bytes": 1910,
+      "sha256": "1af8ed5ec48fc84f783e24abc9af3e3723cadd0ef87260c5ede2de93e1820256"
+    },
+    "PNCS_PHASE_ENTROPY_V0_1.pnv": {
+      "bytes": 2735,
+      "sha256": "c93df62e8af1a64e3dc750eba29bcb321c6086a6613155f61a078e3479e328fa"
+    },
+    "phase_entropy_v01.py": {
+      "bytes": 18210,
+      "sha256": "b0ad8917fe42f8719f7365f0723ca45e5cbef91579de7558359dabee9736a433"
+    }
   },
   "geometry": {
     "balanced_sheet_entropy_nats": 0.6931471805599453,
@@ -27,6 +42,10 @@
   },
   "live_surface": "/dev/shm/ciel_noema",
   "schema": "PNCS_PHASE_ENTROPY_REGISTRY_V0_1",
-  "source_classes": ["ENDOGENOUS_RUNTIME_DYNAMICS","EXTERNAL_PHYSICAL_PHASE_SOURCE","DETERMINISTIC_TEST_FIXTURE"],
+  "source_classes": [
+    "ENDOGENOUS_RUNTIME_DYNAMICS",
+    "EXTERNAL_PHYSICAL_PHASE_SOURCE",
+    "DETERMINISTIC_TEST_FIXTURE"
+  ],
   "status": "IMPLEMENTATION_CONFORMANCE_PROTOTYPE"
 }

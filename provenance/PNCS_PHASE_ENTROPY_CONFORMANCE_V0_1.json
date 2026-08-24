@@ -1,26 +1,49 @@
 {
   "artifacts": {
-    "docs/PNCS_PHASE_ENTROPY_V0_1.md": {"bytes":5455,"sha256":"b6c472bfdff2b7ccbaa1e11a304c85c20a51a16e0477c04b1738e2015428d05b"},
-    "native/experimental/PNCS_PHASE_ENTROPY_V0_1.pnv": {"bytes":2735,"sha256":"c93df62e8af1a64e3dc750eba29bcb321c6086a6613155f61a078e3479e328fa"},
-    "native/programs/DNCRYPT_NATIVE_PNCS_V0_3.pnv": {"bytes":7133,"sha256":"fce582c44971c7646bafc9d8120a9ffe537a1e21d6c986fca8dfcd15ec77b2d5"},
-    "provenance/PNCS_DNCRYPT_PHASE_ENTROPY_INTEGRATION_RECEIPT_V0_1.json": {"bytes":1830,"sha256":"a255c1d5989954216e3dc0a99a64ae013ff6c2beaee7e8721cadfb3e8ec9cb1b"},
-    "provenance/PNCS_PHASE_ENTROPY_LIVE_EVIDENCE_V0_1.json": {"bytes":1910,"sha256":"1af8ed5ec48fc84f783e24abc9af3e3723cadd0ef87260c5ede2de93e1820256"},
-    "registry/programs/PNCS_PHASE_ENTROPY_REGISTRY_V0_1.json": {"bytes":1673,"sha256":"3ab86c5367c68221091fb62c878c74935ee194e4b8a9c30c9dd04e8f13d1961b"},
-    "src/phasenav_natural_code/phase_entropy_v01.py": {"bytes":18210,"sha256":"b0ad8917fe42f8719f7365f0723ca45e5cbef91579de7558359dabee9736a433"},
-    "tests/test_phase_entropy_v01.py": {"bytes":5803,"sha256":"09d65f57efe4d6d3474f4b9a26c872528dbaeeb9634409ed2939e73defc70063"}
+    "docs/PNCS_PHASE_ENTROPY_V0_1.md": {
+      "bytes": 5455,
+      "sha256": "b6c472bfdff2b7ccbaa1e11a304c85c20a51a16e0477c04b1738e2015428d05b"
+    },
+    "native/experimental/PNCS_PHASE_ENTROPY_V0_1.pnv": {
+      "bytes": 2735,
+      "sha256": "c93df62e8af1a64e3dc750eba29bcb321c6086a6613155f61a078e3479e328fa"
+    },
+    "native/programs/DNCRYPT_NATIVE_PNCS_V0_3.pnv": {
+      "bytes": 7133,
+      "sha256": "fce582c44971c7646bafc9d8120a9ffe537a1e21d6c986fca8dfcd15ec77b2d5"
+    },
+    "provenance/PNCS_DNCRYPT_PHASE_ENTROPY_INTEGRATION_RECEIPT_V0_1.json": {
+      "bytes": 1830,
+      "sha256": "a255c1d5989954216e3dc0a99a64ae013ff6c2beaee7e8721cadfb3e8ec9cb1b"
+    },
+    "provenance/PNCS_PHASE_ENTROPY_LIVE_EVIDENCE_V0_1.json": {
+      "bytes": 1910,
+      "sha256": "1af8ed5ec48fc84f783e24abc9af3e3723cadd0ef87260c5ede2de93e1820256"
+    },
+    "registry/programs/PNCS_PHASE_ENTROPY_REGISTRY_V0_1.json": {
+      "bytes": 1673,
+      "sha256": "3ab86c5367c68221091fb62c878c74935ee194e4b8a9c30c9dd04e8f13d1961b"
+    },
+    "src/phasenav_natural_code/phase_entropy_v01.py": {
+      "bytes": 18210,
+      "sha256": "b0ad8917fe42f8719f7365f0723ca45e5cbef91579de7558359dabee9736a433"
+    },
+    "tests/test_phase_entropy_v01.py": {
+      "bytes": 5803,
+      "sha256": "09d65f57efe4d6d3474f4b9a26c872528dbaeeb9634409ed2939e73defc70063"
+    }
   },
   "direct_extraction_entropy_budget_enforced": true,
-  "evidence_status": "IMPLEMENTATION_CONFORMANCE_PROTOTYPE",
-  "geometry": {"balanced_conditional_entropy_nats":0.6931471805599453,"fiber_cardinality":2,"projection":"R/(4piZ)->R/(2piZ)"},
-  "rbg_expansion": "PNCS_SHAKE256_PURPOSE_COUNTER_DOMAIN_SEPARATED",
-  "rbg_seed_bits": 256,
-  "receipt_sha256": "59d7004eb20b3a82771c530caa0cab57b7aba4902e0e7b4ac7e8a35ff9d67feb",
-  "schema": "PNCS_PHASE_ENTROPY_CONFORMANCE_V0_1",
-  "standards_direction": ["NIST_SP_800_90B","NIST_SP_800_90C"],
-  "status": "PASS",
-  "tests": {
-    "compileall": {"status":"PASS"},
-    "dncrypt_v0_2_reference_suite": {"failed":0,"passed":21,"status":"PASS"},
-    "pncs_crypto_plus_phase_entropy_repo_layout": {"failed":0,"passed":28,"status":"PASS"}
-  }
-}
+  "dncrypt_live_integration": {
+    "estimated_min_entropy_bits": 1388.4709476906621,
+    "frame_count": 48,
+    "genome_id": "f050d3e3af97c477fc1d9cbcc6b4725c09f6ac81e9ac2f0f59ff477769a83dc3",
+    "geometry_entropy_nats_per_balanced_sheet_bit": 0.6931471805599453,
+    "health": {
+      "adaptive_proportion_pass": true,
+      "bias": 0.020564042303172714,
+      "estimated_min_entropy_per_bit": 0.8157878658582034,
+      "gate_pass": true,
+      "lag_min_entropy_bits": 0.8757418970378542,
+      "lag_predictor_probability": 0.544973544973545,
+      "markov_minWЩ[ќ›ЬWШљ]ИЋ€ЋMMООЌNNЊН€›X^Ьќ[€Ћ€L€›XЭ—ЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋMNLЌММLМM‹€›Ы™\ИЋ€M‹€њ™YXЭЬ—ШY[ќYЩHЋ€ЊЋNMNMLLЊЌK€њ™\]][Ы—ШЫЭ[ќЬ\ЬИЋ€ќYK€њШ[\WШЫЭ[ќЋ€MМ‹€ћ™\›ЬИЋ€‚€K€›Y\ЬШYЩWЬ™XЩZ\Ш›ZЩL€Ћ€™LШXY™L™YЌNЊMШЋ™LШШММLОЋЌЩMЩLМЊЊX™ШMLMЌОXXYY™€‹€›Y\ЬШYЩWЬ™XЩZ\ЬЪLЧМЌM€Ћ€™ЌЌMМОШШНШLLY™НYXYM™™LYЊЩ™ЊНNМНYММ™™MNMYЌ™YЋH‹€›Y\ЬШYЩWЬ›Э[™љ\Ћ€ќYK€њЬ[][Ы—ШЫЫ[Z]Y[ќЋ€™ШXYЌМ™ЋMMЩЋL™NLLMНОXM™ЊЩЌМНН™™MЌЊMLЌ™Щ™YЊH‹€њЬ[][Ы—ЬЪ^™HЋ€€њЬ[][Ы—Э[љ\]YHЋ€€њ]ЧЫ›Ъ\ЩWШЫЫ[Z]Y[ќШ›ZЩL€Ћ€MЩYЋYXMМЌYЊНYЋМYЊXНNLNОY™ЊЌЩMМН™LLННLXЌЌN€‹€њ™ЧЩ^[њЪ[Ы—Щ[ќ›ЬWШXШЫЭ[ќ[™ИЋ€“YX\Э\™Y[ќ›ЬHќYЩ]\Иљ^Y]HЫЫ™][Ы™YЌM‹Xљ]ЩYY[њ]ИТRСLЌM€›ЭљY\ИЫXZ[‹\Щ\\]Y]\›Z[љ\ЭXИ^[њЪ[Ы‹€‹€њ™ЧЬЩYYШЫЫ[Z]Y[ќШ›ZЩL€Ћ€ЌШYЩLYXНЋXЩЋXЩNYLNLЊLМMMMЩX™ЌXЩXЊМШЩНЩYH‹€њШЪ[XHЋ€”ђФЧСђФ–TФTСWСS•“ФWТS•QФђUSУ—Ф‘PСRTХЊМH‹€њЪY]ШЫЫ[Z]Y[ќШ›ZЩL€Ћ€ЌYЋLЊMЌYЋN™ЊYLЩЊЌLНMЌ™XYЋNLЩYLLLMYXYMЩШЩMMMЩЋЊH‹€њЫЭ\ЩWШЫ\ЬИЋ€‘S‘ССS“ХTЧФ•S•SQWСSђSRPФИ‹€њЭ]\ИЋ€”TФИ‹€њЭ\™XЩWШЫЫ[Z]Y[ќЋ€МОNШXЌЋЌXНMY™YЊYШЩЊLM™LЩ™YMОXMЊНЋЌННLXНЋLН‚€K€™]љY[ЩWЬЭ]\ИЋ€’STSQS•USУ—РУУ‘“Ф“PSђСWФ“ХХTH‹€™Щ[ЫY]ћHЋ€В€[[ЩYШЫЫ™][Ы[Щ[ќ›ЬWЫ]ИЋ€ЌЋLМMМNMNNMLЛ€™љX™\—ШШ\™[[]HЋ€‹€њ›Ъ™XЭ[Ы€Ћ€”‹КVЉKO”‹КњVЉH‚€K€›]™WЭЪ[™ЭЧШHЋ€В€™]љY[ЩHЋ€В€™\Э[X]YЫZ[—Щ[ќ›ЬWШљ]ИЋ€MМ‹ЊЌЊLЋМОЌМЊЛ€™њ[YWШЫЭ[ќЋ€€™Щ[ЫY]ћWЩ[ќ›ЬWЫ]ЧЬ\—Ш[[ЩYЬЪY]Шљ]Ћ€ЌЋLМMМNMNNMLЛ€љX[Ћ€В€Y\]™WЬ›ЬЬќ[Ы—Ь\ЬИЋ€ќYK€љX\ИЋ€ЊLLЋЊЊНMM€™\Э[X]YЫZ[—Щ[ќ›ЬWЬ\—Шљ]Ћ€ЋMLMNLОLM‹€™Ш]WЬ\ЬИЋ€ќYK€›YЧЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋMLMЌLLЋLН‹€›YЧЬ™YXЭЬ—Ь›ШXљ[]HЋ€ЌMLМЊОNMНЌЊK€›X\љЫЭ—ЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋMLMNLОLM‹€›X^Ьќ[€Ћ€€›XЭ—ЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋNNMNЌMЛ€›Ы™\ИЋ€€њ™YXЭЬ—ШY[ќYЩHЋ€ЊNMЋМЊНОLMЌK€њ™\]][Ы—ШЫЭ[ќЬ\ЬИЋ€ќYK€њШ[\WШЫЭ[ќЋ€MМ‹€ћ™\›ЬИЋ€N€K€њ\ЩWШXШЩ[\][Ы—Шљ]ШЫЭ[ќЋ€MЌM‹€њ]ЧЫ›Ъ\ЩWШЫЫ[Z]Y[ќШ›ZЩL€Ћ€ЋОNLНЩLМXЩОЊ™ЊNYОMОЩ™X™ЋLXYЌNNLШОНЩMННЊЊЩYЋ€‹€њШЪ[XHЋ€”ђФЧФTСWСS•“ФWСU’QSђСWХЊМH‹€њЪY]Шљ]ШЫЭ[ќЋ€MМЋ€њЪY]ШЫЫ[Z]Y[ќШ›ZЩL€Ћ€NXНXXMЌМLLMНXОЩЩMНYNNЩ™™XMNYX™YMXЋ™ШЌМЩ‹€њЫЭ\ЩWШЫ\ЬИЋ€‘S‘ССS“ХTЧФ•S•SQWСSђSRPФИ‹€ќ[Z[™ЧЪљ]\—Шљ]ШЫЭ[ќЋ€‚€K€™љ\њЭЬЫЭ\ЩWЭ[YWЫњИЋ€MОНNNLМLНЊLММНLK€™њ[YWШЫЭ[ќЋ€€љX[Ћ€В€Y\]™WЬ›ЬЬќ[Ы—Ь\ЬИЋ€ќYK€љX\ИЋ€ЊLLЋЊЊНMM€™\Э[X]YЫZ[—Щ[ќ›ЬWЬ\—Шљ]Ћ€ЋMLMNLОLM‹€™Ш]WЬ\ЬИЋ€ќYK€›YЧЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋMLMЌLLЋLН‹€›YЧЬ™YXЭЬ—Ь›ШXљ[]HЋ€ЌMLМЊОNMНЌЊK€›X\љЫЭ—ЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋMLMNLОLM‹€›X^Ьќ[€Ћ€€›XЭ—ЫZ[—Щ[ќ›ЬWШљ]ИЋ€ЋNNMNЌMЛ€›Ы™\ИЋ€€њ™YXЭЬ—ШY[ќYЩHЋ€ЊNMЋМЊНОLMЌK€њ™\]][Ы—ШЫЭ[ќЬ\ЬИЋ€ќYK€њШ[\WШЫЭ[ќЋ€MМ‹€ћ™\›ЬИЋ€N€K€›\ЭЬЫЭ\ЩWЭ[YWЫњИЋ€MОНNNMLMLMMLЛ€њ]ЧЫ›Ъ\ЩWШЫЭ[ќЋ€MМ‹€њШЪ[XHЋ€”ђФЧФTСWСS•“ФWУU‘WСU’QSђСWХЊМH‹€њЪY]ШЫЭ[ќЋ€MМЋ€њЪY]ЫЫ™\ИЋ€НВ€K€њ™ЧЩ^[њЪ[Ы€Ћ€”ђФЧФТRСLЌM—ФT”ФСWРУХS•T—СУPRS—ФСTTђUQ‹€њ™ЧЬЩYYШљ]ИЋ€ЌM‹€њ™XЩZ\ЬЪLЌM€Ћ€ЌNYМXЊЊЊШNЌНМXНLМШXLШXЌMШЌШXML™LMШЌXНЩNLНY™ЋYЌЩ™X€‹€њШЪ[XHЋ€”ђФЧФTСWСS•“ФWРУУ‘“Ф“PSђСWХЊМH‹€њЭ[™\™ЧЩ\™XЭ[Ы€Ћ€В€“’TХФФООL€‹€“’TХФФООLИ‚€K€њЭ]\ИЋ€”TФИ‹€ќ\ЭИЋ€В€ЫЫ\[X[Ћ€В€њЭ]\ИЋ€”TФИ‚€K€™Ьћ\ЭЊМ—Ь™Y™\™[ЩWЬЭZ]HЋ€В€™Z[YЋ€€њ\ЬЩYЋ€ЊK€њЭ]\ИЋ€”TФИ‚€K€њЬЧШЬћ\ЧЬ\ЧЬ\ЩWЩ[ќ›ЬWЬ™\ЧЫ^[Э]Ћ€В€™Z[YЋ€€њ\ЬЩYЋ€Ћ€њЭ]\ИЋ€”TФИ‚€B€BџB
