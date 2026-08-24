@@ -1,0 +1,99 @@
+\overline{\Delta R}_{\mathrm{holdout}}=+0.0235006,
+\end{equation}
+where positive values favour the static condition. Median holdout delta was $+0.0365401$. The two-sided sign-test value was $p=0.3876953$.
+
+Mean train risk delta was $+0.0069341$, while the median train risk delta was $-0.0033575$. The mean holdout-minus-train generalization gap was $+0.0165665$. Mean promotion count was 3.0 and the mean adaptive/static throughput ratio was $0.98551$.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=.92\textwidth,height=7cm,xlabel={Replicate},ylabel={$\Delta R=R_{adaptive}-R_{static}$},xmin=.5,xmax=12.5,xtick={1,...,12},grid=major,axis line style={DNCblue},tick label style={font=\scriptsize},label style={font=\small\sffamily}]
+\addplot+[mark=*,thick] coordinates {(1,0.005193) (2,-0.010924) (3,0.031937) (4,-0.026776) (5,0.060833) (6,0.051920) (7,0.110019) (8,-0.051079) (9,0.041143) (10,0.050920) (11,0.043128) (12,-0.024308)};
+\addplot+[mark=square*,dashed] coordinates {(1,0.049915) (2,-0.015083) (3,0.011120) (4,-0.101112) (5,-0.003333) (6,-0.009349) (7,-0.014609) (8,0.081263) (9,0.058506) (10,-0.003382) (11,-0.009626) (12,0.038898)};
+\addplot[black,thin] coordinates {(0.5,0) (12.5,0)};
+\legend{Holdout delta,Train delta}
+\end{axis}
+\end{tikzpicture}
+\caption{Per-replicate risk deltas. Positive values indicate lower measured risk for the static anchor; negative values indicate lower measured risk for the adaptive condition.}
+\end{figure}
+
+\begin{warningbox}[Benchmark verdict]
+\code{NO\_HOLDOUT\_ADVANTAGE\_DEMONSTRATED}. The reference challenge establishes a reproducible zero benchmark for the current selector. External testers can preserve the frozen corpus-generation and scoring contract while replacing or extending attack modules.
+\end{warningbox}
+
+\chapter[Generalization-Aware Promotion as the Next Gate]{Generalization-Aware Promotion\\as the Next Gate}
+The challenge isolates the next algorithmic requirement: selection pressure should reward attack resistance that persists across independent evaluation folds. A direct extension is a multi-fold promotion predicate. For attack folds $D_1,\ldots,D_k$, define candidate risk $R_j(G)$ on fold $j$ and a generalization penalty
+\begin{equation}
+\Gamma(G)=\operatorname{Var}\bigl(R_1(G),\ldots,R_k(G)\bigr)+\lambda\max_j\bigl(R_j(G)-R_{\mathrm{parent},j}\bigr)_+.
+\end{equation}
+A candidate score may then use
+\begin{equation}
+R_{\mathrm{robust}}(G)=\frac1k\sum_{j=1}^{k}R_j(G)+\beta\Gamma(G),
+\end{equation}
+with promotion requiring improvement on the robust score and preservation of all frozen invariants. This extension can be benchmarked against the v0.1 reference without changing the frozen AEAD anchor.
+
+\chapter{Security and Validation Register}
+\section{Current validated properties}
+\begin{longtable}{p{.39\textwidth}p{.18\textwidth}p{.34\textwidth}}
+\caption{Evidence register.}\\
+\toprule
+Property & Status & Evidence\\\midrule
+\endfirsthead
+\toprule Property & Status & Evidence\\\midrule\endhead
+Standard primitive conformance & PASS & RFC/FIPS vectors and differential tests\\
+AEAD tamper handling & PASS & mutated-tag fail-closed test\\
+DNCrypt v0.2 reference suite & PASS & 21/21 reference tests\\
+Native crypto + phase entropy repo layout & PASS & conformance harness\\
+Live phase entropy health gate & PASS & 48-frame endogenous runtime receipt\\
+36D entropy topology health & PASS & live and validation windows\\
+DNCrypt phase entropy integration & PASS & 64/64 unique population, message round-trip, promotion receipt\\
+Repository-layout suite after challenge & PASS & 54/54 tests\\
+Controlled holdout advantage & NO ADVANTAGE DEMONSTRATED & 4/12 adaptive wins, 8/12 static wins\\
+Independent external cryptanalysis & NEXT GATE & frozen challenge package prepared\\
+Side-channel evaluation & NEXT GATE & dedicated implementation review required\\
+\bottomrule
+\end{longtable}
+
+\section{External tester protocol}
+An independent test should preserve the following controls:
+\begin{enumerate}
+\item identical master-key and workload distributions across static and adaptive conditions;
+\item identical attack budgets;
+\item strict separation of selection data and primary holdout data;
+\item exact recording of attack modules, random seeds, platform, compiler/interpreter, and library versions;
+\item fail-closed integrity/decrypt checks in every condition;
+\item publication of per-replicate outcomes rather than summary values alone.
+\end{enumerate}
+Attack modules may be strengthened or replaced, provided their budget and observables are symmetric across conditions.
+
+\chapter{Reproducibility}
+\section{Repository layout}
+The canonical implementation contains the following principal paths:
+\begin{lstlisting}
+src/dncrypt/
+  crypto.py
+  crypto_algebra_v01.py
+  evolution.py
+  entropy_topology_v01.py
+  phase_entropy_v01.py
+native/
+  experimental/
+  programs/
+protocols/
+provenance/
+evidence/
+tests/
+tools/
+\end{lstlisting}
+
+\section{Reference benchmark invocation}
+From a repository checkout with project dependencies installed, the challenge harness is
+\begin{lstlisting}[language=bash]
+python tools/cryptanalysis_challenge_v01.py
+pytest -q
+\end{lstlisting}
+The challenge receipt records the BLAKE2b commitment
+\begin{center}
+\ttfamily\small e08595637366fb182c4b6418d4275f5a2f9415211eb95149256f75dd63924c49
+\end{center}
+for the reference result set.
