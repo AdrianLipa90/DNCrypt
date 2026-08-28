@@ -12,7 +12,23 @@
     "exact_head_run_id": 33191091017,
     "executed_steps": 0
   },
-  "implemented_candidate_gates": [
+  "exact_local_replay": {
+    "compileall": "PASS",
+    "git_blob_manifest_entry_count": 55,
+    "git_blob_manifest_sha256": "6aeeb79d970d9376a48aa322fdfef954d1bfe8e5920ee6ecbaecb046dcc512d2",
+    "manifest_path": "evidence/DNCRYPT_V0_5_EXACT_REPLAY_MANIFEST.json",
+    "pytest": "90 passed",
+    "test_file_count": 18,
+    "tested_code_head": "1fcbbfcdd76a42f9b84c7c40916de42c051d56be",
+    "verified_surface": {
+      "native_registry_support_artifacts": "4/4 exact",
+      "pyproject_toml": "exact",
+      "src_dncrypt": "26/26 exact",
+      "tests": "18/18 exact",
+      "tools": "6/6 exact"
+    }
+  },
+  "implemented_gates": [
     "EXACT_STATE_CHECKPOINT",
     "EXACT_ROLLBACK",
     "ANCESTRY_CONSTRAINED_ROLLBACK",
@@ -23,18 +39,24 @@
     "RETAINED_PROJECT_IMPORT_FIREWALL",
     "RETAINED_SHARED_INTEROPERABILITY"
   ],
-  "main_promotion": "BLOCKED",
+  "main_promotion": "BLOCKED_BY_RELEASE_CI",
   "previous_local_evidence": {
-    "classification": "PARTIAL_LOCAL_SUITE_PASS",
-    "compileall": "PASS",
+    "classification": "PARTIAL_LOCAL_SUITE_PASS_SUPERSEDED",
     "pytest": "52 passed",
-    "exact_branch_claim_superseded": true,
-    "reason": "Later Git blob audit found omitted v0.3/v0.4 source/tests and non-canonical development bytes in selected local files."
+    "reason": "The earlier development harness was incomplete relative to the GitHub branch. It is retained for provenance but is not the closure result."
   },
-  "required_next_gate": "FULL_CURRENT_GITHUB_TREE_BYTE_RECONSTRUCTION_AND_COMPLETE_REPLAY",
-  "schema": "dncrypt.v0.5-evidence-state-receipt/v0.2",
-  "status": "CANDIDATE_MODEL_PASS_PARTIAL_LOCAL_EXACT_TREE_REPLAY_PENDING",
-  "tested_github_head_required": "CURRENT_HEAD_AT_REPLAY_TIME",
+  "replay_lineage": {
+    "branch_head_before_exact_manifest": "57ca18ad17bd513d153e007ac1f7166d9602506d",
+    "compare_from_tested_code_head": {
+      "changed_files": [
+        "docs/DNCRYPT_V0_5_CLOSURE.md",
+        "evidence/DNCRYPT_V0_5_CLOSURE_RECEIPT.json"
+      ],
+      "executable_surface_changed": false
+    }
+  },
+  "schema": "dncrypt.v0.5-closure-receipt/v0.3",
+  "status": "MODEL_CLOSED_EXACT_LOCAL_RELEASE_CI_BLOCKED",
   "transaction_boundary": {
     "retained_projects": [
       "PNCS",
@@ -49,8 +71,9 @@
     "shared_interoperability": "RETAINED_INDEPENDENT_IMPLEMENTATION_RIGHT_REQUIRED"
   },
   "version_transition": {
-    "v0.5": "EXACT_TREE_REPLAY_PENDING",
-    "v0.6": "BLOCKED_BY_V0_5_EXACT_TREE_GATE",
-    "v0.6_promotion": "BLOCKED"
+    "v0.5": "MODEL_CLOSED_EXACT_LOCAL",
+    "v0.5_release": "BLOCKED_BY_RELEASE_CI",
+    "v0.6": "CANDIDATE_STACK_ALLOWED",
+    "v0.6_release": "BLOCKED_PENDING_OWN_GATES"
   }
 }
