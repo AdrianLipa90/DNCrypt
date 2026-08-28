@@ -1,0 +1,14 @@
+{
+  "canonical_encoding": "UTF-8 canonical JSON with sorted keys and compact separators",
+  "checkpoint_id": "BLAKE2b-256 over canonical DNCrypt checkpoint object",
+  "fields": {
+    "checkpoint": "checkpoint object with state payload, state commitment, parent id and reason",
+    "checkpoint_id": "content-addressed checkpoint identifier",
+    "schema": "wire schema identifier"
+  },
+  "governance": "RETAINED_SHARED_INTEROPERABILITY_ASSET",
+  "independent_implementation": "ALLOWED_BY_TRANSACTION_REQUIREMENT",
+  "purpose": "Implementation-neutral checkpoint exchange boundary.",
+  "schema": "dncrypt.checkpoint-wire-spec/v0.1",
+  "wire_schema": "dncrypt.checkpoint-wire/v0.1"
+}
