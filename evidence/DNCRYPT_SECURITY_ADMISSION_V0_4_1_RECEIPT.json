@@ -1,0 +1,51 @@
+{
+  "base_branch_head": "3a022a0f51142ed6e248c905dcffb8ce44ca5d1b",
+  "compileall": "PASS",
+  "date": "2026-08-28",
+  "file_sha256": {
+    "docs/DNCRYPT_SECURITY_ADMISSION_V0_4_1.md": "e3812c5c04f6283805a8d0fd7a626268f2e53ba74f79cc3af46828ce1db94029",
+    "src/dncrypt/security_admission.py": "0a4086e6f878cfe66d63103739ae80a530bf62311395e9fa5bbb91aacb78ebe4",
+    "tests/test_cryptanalysis_challenge_v041.py": "44f378754a3ef5fdcbfd92a7c2ca0155cda21845583867bb6ccf4d242791481f",
+    "tests/test_security_admission_v041.py": "2cd7daf304afd7e39b56ec6df1e1564fe4bdd8f7ab20ed8d43700024c7d15688",
+    "tools/cryptanalysis_challenge_v041.py": "22d79d35fe2fc01be2b1b26e3663ac4b5af19d0557755441c57aaf2812e419ae"
+  },
+  "holdout_excluded_from_selection": true,
+  "integration_tests": "28 passed",
+  "measurement_commitment_replay_1": "dd92a543fd003063e3d4ef9cfb576d997ffdfa92f21f7de2ce85acd571a4314b",
+  "measurement_commitment_replay_2": "4df3da91cec0f6f039a7aa620eeacfd7c21a0335f7324c8dacb45c4b4da68262",
+  "measurement_commitments_differ": true,
+  "next_gate": "ADVERSARIAL_FITNESS_EVALUATOR_UPGRADE",
+  "receipt_sha256": "ffc370a5c61afaa427857026cc96b4b2e96be7c3b0408ef55b5621aa37477e2c",
+  "replay_configuration": {
+    "fold_messages": 16,
+    "folds": 5,
+    "generations": 3,
+    "holdout_messages": 64,
+    "maximum_delta_stddev": 0.05,
+    "maximum_worst_fold_regression": 0.02,
+    "message_bytes": 128,
+    "minimum_median_risk_improvement": 0.0,
+    "minimum_throughput_ratio": 0.5,
+    "minimum_winning_fraction": 0.6,
+    "performance_mode": "observe_only",
+    "population_size": 12,
+    "replicates": 6,
+    "seed_hex": "d8140b6c231a667c3182b9091a7be41ffe29f67d7aba454f81d1750e5d2808b9"
+  },
+  "schema": "dncrypt.v0.4.1-security-admission-receipt/v0.1",
+  "security_advantage_claim_promoted": false,
+  "security_commitment_equal_across_two_replays": true,
+  "security_evidence_commitment_blake2b": "6c25c831d86448f23a89a7f6da1d9cd4c06849219780233729d0ca5860aefe3d",
+  "status": "PASS_DETERMINISTIC_SECURITY_ADMISSION",
+  "summary": {
+    "adaptive_holdout_wins": 3,
+    "mean_holdout_risk_delta_adaptive_minus_static": -0.0056835640943992405,
+    "mean_promotions": 0.5,
+    "median_holdout_risk_delta_adaptive_minus_static": -0.01227970306843057,
+    "replicates": 6,
+    "sign_test_two_sided_p": 1.0,
+    "static_holdout_wins": 3,
+    "ties": 0
+  },
+  "verdict": "NO_SEALED_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+}
