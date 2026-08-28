@@ -2,22 +2,37 @@
   "base_branch": "feat/dncrypt-v0.4-generalization-aware-evolution",
   "base_head": "0f5b8285368c2a9b7d4f6b42d697f3914fb584fb",
   "candidate_branch": "feat/dncrypt-v0.5-exact-rollback-ip-boundary",
+  "ci": {
+    "classification": "CI_INFRA_BLOCKED_BEFORE_RUNNER",
+    "executed_steps": 0,
+    "latest_run_id": 33187259031,
+    "python_jobs": [
+      "3.10",
+      "3.12"
+    ]
+  },
   "features": {
+    "checkpoint_ancestry_verification": "PASS",
+    "checkpoint_cycle_detection": "PASS",
+    "checkpoint_missing_parent_detection": "PASS",
     "exact_rollback": "PASS",
     "exact_state_checkpoint": "PASS",
     "external_checkpoint_port_without_retained_project_imports": "PASS",
     "neutral_checkpoint_wire_roundtrip": "PASS",
     "project_boundary_ast_import_firewall": "PASS",
     "retained_shared_interoperability_contract": "PASS",
-    "rollback_current_state_compare_and_swap_guard": "PASS"
+    "rollback_current_state_compare_and_swap_guard": "PASS",
+    "rollback_rejects_unrelated_branch": "PASS"
   },
   "files": {
     "TRANSACTION_BOUNDARY.json": "5cd446f77e048644f738277fb0ec24de933360e0454da6e7c2676a606f040143",
     "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "73a255ce686dd357b5e0db8597d99261e9ed27a9cc464ce350b022c8def41a0c",
     "protocols/DNCRYPT_CHECKPOINT_WIRE_V0_1.json": "afef4a2333b834e809f49a455d02971f5324886a6c24a91693c26d56ea516964",
+    "src/dncrypt/checkpoint_lineage.py": "651c350b2246514be0c1e1b8f4512c266220a01eff82b1f2e6469497f41e4be9",
     "src/dncrypt/checkpoint_port.py": "7f176ab29ae62852dfc787443e36babe9b110f0a75b56da20b781da6a2b42079",
     "src/dncrypt/checkpoint_wire.py": "f84b44648ff6817e309170ee81c6aa6837ebd1d49648665316f14543bd1a7486",
     "src/dncrypt/project_boundary.py": "4854c785b976a0ebaa149a320f9565a3bd844ed93b490ba42b35b4c8b1370eb9",
+    "tests/test_checkpoint_lineage_v050.py": "cbbafcc434d30f5546a41961d13aac35f88658ccaf3eb90552088e1b383914f4",
     "tests/test_checkpoint_port_v050.py": "10a2a228c92b203f5ce0a4f01132953fd72f8068fc7e767d440cc971ba013214",
     "tests/test_checkpoint_wire_v050.py": "5895a1b74c1cc09f44bc6aa9e42fbf24c985acf7cb77e34701689ef4b616c0be",
     "tests/test_project_boundary_v050.py": "8ff2328b4a3ad41175d30dcdf21e4bf9b0731a5deaec906cd1a85aaf3c338b20"
@@ -26,7 +41,13 @@
     "checkpoint_id": "97af35f44850c7f6baf1bddaa595a841f836ab090233251036977f4b504f6d4e",
     "wire_commitment": "82e0ad0d2e4072de44eba789e8701445101e1a5bf8587c38ec777e822f8fe235"
   },
-  "receipt_sha256": "c29fec3d5b8b57b6fc5ab52571422289fe235c09080ca6ac5d7f570318ab0b1f",
+  "lineage_test_vector": {
+    "head_checkpoint_id": "337389ac250d87efb098ad4aaf085de3c62da3082650a2f587eefa2a4434307b",
+    "lineage_receipt_digest": "282e6ceb43230c91b32746547d10747017229961419d930af7e99032fbbba476",
+    "middle_checkpoint_id": "63afc33401f9d94886c5809e050d8e7da5399abb3800964358a041db4594e287",
+    "root_checkpoint_id": "0f9cabc691bf454a301b0c3c67b21c46541f9da3d66a1201bc94376c8714139c"
+  },
+  "receipt_sha256": "fc0a06efd2a50a8cf04784506ddf3754f3b8922c9a38eecd352c9dd65410d710",
   "retained_external_projects": [
     "PNCS",
     "GREMLIN",
@@ -37,11 +58,11 @@
     "PNFS",
     "PNH5"
   ],
-  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.1",
-  "status": "CANDIDATE_STACK_PASS_LOCAL",
+  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.2",
+  "status": "CANDIDATE_STACK_PASS_LOCAL_CI_INFRA_BLOCKED",
   "tests": {
     "compileall": "PASS",
-    "pytest": "36 passed"
+    "pytest": "41 passed"
   },
   "transaction_scope_note": "Technical boundary plus retained shared interoperability requirement; any licence or asset-sale agreement should mirror these exclusions and preserve independent implementation/use rights for the shared wire schemas."
 }
