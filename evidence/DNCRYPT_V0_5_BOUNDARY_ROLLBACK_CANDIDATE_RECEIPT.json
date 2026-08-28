@@ -5,7 +5,7 @@
   "ci": {
     "classification": "CI_INFRA_BLOCKED_BEFORE_RUNNER",
     "executed_steps": 0,
-    "latest_run_id": 33187942572,
+    "latest_run_id": 33188255591,
     "python_jobs": [
       "3.10",
       "3.12"
@@ -13,6 +13,7 @@
   },
   "features": {
     "append_only_state_memory_journal": "PASS",
+    "byte_only_checkpoint_wire_port": "PASS",
     "checkpoint_ancestry_verification": "PASS",
     "checkpoint_cycle_detection": "PASS",
     "checkpoint_missing_parent_detection": "PASS",
@@ -25,19 +26,22 @@
     "project_boundary_ast_import_firewall": "PASS",
     "retained_shared_interoperability_contract": "PASS",
     "rollback_current_state_compare_and_swap_guard": "PASS",
-    "rollback_rejects_unrelated_branch": "PASS"
+    "rollback_rejects_unrelated_branch": "PASS",
+    "wire_port_corrupt_readback_detection": "PASS"
   },
   "files": {
     "TRANSACTION_BOUNDARY.json": "5cd446f77e048644f738277fb0ec24de933360e0454da6e7c2676a606f040143",
     "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "a3940bbe337454535f0ce741cea2267cc89ce986d1e7f4d41f9cf5aceba433c5",
-    "protocols/DNCRYPT_CHECKPOINT_WIRE_V0_1.json": "afef4a2333b834e809f49a455d02971f5324886a6c24a91693c26d56ea516964",
+    "protocols/DNCRYPT_CHECKPOINT_WIRE_V0_1.json": "1fad3ab8333182b83e3711bcf2ba21aaf1f1f2ff4d34bfa74e637431c93977d4",
     "src/dncrypt/checkpoint_lineage.py": "651c350b2246514be0c1e1b8f4512c266220a01eff82b1f2e6469497f41e4be9",
     "src/dncrypt/checkpoint_port.py": "7f176ab29ae62852dfc787443e36babe9b110f0a75b56da20b781da6a2b42079",
     "src/dncrypt/checkpoint_wire.py": "f84b44648ff6817e309170ee81c6aa6837ebd1d49648665316f14543bd1a7486",
+    "src/dncrypt/checkpoint_wire_port.py": "cd17ccb314f401d3bfbcff9cca438d1cf63f61db6cdf78921299230bfee04861",
     "src/dncrypt/project_boundary.py": "4854c785b976a0ebaa149a320f9565a3bd844ed93b490ba42b35b4c8b1370eb9",
     "src/dncrypt/state_memory_journal.py": "fd316ed724c0684d81242c93a34719c98ac6cee493a7c384b4bae877258611ab",
     "tests/test_checkpoint_lineage_v050.py": "cbbafcc434d30f5546a41961d13aac35f88658ccaf3eb90552088e1b383914f4",
     "tests/test_checkpoint_port_v050.py": "10a2a228c92b203f5ce0a4f01132953fd72f8068fc7e767d440cc971ba013214",
+    "tests/test_checkpoint_wire_port_v050.py": "6b2b6fb06f1bc1221f956ca5b117915ca6dc3100b4f7084f8d9a36c9ec0ffdc6",
     "tests/test_checkpoint_wire_v050.py": "5895a1b74c1cc09f44bc6aa9e42fbf24c985acf7cb77e34701689ef4b616c0be",
     "tests/test_project_boundary_v050.py": "8ff2328b4a3ad41175d30dcdf21e4bf9b0731a5deaec906cd1a85aaf3c338b20",
     "tests/test_state_memory_journal_v050.py": "d4e3941545c3ac32222136f6b0dcfeaa606d8906a3d5f784e5c8f695412cc023"
@@ -59,7 +63,7 @@
     "middle_checkpoint_id": "63afc33401f9d94886c5809e050d8e7da5399abb3800964358a041db4594e287",
     "root_checkpoint_id": "0f9cabc691bf454a301b0c3c67b21c46541f9da3d66a1201bc94376c8714139c"
   },
-  "receipt_sha256": "b0eaa5a9ba8733ab695f7d4afaa1bde1a30017899c4b65adb92fdf96826ea52e",
+  "receipt_sha256": "cc4c457b16bcd80ba735bac1191508d03b9cc64bae5aa4a3a60bce1b12350caf",
   "retained_external_projects": [
     "PNCS",
     "GREMLIN",
@@ -70,11 +74,17 @@
     "PNFS",
     "PNH5"
   ],
-  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.3",
-  "status": "CANDIDATE_STACK_PASS_LOCAL_CI_INFRA_BLOCKED",
+  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.4",
+  "status": "MODEL_GATE_PASS_LOCAL_RELEASE_CI_INFRA_BLOCKED",
   "tests": {
     "compileall": "PASS",
-    "pytest": "47 passed"
+    "pytest": "52 passed"
   },
-  "transaction_scope_note": "Technical boundary plus retained shared interoperability requirement; any licence or asset-sale agreement should mirror these exclusions and preserve independent implementation/use rights for the shared wire schemas."
+  "transaction_scope_note": "Technical boundary plus retained shared interoperability requirement; any licence or asset-sale agreement should mirror these exclusions and preserve independent implementation/use rights for the shared wire schemas.",
+  "wire_port_test_vector": {
+    "checkpoint_id": "d2a0a1d5afcfacb751cef6c01a102d8a54e04e900789ae93df2f13d509bf22c0",
+    "payload_size": 2246,
+    "wire_commitment": "c06fd4a692babb127d9804c4e9e14d2d1013fa6ca0679414d77e04436fe60153",
+    "wire_port_receipt_digest": "b0cc0672fa69bc5109026c0ab4750ff58a74aa0a87212ea3cd64f20325eae95e"
+  }
 }
