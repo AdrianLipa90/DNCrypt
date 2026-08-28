@@ -1,8 +1,15 @@
-"""DNCrypt v0.2 public API."""
+"""DNCrypt public API with frozen v0.2 compatibility and v0.4 candidate interfaces."""
 from .adversary import AttackReport, MutationPolicy, EvolutionReceipt, evolve_from_attack
 from .bus import EvaluationRequest, make_evaluation_request, write_evaluation_request, load_external_evaluation
 from .crypto import DNCryptEnvelope, decrypt, encrypt, generate_master_key
 from .evolution import EvolutionPolicy, ProposalReceipt, PromotionReceipt, propose_generation, select_generation
+from .generalization import (
+    CandidateGeneralizationScore,
+    GeneralizationPolicy,
+    GeneralizationPromotionReceipt,
+    robust_pareto_survivor_indices,
+    select_generation_multifold,
+)
 from .evolution_ledger import append_evolution_receipt, verify_evolution_ledger
 from .fitness import FitnessRecord, PopulationFitnessReport
 from .genome import CipherGenome, initial_genome, mutate_genome, vectorized_mutation_population, population_commitment
@@ -16,6 +23,8 @@ __all__ = [
     "EvaluationRequest","make_evaluation_request","write_evaluation_request","load_external_evaluation",
     "DNCryptEnvelope","decrypt","encrypt","generate_master_key",
     "EvolutionPolicy","ProposalReceipt","PromotionReceipt","propose_generation","select_generation",
+    "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
+    "robust_pareto_survivor_indices","select_generation_multifold",
     "append_evolution_receipt","verify_evolution_ledger",
     "FitnessRecord","PopulationFitnessReport",
     "CipherGenome","initial_genome","mutate_genome","vectorized_mutation_population","population_commitment",
