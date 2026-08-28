@@ -6,18 +6,27 @@
     "exact_rollback": "PASS",
     "exact_state_checkpoint": "PASS",
     "external_checkpoint_port_without_retained_project_imports": "PASS",
+    "neutral_checkpoint_wire_roundtrip": "PASS",
     "project_boundary_ast_import_firewall": "PASS",
+    "retained_shared_interoperability_contract": "PASS",
     "rollback_current_state_compare_and_swap_guard": "PASS"
   },
   "files": {
-    "TRANSACTION_BOUNDARY.json": "4ada2795910e755dd81a5b584b3775cf2b225a7846c5a5a42e425972d2c992ea",
-    "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "57032a11ec71e90cbd67d572ad045f22f68f19015192cf1cd896f7f697dc9b27",
+    "TRANSACTION_BOUNDARY.json": "5cd446f77e048644f738277fb0ec24de933360e0454da6e7c2676a606f040143",
+    "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "73a255ce686dd357b5e0db8597d99261e9ed27a9cc464ce350b022c8def41a0c",
+    "protocols/DNCRYPT_CHECKPOINT_WIRE_V0_1.json": "afef4a2333b834e809f49a455d02971f5324886a6c24a91693c26d56ea516964",
     "src/dncrypt/checkpoint_port.py": "7f176ab29ae62852dfc787443e36babe9b110f0a75b56da20b781da6a2b42079",
+    "src/dncrypt/checkpoint_wire.py": "f84b44648ff6817e309170ee81c6aa6837ebd1d49648665316f14543bd1a7486",
     "src/dncrypt/project_boundary.py": "4854c785b976a0ebaa149a320f9565a3bd844ed93b490ba42b35b4c8b1370eb9",
     "tests/test_checkpoint_port_v050.py": "10a2a228c92b203f5ce0a4f01132953fd72f8068fc7e767d440cc971ba013214",
+    "tests/test_checkpoint_wire_v050.py": "5895a1b74c1cc09f44bc6aa9e42fbf24c985acf7cb77e34701689ef4b616c0be",
     "tests/test_project_boundary_v050.py": "8ff2328b4a3ad41175d30dcdf21e4bf9b0731a5deaec906cd1a85aaf3c338b20"
   },
-  "receipt_sha256": "855ae6ac8bf6e834c95216c713eefc0c08805ebd3a99aba0f37c4e7cabae9b96",
+  "interop_test_vector": {
+    "checkpoint_id": "97af35f44850c7f6baf1bddaa595a841f836ab090233251036977f4b504f6d4e",
+    "wire_commitment": "82e0ad0d2e4072de44eba789e8701445101e1a5bf8587c38ec777e822f8fe235"
+  },
+  "receipt_sha256": "c29fec3d5b8b57b6fc5ab52571422289fe235c09080ca6ac5d7f570318ab0b1f",
   "retained_external_projects": [
     "PNCS",
     "GREMLIN",
@@ -32,7 +41,7 @@
   "status": "CANDIDATE_STACK_PASS_LOCAL",
   "tests": {
     "compileall": "PASS",
-    "pytest": "33 passed"
+    "pytest": "36 passed"
   },
-  "transaction_scope_note": "Technical boundary only; any licence or asset-sale agreement should mirror the exclusions explicitly."
+  "transaction_scope_note": "Technical boundary plus retained shared interoperability requirement; any licence or asset-sale agreement should mirror these exclusions and preserve independent implementation/use rights for the shared wire schemas."
 }
