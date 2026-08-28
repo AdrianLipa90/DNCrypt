@@ -1,0 +1,54 @@
+{
+  "comparison_note": "Matched selection-data budget only; v0.1 and v0.4 use different frozen challenge seeds/labels, so this is not a paired corpus comparison. Thresholds were not tuned using sealed holdout outcomes.",
+  "integration_tests": "26 passed",
+  "restored_fitness_sha256": "97697b49db069db1fbaded9ffa41d3f5dee6b78e0b74cd8afe3828180b1111f1",
+  "schema": "dncrypt.v0.4-dev-evidence-summary/v0.1",
+  "source_archive_sha256": "897ae15786a05176348fda6fc67ab47e6005c5c0ec8f722c11619963a198c23c",
+  "status": "MEASURED_NO_HOLDOUT_ADVANTAGE",
+  "v0_1_matched_budget": {
+    "commitment_blake2b": "f1c101754e177b8d8cf750ffcf5be988bd16504f9c9525f660fbd669de79448d",
+    "summary": {
+      "adaptive_holdout_wins": 3,
+      "mean_generalization_gap_holdout_minus_train_delta": 0.026142447568727117,
+      "mean_holdout_risk_delta_adaptive_minus_static": 0.020442175400882927,
+      "mean_promotions": 1.6666666666666667,
+      "mean_throughput_ratio_adaptive_over_static": 0.9855129955606593,
+      "mean_train_risk_delta_adaptive_minus_static": -0.005700272167844189,
+      "median_holdout_risk_delta_adaptive_minus_static": 0.030087686632426835,
+      "median_throughput_ratio_adaptive_over_static": 1.0161273616526882,
+      "median_train_risk_delta_adaptive_minus_static": 0.004125242415601971,
+      "replicates": 6,
+      "sign_test_two_sided_p": 1.0,
+      "static_holdout_wins": 3,
+      "ties": 0
+    },
+    "verdict": "NO_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+  },
+  "v0_4": {
+    "candidate_gate_reason_counts": {
+      "fold_delta_variance_exceeded": 2,
+      "insufficient_winning_folds": 39,
+      "multifold_generalization_gate_pass": 6,
+      "worst_fold_regression_exceeded": 37
+    },
+    "commitment_blake2b": "de74ef9fafcbfe6e13b175355b7e59fa3aee7e8ace2f7cabadf2cd64efaed25e",
+    "generation_verdict_counts": {
+      "no_candidate_passed_multifold_generalization_gate": 5,
+      "robust_pareto_survivor_passed_multifold_generalization_gate": 2
+    },
+    "summary": {
+      "adaptive_holdout_wins": 2,
+      "all_holdouts_excluded_from_selection": true,
+      "mean_holdout_risk_delta_adaptive_minus_static": 0.0802723716811643,
+      "mean_promotions": 0.3333333333333333,
+      "mean_throughput_ratio_adaptive_over_static": 0.9696518756517157,
+      "median_holdout_risk_delta_adaptive_minus_static": 0.06515600037011099,
+      "median_throughput_ratio_adaptive_over_static": 0.9820192893221813,
+      "replicates": 6,
+      "sign_test_two_sided_p": 0.6875,
+      "static_holdout_wins": 4,
+      "ties": 0
+    },
+    "verdict": "NO_SEALED_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+  }
+}
