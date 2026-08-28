@@ -1,0 +1,21 @@
+{
+  "contract_note": "This manifest is a technical provenance control. Any IP transaction agreement should mirror the same exclusions explicitly.",
+  "integration_rule": "Retained projects may integrate with DNCrypt only through explicit ports/adapters; their source, repositories, general-purpose algorithms, models, memory systems, file formats, and independent development lineages are outside the DNCrypt technical package boundary.",
+  "purpose": "Technical asset boundary for licensing, diligence, or transfer of the DNCrypt package.",
+  "retained_external_projects": [
+    "PNCS",
+    "GREMLIN",
+    "NOEMA",
+    "CIEL",
+    "PhaseNav",
+    "PNV-State-Memory",
+    "PNFS",
+    "PNH5"
+  ],
+  "schema": "dncrypt.transaction-boundary/v0.1",
+  "transferable_scope": [
+    "DNCrypt repository code and documentation explicitly enumerated in a transaction schedule",
+    "DNCrypt-specific cryptographic control logic, receipts, evaluators, tests, and evidence",
+    "DNCrypt-specific checkpoint/rollback implementation and adapter contracts"
+  ]
+}
