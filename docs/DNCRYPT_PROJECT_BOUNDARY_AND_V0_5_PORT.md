@@ -36,3 +36,9 @@ DNCrypt core -> DNCrypt CheckpointPort <- external adapter -> PNV-State-Memory
 ```
 
 A buyer or licensee can receive DNCrypt without receiving the adjacent projects, while the adjacent projects can continue to use compatible DNCrypt interfaces under separately defined terms.
+
+## Retained interoperability contract
+
+`protocols/DNCRYPT_CHECKPOINT_WIRE_V0_1.json` is an implementation-neutral checkpoint exchange schema. The transaction boundary classifies the schema, its field semantics and conformance vectors as a retained shared interoperability asset. The technical intent is that DNCrypt and the retained projects can each implement the wire contract independently; neither side needs to import the other side's source code.
+
+Any eventual transaction documents should therefore preserve a perpetual implementation/use right for these shared interoperability schemas rather than assigning them exclusively with the DNCrypt implementation.
