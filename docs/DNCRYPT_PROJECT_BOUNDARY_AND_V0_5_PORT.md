@@ -26,7 +26,15 @@ This is a technical provenance control. A future licence, asset sale or acquisit
 - rollback receipts binding source state, target checkpoint and restored state;
 - a minimal `CheckpointPort` protocol so a future State Memory adapter can be implemented outside DNCrypt.
 
-The in-memory store is a reference implementation for conformance tests. Durable PNFS/PNH5 storage remains the separate v0.6 frontier.
+`src/dncrypt/checkpoint_lineage.py` constrains rollback to the actual checkpoint ancestry. It detects missing parents and cycles, rejects unrelated checkpoint branches, binds the active state to the head checkpoint and emits deterministic ancestry receipts.
+
+## Logical State Memory journal
+
+`src/dncrypt/state_memory_journal.py` provides the v0.5 logical memory layer while leaving durable persistence to v0.6. It records `CHECKPOINT` and `ROLLBACK` events in an append-only hash chain. A rollback changes the active checkpoint but does not rewrite history; the next checkpoint must descend from the restored checkpoint, so post-rollback development forms an auditable new branch.
+
+Journal verification checks event sequence, previous-event hash links, checkpoint-parent consistency, rollback/lineage receipt bindings and the active checkpoint/state. A frozen journal receipt can also be supplied during verification to detect tail-event mutation that an internal forward hash chain alone cannot identify.
+
+The in-memory checkpoint store and journal are reference implementations for conformance tests. Durable PNFS/PNH5 storage remains the separate v0.6 frontier.
 
 ## Transaction-safe dependency rule
 
