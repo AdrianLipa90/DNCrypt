@@ -1,0 +1,58 @@
+{
+  "branch_head": "4feddc747e45ada54176b6ac2a7a3af7fbc36f33",
+  "ci": {
+    "classification": "CI_INFRA_BLOCKED_BEFORE_RUNNER",
+    "code_executed_by_ci": false,
+    "job_steps_observed": 0,
+    "latest_run_id": 33180619000
+  },
+  "configuration": {
+    "fold_messages": 16,
+    "folds": 5,
+    "generations": 3,
+    "holdout_messages": 64,
+    "maximum_delta_stddev": 0.05,
+    "maximum_worst_fold_regression": 0.02,
+    "message_bytes": 128,
+    "minimum_median_risk_improvement": 0.0,
+    "minimum_throughput_ratio": 0.5,
+    "minimum_winning_fraction": 0.6,
+    "performance_mode": "observe_only",
+    "population_size": 12,
+    "replicates": 6,
+    "seed_hex": "d8140b6c231a667c3182b9091a7be41ffe29f67d7aba454f81d1750e5d2808b9"
+  },
+  "holdout_boundary": {
+    "advantage_demonstrated": false,
+    "used_for_selection": false
+  },
+  "local_test_suite": {
+    "pytest": "29 passed after causal-audit addition",
+    "v0_4_1_core_before_audit": "28 passed"
+  },
+  "performance_evidence": {
+    "measurement_commitment_replay_1": "dd92a543fd003063e3d4ef9cfb576d997ffdfa92f21f7de2ce85acd571a4314b",
+    "measurement_commitment_replay_2": "4df3da91cec0f6f039a7aa620eeacfd7c21a0335f7324c8dacb45c4b4da68262",
+    "observational": true
+  },
+  "receipt_sha256": "892a56ff6449dbd54a4c5a199edb1952d372dfaf3c6be056a5ef9cfd015f6315",
+  "schema": "dncrypt.v0.4.1-security-admission-replay/v0.1",
+  "security_evidence": {
+    "commitment_replay_1": "6c25c831d86448f23a89a7f6da1d9cd4c06849219780233729d0ca5860aefe3d",
+    "commitment_replay_2": "6c25c831d86448f23a89a7f6da1d9cd4c06849219780233729d0ca5860aefe3d",
+    "identical": true,
+    "summary_without_throughput": {
+      "adaptive_holdout_wins": 3,
+      "all_holdouts_excluded_from_selection": true,
+      "mean_holdout_risk_delta_adaptive_minus_static": -0.0056835640943992405,
+      "mean_promotions": 0.5,
+      "median_holdout_risk_delta_adaptive_minus_static": -0.01227970306843057,
+      "replicates": 6,
+      "sign_test_two_sided_p": 1.0,
+      "static_holdout_wins": 3,
+      "ties": 0
+    },
+    "verdict": "NO_SEALED_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+  },
+  "status": "PASS_DETERMINISTIC_SECURITY_EVIDENCE"
+}
