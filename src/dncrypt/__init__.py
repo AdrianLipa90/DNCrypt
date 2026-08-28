@@ -10,6 +10,7 @@ from .generalization import (
     robust_pareto_survivor_indices,
     select_generation_multifold,
 )
+from .security_admission import SecurityAdmissionBinding, select_generation_multifold_security_only
 from .evolution_ledger import append_evolution_receipt, verify_evolution_ledger
 from .fitness import FitnessRecord, PopulationFitnessReport
 from .genome import CipherGenome, initial_genome, mutate_genome, vectorized_mutation_population, population_commitment
@@ -25,6 +26,7 @@ __all__ = [
     "EvolutionPolicy","ProposalReceipt","PromotionReceipt","propose_generation","select_generation",
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
     "robust_pareto_survivor_indices","select_generation_multifold",
+    "SecurityAdmissionBinding","select_generation_multifold_security_only",
     "append_evolution_receipt","verify_evolution_ledger",
     "FitnessRecord","PopulationFitnessReport",
     "CipherGenome","initial_genome","mutate_genome","vectorized_mutation_population","population_commitment",
