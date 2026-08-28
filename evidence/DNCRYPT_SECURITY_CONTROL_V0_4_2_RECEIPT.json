@@ -1,0 +1,45 @@
+{
+  "causal_surface_receipt": "7ec8e1f819a587cc2c52e720265bfc1567b7d9d52c8515ee53e69b1280779d51",
+  "challenge_commitment_replay_1": "eed312015820432a2f7f1c14ebb0bab18184118f4cc911efd09f8b09e5668ba6",
+  "challenge_commitment_replay_2": "eed312015820432a2f7f1c14ebb0bab18184118f4cc911efd09f8b09e5668ba6",
+  "claim_scope": "CONTROLLED_SECURITY_CONTROL_SIMULATION",
+  "configuration": {
+    "fold_observations": 48,
+    "folds": 5,
+    "generations": 3,
+    "holdout_observations": 192,
+    "maximum_delta_stddev": 0.02,
+    "maximum_worst_fold_regression": 0.005,
+    "minimum_median_risk_improvement": 0.0,
+    "minimum_winning_fraction": 0.6,
+    "population_size": 12,
+    "replicates": 12,
+    "seed_hex": "ddf29b01917fb769c3f4bd988aeb4e07aa85baec11a65065230c776e3e314043"
+  },
+  "cryptographic_anchor": {
+    "aead": "ChaCha20-Poly1305",
+    "kdf": "HKDF-SHA3-512"
+  },
+  "evidence_class": "CONTROLLED_SECURITY_CONTROL_SIMULATION",
+  "exact_replay": true,
+  "next_gate": "INDEPENDENT_CONTROL_WORKLOADS_AND_CRYPTOGRAPHIC_EVALUATOR_ALIGNMENT",
+  "primary_endpoint": "sealed_holdout_security_control_risk",
+  "pytest": "33 passed",
+  "receipt_sha256": "5dcb34cd0797aba62753301dffd448bb91dc22f8f02fc8ccdbae3fa398ee359f",
+  "schema": "dncrypt.security-control-v0.4.2-receipt/v0.1",
+  "selection_boundary": "MULTIFOLD_ONLY_SEALED_HOLDOUT_EXCLUDED",
+  "status": "PASS_CONTROL_POLICY_HOLDOUT_ADVANTAGE_DEMONSTRATED",
+  "summary": {
+    "adaptive_holdout_wins": 6,
+    "all_holdouts_excluded_from_selection": true,
+    "mean_holdout_security_risk_delta_adaptive_minus_static": -0.046500237483531874,
+    "mean_promotions": 0.5833333333333334,
+    "mean_rotation_fraction_delta_adaptive_minus_static": 0.1032986111111111,
+    "median_holdout_security_risk_delta_adaptive_minus_static": -0.015430698495553195,
+    "replicates": 12,
+    "sign_test_two_sided_p": 0.03125,
+    "static_holdout_wins": 0,
+    "ties": 6
+  },
+  "verdict": "CONTROL_POLICY_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+}

@@ -11,6 +11,11 @@ from .generalization import (
     select_generation_multifold,
 )
 from .security_admission import SecurityAdmissionBinding, select_generation_multifold_security_only
+from .security_control import (
+    SecurityControlPolicy, SecurityControlState, SecurityControlObservation, SecurityControlDecision,
+    SecurityControlEvaluation, derive_security_control_policy, apply_security_control,
+    rotate_control_state, evaluate_security_control,
+)
 from .evolution_ledger import append_evolution_receipt, verify_evolution_ledger
 from .fitness import FitnessRecord, PopulationFitnessReport
 from .genome import CipherGenome, initial_genome, mutate_genome, vectorized_mutation_population, population_commitment
@@ -27,6 +32,9 @@ __all__ = [
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
     "robust_pareto_survivor_indices","select_generation_multifold",
     "SecurityAdmissionBinding","select_generation_multifold_security_only",
+    "SecurityControlPolicy","SecurityControlState","SecurityControlObservation","SecurityControlDecision",
+    "SecurityControlEvaluation","derive_security_control_policy","apply_security_control",
+    "rotate_control_state","evaluate_security_control",
     "append_evolution_receipt","verify_evolution_ledger",
     "FitnessRecord","PopulationFitnessReport",
     "CipherGenome","initial_genome","mutate_genome","vectorized_mutation_population","population_commitment",
