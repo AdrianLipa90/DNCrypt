@@ -10,5 +10,11 @@
   "independent_implementation": "ALLOWED_BY_TRANSACTION_REQUIREMENT",
   "purpose": "Implementation-neutral checkpoint exchange boundary.",
   "schema": "dncrypt.checkpoint-wire-spec/v0.1",
+  "storage_port_contract": {
+    "backend_dependency": "opaque bytes only; no DNCrypt class import required",
+    "get": "get(checkpoint_id: string) -> bytes",
+    "key_semantics": "checkpoint_id is the content-addressed DNCrypt checkpoint identifier",
+    "put": "put(checkpoint_id: string, payload: bytes) -> void"
+  },
   "wire_schema": "dncrypt.checkpoint-wire/v0.1"
 }
