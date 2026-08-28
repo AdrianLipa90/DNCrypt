@@ -11,6 +11,13 @@ from .generalization import (
     select_generation_multifold,
 )
 from .security_admission import SecurityAdmissionBinding, select_generation_multifold_security_only
+from .causality import (
+    CausalityFirewallReceipt,
+    FitnessCausalityRegistry,
+    MetricCausalityBinding,
+    frozen_v02_causality_registry,
+    select_generation_multifold_causal,
+)
 from .evolution_ledger import append_evolution_receipt, verify_evolution_ledger
 from .fitness import FitnessRecord, PopulationFitnessReport
 from .genome import CipherGenome, initial_genome, mutate_genome, vectorized_mutation_population, population_commitment
@@ -27,6 +34,8 @@ __all__ = [
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
     "robust_pareto_survivor_indices","select_generation_multifold",
     "SecurityAdmissionBinding","select_generation_multifold_security_only",
+    "CausalityFirewallReceipt","FitnessCausalityRegistry","MetricCausalityBinding",
+    "frozen_v02_causality_registry","select_generation_multifold_causal",
     "append_evolution_receipt","verify_evolution_ledger",
     "FitnessRecord","PopulationFitnessReport",
     "CipherGenome","initial_genome","mutate_genome","vectorized_mutation_population","population_commitment",
