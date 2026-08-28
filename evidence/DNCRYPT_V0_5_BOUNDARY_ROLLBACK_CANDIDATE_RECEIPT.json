@@ -5,20 +5,23 @@
   "ci": {
     "classification": "CI_INFRA_BLOCKED_BEFORE_RUNNER",
     "executed_steps": 0,
-    "latest_run_id": 33187259031,
+    "latest_run_id": 33187942572,
     "python_jobs": [
       "3.10",
       "3.12"
     ]
   },
   "features": {
+    "append_only_state_memory_journal": "PASS",
     "checkpoint_ancestry_verification": "PASS",
     "checkpoint_cycle_detection": "PASS",
     "checkpoint_missing_parent_detection": "PASS",
     "exact_rollback": "PASS",
     "exact_state_checkpoint": "PASS",
     "external_checkpoint_port_without_retained_project_imports": "PASS",
+    "journal_frozen_receipt_tail_guard": "PASS",
     "neutral_checkpoint_wire_roundtrip": "PASS",
+    "post_rollback_branch_parent_binding": "PASS",
     "project_boundary_ast_import_firewall": "PASS",
     "retained_shared_interoperability_contract": "PASS",
     "rollback_current_state_compare_and_swap_guard": "PASS",
@@ -26,20 +29,29 @@
   },
   "files": {
     "TRANSACTION_BOUNDARY.json": "5cd446f77e048644f738277fb0ec24de933360e0454da6e7c2676a606f040143",
-    "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "73a255ce686dd357b5e0db8597d99261e9ed27a9cc464ce350b022c8def41a0c",
+    "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "a3940bbe337454535f0ce741cea2267cc89ce986d1e7f4d41f9cf5aceba433c5",
     "protocols/DNCRYPT_CHECKPOINT_WIRE_V0_1.json": "afef4a2333b834e809f49a455d02971f5324886a6c24a91693c26d56ea516964",
     "src/dncrypt/checkpoint_lineage.py": "651c350b2246514be0c1e1b8f4512c266220a01eff82b1f2e6469497f41e4be9",
     "src/dncrypt/checkpoint_port.py": "7f176ab29ae62852dfc787443e36babe9b110f0a75b56da20b781da6a2b42079",
     "src/dncrypt/checkpoint_wire.py": "f84b44648ff6817e309170ee81c6aa6837ebd1d49648665316f14543bd1a7486",
     "src/dncrypt/project_boundary.py": "4854c785b976a0ebaa149a320f9565a3bd844ed93b490ba42b35b4c8b1370eb9",
+    "src/dncrypt/state_memory_journal.py": "fd316ed724c0684d81242c93a34719c98ac6cee493a7c384b4bae877258611ab",
     "tests/test_checkpoint_lineage_v050.py": "cbbafcc434d30f5546a41961d13aac35f88658ccaf3eb90552088e1b383914f4",
     "tests/test_checkpoint_port_v050.py": "10a2a228c92b203f5ce0a4f01132953fd72f8068fc7e767d440cc971ba013214",
     "tests/test_checkpoint_wire_v050.py": "5895a1b74c1cc09f44bc6aa9e42fbf24c985acf7cb77e34701689ef4b616c0be",
-    "tests/test_project_boundary_v050.py": "8ff2328b4a3ad41175d30dcdf21e4bf9b0731a5deaec906cd1a85aaf3c338b20"
+    "tests/test_project_boundary_v050.py": "8ff2328b4a3ad41175d30dcdf21e4bf9b0731a5deaec906cd1a85aaf3c338b20",
+    "tests/test_state_memory_journal_v050.py": "d4e3941545c3ac32222136f6b0dcfeaa606d8906a3d5f784e5c8f695412cc023"
   },
-  "interop_test_vector": {
+  "interoperability_test_vector": {
     "checkpoint_id": "97af35f44850c7f6baf1bddaa595a841f836ab090233251036977f4b504f6d4e",
     "wire_commitment": "82e0ad0d2e4072de44eba789e8701445101e1a5bf8587c38ec777e822f8fe235"
+  },
+  "journal_test_vector": {
+    "active_checkpoint_id": "0f9cabc691bf454a301b0c3c67b21c46541f9da3d66a1201bc94376c8714139c",
+    "event_chain_commitment": "576e931b4fd248455bde875088490b35d8518da22fe0d9dbc956adf96fd5bdfe",
+    "event_count": 4,
+    "head_event_id": "bd0e4172be8a0f9bde1d9ef28c4628104f49d2b0c24730e86a3723829a6c487d",
+    "journal_receipt_digest": "e37f128a214aa8e05b9c388e87ecdfce9ee238c4ac9224b6a6e469be758a104c"
   },
   "lineage_test_vector": {
     "head_checkpoint_id": "337389ac250d87efb098ad4aaf085de3c62da3082650a2f587eefa2a4434307b",
@@ -47,7 +59,7 @@
     "middle_checkpoint_id": "63afc33401f9d94886c5809e050d8e7da5399abb3800964358a041db4594e287",
     "root_checkpoint_id": "0f9cabc691bf454a301b0c3c67b21c46541f9da3d66a1201bc94376c8714139c"
   },
-  "receipt_sha256": "fc0a06efd2a50a8cf04784506ddf3754f3b8922c9a38eecd352c9dd65410d710",
+  "receipt_sha256": "b0eaa5a9ba8733ab695f7d4afaa1bde1a30017899c4b65adb92fdf96826ea52e",
   "retained_external_projects": [
     "PNCS",
     "GREMLIN",
@@ -58,11 +70,11 @@
     "PNFS",
     "PNH5"
   ],
-  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.2",
+  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.3",
   "status": "CANDIDATE_STACK_PASS_LOCAL_CI_INFRA_BLOCKED",
   "tests": {
     "compileall": "PASS",
-    "pytest": "41 passed"
+    "pytest": "47 passed"
   },
   "transaction_scope_note": "Technical boundary plus retained shared interoperability requirement; any licence or asset-sale agreement should mirror these exclusions and preserve independent implementation/use rights for the shared wire schemas."
 }
