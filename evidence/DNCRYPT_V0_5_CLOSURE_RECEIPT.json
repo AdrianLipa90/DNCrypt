@@ -1,0 +1,47 @@
+{
+  "ci": {
+    "classification": "CI_INFRA_BLOCKED_BEFORE_RUNNER",
+    "executed_steps": 0,
+    "latest_observed_run_id": 33188255591
+  },
+  "closed_model_gates": [
+    "EXACT_STATE_CHECKPOINT",
+    "EXACT_ROLLBACK",
+    "ANCESTRY_CONSTRAINED_ROLLBACK",
+    "APPEND_ONLY_STATE_MEMORY_JOURNAL",
+    "FROZEN_JOURNAL_RECEIPT",
+    "NEUTRAL_CHECKPOINT_WIRE",
+    "BYTE_ONLY_CHECKPOINT_WIRE_PORT",
+    "RETAINED_PROJECT_IMPORT_FIREWALL",
+    "RETAINED_SHARED_INTEROPERABILITY"
+  ],
+  "code_head_before_closure_only_docs": "e74ef1f0b0002a3cf00e2c2708fb962f282ec842",
+  "main_promotion": "BLOCKED",
+  "model_receipt_sha256": "cc4c457b16bcd80ba735bac1191508d03b9cc64bae5aa4a3a60bce1b12350caf",
+  "next_frontier": "V0_6_PERSISTENT_SECURITY_STATE_CANDIDATE",
+  "release_status": "BLOCKED_INFRA_BEFORE_RUNNER",
+  "schema": "dncrypt.v0.5-closure-receipt/v0.1",
+  "status": "MODEL_CLOSED_LOCAL",
+  "tests": {
+    "compileall": "PASS",
+    "pytest": "52 passed"
+  },
+  "transaction_boundary": {
+    "retained_projects": [
+      "PNCS",
+      "GREMLIN",
+      "NOEMA",
+      "CIEL",
+      "PhaseNav",
+      "PNV-State-Memory",
+      "PNFS",
+      "PNH5"
+    ],
+    "shared_interoperability": "RETAINED_INDEPENDENT_IMPLEMENTATION_RIGHT_REQUIRED"
+  },
+  "version_transition": {
+    "v0.5": "MODEL_CLOSED_LOCAL",
+    "v0.6": "CANDIDATE_STACK_ALLOWED",
+    "v0.6_promotion": "BLOCKED_UNTIL_RELEASE_CI_OR_EQUIVALENT_INDEPENDENT_REPLAY"
+  }
+}
