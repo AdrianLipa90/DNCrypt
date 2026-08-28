@@ -1,0 +1,38 @@
+{
+  "base_branch": "feat/dncrypt-v0.4-generalization-aware-evolution",
+  "base_head": "0f5b8285368c2a9b7d4f6b42d697f3914fb584fb",
+  "candidate_branch": "feat/dncrypt-v0.5-exact-rollback-ip-boundary",
+  "features": {
+    "exact_rollback": "PASS",
+    "exact_state_checkpoint": "PASS",
+    "external_checkpoint_port_without_retained_project_imports": "PASS",
+    "project_boundary_ast_import_firewall": "PASS",
+    "rollback_current_state_compare_and_swap_guard": "PASS"
+  },
+  "files": {
+    "TRANSACTION_BOUNDARY.json": "4ada2795910e755dd81a5b584b3775cf2b225a7846c5a5a42e425972d2c992ea",
+    "docs/DNCRYPT_PROJECT_BOUNDARY_AND_V0_5_PORT.md": "57032a11ec71e90cbd67d572ad045f22f68f19015192cf1cd896f7f697dc9b27",
+    "src/dncrypt/checkpoint_port.py": "7f176ab29ae62852dfc787443e36babe9b110f0a75b56da20b781da6a2b42079",
+    "src/dncrypt/project_boundary.py": "4854c785b976a0ebaa149a320f9565a3bd844ed93b490ba42b35b4c8b1370eb9",
+    "tests/test_checkpoint_port_v050.py": "10a2a228c92b203f5ce0a4f01132953fd72f8068fc7e767d440cc971ba013214",
+    "tests/test_project_boundary_v050.py": "8ff2328b4a3ad41175d30dcdf21e4bf9b0731a5deaec906cd1a85aaf3c338b20"
+  },
+  "receipt_sha256": "855ae6ac8bf6e834c95216c713eefc0c08805ebd3a99aba0f37c4e7cabae9b96",
+  "retained_external_projects": [
+    "PNCS",
+    "GREMLIN",
+    "NOEMA",
+    "CIEL",
+    "PhaseNav",
+    "PNV-State-Memory",
+    "PNFS",
+    "PNH5"
+  ],
+  "schema": "dncrypt.v0.5-boundary-rollback-candidate-receipt/v0.1",
+  "status": "CANDIDATE_STACK_PASS_LOCAL",
+  "tests": {
+    "compileall": "PASS",
+    "pytest": "33 passed"
+  },
+  "transaction_scope_note": "Technical boundary only; any licence or asset-sale agreement should mirror the exclusions explicitly."
+}
