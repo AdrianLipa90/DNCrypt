@@ -25,35 +25,84 @@ class FitnessRecord:
         if any(not math.isfinite(v) for v in floats):
             raise ValueError("fitness metrics must be finite")
         if self.generation < 0 or self.decrypt_failures < 0 or self.integrity_failures < 0:
-            raise ValueErro‰È™Ù[™\˜][Û‹Ù˜Z[\™HÛÝ[È]\Ý™H›Û‹[™YØ]]™HŠBˆYˆÙ[‹œÝXÝ\˜[ÛXZØYÙHÜˆÙ[‹œ™YXÝXš[]HÜˆÙ[‹˜]˜[[˜ÚWØšX\ÈÜˆÙ[‹›ÝYÚ]‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ›XZØYÙKÜ™YXÝXš[]KØ]˜[[˜ÚWØšX\ËÝ›ÝYÚ]]\Ý™H›Û‹[™YØ]]™HŠBˆYˆ›ÝŒHÙ[‹œÝ˜[YHHKŒ‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠœÝ˜[YH]\Ý™H[ˆÌWHŠBˆYˆ[ŠÙ[‹™Ù[›ÛYWÚY
-HOH‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ™Ù[›ÛYWÚY]\Ý™HHÌ‹Xž]H^YÙ\ÝŠB‚ˆ›Ü\BˆYˆ[˜\šX[Ü\ÜÊÙ[ŠHOˆ›ÛÛ‚ˆ™]\›ˆÙ[‹™XÜž\Ù˜Z[\™\ÈOH[™Ù[‹š[YÜš]WÙ˜Z[\™\ÈOH‚ˆYˆY™\œØ\šX[Üš\ÚÊÙ[‹ÚYÛšYšXØ[˜ÙWØ[Nˆ›Ø]HŒJHOˆ›Ø]‚ˆÈÛ›HÜÚ]]™H]XÚÈY˜[YÙH\È™X]Y\ÈXZØYÙHY˜[YÙNÈ™YØ]]™H[\ÈYX[ˆH]XÚÙ\ˆYÛÜœÙH[ˆÛÛ›Û‚ˆYˆÙ[‹œÝ˜[YHˆÚYÛšYšXØ[˜ÙWØ[N‚ˆY˜[YÙHHŒˆ[ÙN‚ˆY˜[YÙHHX^
-ŒÙ[‹™[WØš]ÊH
-ÈX^
-ŒÙ[‹™[WØ[JBˆ™]\›ˆÙ[‹œÝXÝ\˜[ÛXZØYÙH
-ÈÙ[‹œ™YXÝXš[]H
-ÈÙ[‹˜]˜[[˜ÚWØšX\È
-ÈY˜[YÙB‚]XÛ\ÜÊœ›Þ™[UYKÛÝÏUYJB˜Û\ÜÈÜ[][Û‘š]™\ÜÔ™\Ü‚ˆØÚ[XNˆÝ‚ˆ™\]Y\ÝÚYˆÝ‚ˆ™XÛÜ™Îˆ\VÑš]™\ÜÔ™XÛÜ™‹‹—B‚ˆYˆ×ÜÜÝÚ[š]×ÊÙ[ŠHOˆ›Û™N‚ˆYˆÙ[‹œØÚ[XHOH™˜Üž\™^\›˜[Y]˜[X][Û‹ÝŒŒˆŽ‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ[œÝ\ÜY^\›˜[]˜[X][ÛˆØÚ[XHŠBˆYÈHÜ‹™Ù[›ÛYWÚY›Üˆˆ[ˆÙ[‹œ™XÛÜ™×BˆYˆ[ŠYÊHOH[ŠÙ]
-YÊJN‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ™\XØ]HÙ[›ÛYWÚY[ˆ^\›˜[]˜[X][ÛˆŠB‚ˆ›Ü\BˆYˆYÙ\Ý
-Ù[ŠHOˆÝŽ‚ˆ™]\›ˆ›ZÙL˜ŒMŠØ[›ÛšXØ[ÚœÛÛ—Øž]\ÊÈœØÚ[XHŽˆÙ[‹œØÚ[XKœ™\]Y\ÝÚYŽˆÙ[‹œ™\]Y\ÝÚYœ™XÛÜ™ÈŽˆØ\ÙXÝ
-ŠH›Üˆˆ[ˆÙ[‹œ™XÛÜ™×_JJB‚ˆYˆ˜[Y]WÜÜ[][ÛŠÙ[‹Ü[][ÛŽˆ\VÐÚ\\‘Ù[›ÛYK‹‹—JHOˆ›Û™N‚ˆ^XÝYHÙË™Ù[›ÛYWÚY›ÜˆÈ[ˆÜ[][ÛŸBˆØœÙ\™YHÜ‹™Ù[›ÛYWÚY›Üˆˆ[ˆÙ[‹œ™XÛÜ™ßBˆYˆØœÙ\™YOH^XÝY‚ˆZ\ÜÚ[™ÈHÛÜY
-^XÝYHØœÙ\™Y
-Bˆ^˜HHÛÜY
-ØœÙ\™YH^XÝY
-Bˆ˜Z\ÙH˜[YQ\œ›ÜŠˆ™^\›˜[]˜[X][ÛˆÙ\È›Ý^XÝHÛÝ™\ˆÜ[][ÛŽÈZ\ÜÚ[™Ï^ÛZ\ÜÚ[™ßH^˜O^Ù^˜_HŠBˆÙ[™\˜][ÛœÈHÙË™Ù[™\˜][Ûˆ›ÜˆÈ[ˆÜ[][ÛŸBˆYˆ[ŠÙ[™\˜][ÛœÊHOHN‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠœÜ[][ÛˆZ^\ÈÙ[™\˜][ÛœÈŠBˆ^XÝYÙÙ[™\˜][ÛˆH™^
-]\ŠÙ[™\˜][ÛœÊJBˆYˆ[žJ‹™Ù[™\˜][ÛˆOH^XÝYÙÙ[™\˜][Ûˆ›Üˆˆ[ˆÙ[‹œ™XÛÜ™ÊN‚ˆ˜Z\ÙH˜[YQ\œ›ÜŠ™^\›˜[]˜[X][ÛˆÙ[™\˜][ÛˆZ\ÛX]ÚŠB‚ˆYˆÜ™\™YÙ›ÜŠÙ[‹Ü[][ÛŽˆ\VÐÚ\\‘Ù[›ÛYK‹‹—JHOˆ\VÑš]™\ÜÔ™XÛÜ™‹‹—N‚ˆÙ[‹˜[Y]WÜÜ[][ÛŠÜ[][ÛŠBˆžWÚYHÜ‹™Ù[›ÛYWÚYˆˆ›Üˆˆ[ˆÙ[‹œ™XÛÜ™ßBˆ™]\›ˆ\JžWÚYÙË™Ù[›ÛYWÚYH›ÜˆÈ[ˆÜ[][ÛŠB‚‚™YˆØš™XÝ]™WÛX]š^
-™XÛÜ™Îˆ\VÑš]™\ÜÔ™XÛÜ™‹‹—JHOˆœ›™\œ˜^N‚ˆYˆ›Ý™XÛÜ™Î‚ˆ™]\›ˆœ™[\J
-ŠK\O[œ™›Ø]
-Bˆ™]\›ˆœ˜ÛÛ[[—ÜÝXÚÊÂˆœ˜\Ø\œ˜^JÜ‹œÝXÝ\˜[ÛXZØYÙH›Üˆˆ[ˆ™XÛÜ™×K\O[œ™›Ø]
-Kˆœ˜\Ø\œ˜^JÜ‹œ™YXÝXš[]H›Üˆˆ[ˆ™XÛÜ™×K\O[œ™›Ø]
-Kˆœ›X^[][JŒœ˜\Ø\œ˜^JÜ‹™[WØš]È›Üˆˆ[ˆ™XÛÜ™×K\O[œ™›Ø]
-JKˆœ›X^[][JŒœ˜\Ø\œ˜^JÜ‹™[WØ[H›Üˆˆ[ˆ™XÛÜ™×K\O[œ™›Ø]
-JKˆœ˜\Ø\œ˜^JÜ‹˜]˜[[˜ÚWØšX\È›Üˆˆ[ˆ™XÛÜ™×K\O[œ™›Ø]
-Kˆ[œ˜\Ø\œ˜^JÜ‹›ÝYÚ]›Üˆˆ[ˆ™XÛÜ™×K\O[œ™›Ø]
-KˆJB‚‚™Yˆ\™]×ÜÝ\š]›Ü—Ú[™XÙ\Ê™XÛÜ™Îˆ\VÑš]™\ÜÔ™XÛÜ™‹‹—JHOˆ\VÚ[‹‹—N‚ˆØÛÜ™\ÈHØš™XÝ]™WÛX]š^
-™XÛÜ™ÊBˆˆHØÛÜ™\ËœÚ\VÌBˆÙY\Hœ›Û™\Ê‹\OX›ÛÛ
-Bˆ›ÜˆH[ˆ˜[™ÙJŠN‚ˆYˆ›ÝÙY\ÚWN‚ˆÛÛ[YBˆÛZ[˜]\×ÚHHœ˜[
-ØÛÜ™\ÈHØÛÜ™\ÖÚWK^\ÏLJH	ˆœ˜[žJØÛÜ™\ÈØÛÜ™\ÖÚWK^\ÏLJBˆÛZ[˜]\×ÚVÚWHH˜[ÙBˆYˆœ˜[žJÛZ[˜]\×ÚJN‚ˆÙY\ÚWHH˜[ÙBˆ™]\›ˆ\Jœ™›]›Ûž™\›ÊÙY\
-K˜\Ý\J[
-KÛ\Ý
+            raise ValueError("generation/failure counts must be non-negative")
+        if self.structural_leakage < 0 or self.predictability < 0 or self.avalanche_bias < 0 or self.throughput < 0:
+            raise ValueError("leakage/predictability/avalanche_bias/throughput must be non-negative")
+        if not 0.0 <= self.p_value <= 1.0:
+            raise ValueError("p_value must be in [0,1]")
+        if len(self.genome_id) != 64:
+            raise ValueError("genome_id must be a 32-byte hex digest")
 
-JB
+    @property
+    def invariant_pass(self) -> bool:
+        return self.decrypt_failures == 0 and self.integrity_failures == 0
+
+    def adversarial_risk(self, significance_alpha: float = 0.05) -> float:
+        if self.p_value > significance_alpha:
+            advantage = 0.0
+        else:
+            advantage = max(0.0, self.delta_bits) + max(0.0, self.delta_alpha)
+        return self.structural_leakage + self.predictability + self.avalanche_bias + advantage
+
+@dataclass(frozen=True, slots=True)
+class PopulationFitnessReport:
+    schema: str
+    request_id: str
+    records: tuple[FitnessRecord, ...]
+
+    def __post_init__(self) -> None:
+        if self.schema != "dncrypt.external-evaluation/v0.2":
+            raise ValueError("unsupported external evaluation schema")
+        ids = [r.genome_id for r in self.records]
+        if len(ids) != len(set(ids)):
+            raise ValueError("duplicate genome_id in external evaluation")
+
+    @property
+    def digest(self) -> str:
+        return blake2b256(canonical_json_bytes({"schema": self.schema, "request_id": self.request_id, "records": [asdict(r) for r in self.records]}))
+
+    def validate_population(self, population: tuple[CipherGenome, ...]) -> None:
+        expected = {g.genome_id for g in population}
+        observed = {r.genome_id for r in self.records}
+        if observed != expected:
+            missing = sorted(expected - observed)
+            extra = sorted(observed - expected)
+            raise ValueError(f"external evaluation does not exactly cover population; missing={missing} extra={extra}")
+        generations = {g.generation for g in population}
+        if len(generations) != 1:
+            raise ValueError("population mixes generations")
+        expected_generation = next(iter(generations))
+        if any(r.generation != expected_generation for r in self.records):
+            raise ValueError("external evaluation generation mismatch")
+
+    def ordered_for(self, population: tuple[CipherGenome, ...]) -> tuple[FitnessRecord, ...]:
+        self.validate_population(population)
+        by_id = {r.genome_id: r for r in self.records}
+        return tuple(by_id[g.genome_id] for g in population)
+
+
+def objective_matrix(records: tuple[FitnessRecord, ...]) -> np.ndarray:
+    if not records:
+        return np.empty((0, 6), dtype=np.float64)
+    return np.column_stack([
+        np.asarray([r.structural_leakage for r in records], dtype=np.float64),
+        np.asarray([r.predictability for r in records], dtype=np.float64),
+        np.maximum(0.0, np.asarray([r.delta_bits for r in records], dtype=np.float64)),
+        np.maximum(0.0, np.asarray([r.delta_alpha for r in records], dtype=np.float64)),
+        np.asarray([r.avalanche_bias for r in records], dtype=np.float64),
+        -np.asarray([r.throughput for r in records], dtype=np.float64),
+    ])
+
+
+def pareto_survivor_indices(records: tuple[FitnessRecord, ...]) -> tuple[int, ...]:
+    scores = objective_matrix(records)
+    n = scores.shape[0]
+    keep = np.ones(n, dtype=bool)
+    for i in range(n):
+        if not keep[i]:
+            continue
+        dominates_i = np.all(scores <= scores[i], axis=1) & np.any(scores < scores[i], axis=1)
+        dominates_i[i] = False
+        if np.any(dominates_i):
+            keep[i] = False
+    return tuple(np.flatnonzero(keep).astype(int).tolist())
