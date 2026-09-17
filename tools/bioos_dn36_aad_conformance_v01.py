@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import argparse
-import base64
+from dataclasses import asdict
 import hashlib
 import json
 from pathlib import Path
+from typing import Callable
 
 from dncrypt import (
+    DNCryptEnvelope,
     binary_envelope_id,
     decrypt,
     encrypt,
@@ -15,6 +17,7 @@ from dncrypt import (
     pack_envelope,
     unpack_envelope,
 )
+from dncrypt.util import b64d, b64e, blake2b256, sha3_256
 
 SCHEMA = "DNCRYPT_BIOOS_DN36_AAD_CONFORMANCE_V0_1"
 PNSTORE_PAYLOAD_MAX = 3936
@@ -29,6 +32,19 @@ BIOOS_SOURCE = {
     "workflow_run_id": 35240603224,
     "artifact_digest": "sha256:13cf2a5829027161043a31f3ca74cd4f813a301ef6cfa3788f48581effb79842",
     "aux_receipt_sha256": "691eb7ccbb5fd1d74a5ec8e68f9f1581e00d4f2a2a715a845dc0d9aac7870884",
+    "source_pins": {
+        "dncrypt": "20f53a9b297b6208d74841aee7c3bb4b8b17ce2a",
+        "resonant_chemistry": "6a9f21678ba4f07e5bdbb1a98a0cafe5c4838697",
+        "tir": "45b54c0c8aa60ec92607e6132b69aca9ab766d75",
+    },
+}
+
+DNCRYPT_IMPLEMENTATION = {
+    "repository": "AdrianLipa90/DNCrypt",
+    "base_branch": "feat/dncrypt-v0.4-binary-envelope",
+    "base_head": "88439967b97d4d607ab2c7d30211f91e1fe87a72",
+    "crypto_blob": "694523cadd7b44417a3c04de08d5f44b0717b86e",
+    "binary_envelope_blob": "9c5bbe595462ca848c67803c7b1febdd88d561c2",
 }
 
 
@@ -101,16 +117,87 @@ def _fixture() -> tuple[bytes, bytes]:
     return paux, user_aad
 
 
-def _extract_user_aad(envelope) -> tuple[bytes, bytes]:
-    outer_aad = base64.b64decode(envelope.aad_b64.encode("ascii"), validate=True)
+def _extract_user_aad(envelope: DNCryptEnvelope) -> tuple[bytes, bytes]:
+    outer_aad = b64d(envelope.aad_b64)
     meta = json.loads(outer_aad.decode("utf-8"))
     if not isinstance(meta, dict):
         raise RuntimeError("DNCrypt authenticated AAD metadata is not an object")
     encoded = meta.get("user_aad")
     if not isinstance(encoded, str):
         raise RuntimeError("DNCrypt authenticated AAD metadata lacks user_aad")
-    embedded = base64.b64decode(encoded.encode("ascii"), validate=True)
+    embedded = b64d(encoded)
     return outer_aad, embedded
+
+
+def _retag(envelope: DNCryptEnvelope, **changes: object) -> DNCryptEnvelope:
+    payload = asdict(envelope)
+    payload.update(changes)
+    payload.pop("receipt_blake2b", None)
+    payload.pop("receipt_sha3_256", None)
+    raw = canonical_json_bytes(payload)
+    return DNCryptEnvelope(
+        **payload,
+        receipt_blake2b=blake2b256(raw),
+        receipt_sha3_256=sha3_256(raw),
+    )
+
+
+def _expect_value_error(name: str, fn: Callable[[], object], contains: str) -> dict[str, str]:
+    try:
+        fn()
+    except ValueError as exc:
+        message = str(exc)
+        if contains not in message:
+            raise RuntimeError(f"{name}: wrong rejection: {message}") from exc
+        return {"name": name, "status": "PASS_FAIL_CLOSED", "error": message}
+    raise RuntimeError(f"{name}: unexpectedly admitted")
+
+
+def _actual_aead_adversarial_cases(
+    envelope: DNCryptEnvelope,
+    genome,
+    surface,
+    packed: bytes,
+) -> list[dict[str, str]]:
+    outer_aad = json.loads(b64d(envelope.aad_b64).decode("utf-8"))
+    user_aad = bytearray(b64d(outer_aad["user_aad"]))
+    user_aad[0] ^= 0x01
+    outer_aad["user_aad"] = b64e(bytes(user_aad))
+    forged_aad = _retag(envelope, aad_b64=b64e(canonical_json_bytes(outer_aad)))
+    if not forged_aad.verify_receipt():
+        raise RuntimeError("forged AAD control must have internally valid provenance receipt")
+
+    ciphertext = bytearray(b64d(envelope.ciphertext_b64))
+    ciphertext[-1] ^= 0x01
+    forged_ciphertext = _retag(envelope, ciphertext_b64=b64e(bytes(ciphertext)))
+    if not forged_ciphertext.verify_receipt():
+        raise RuntimeError("forged ciphertext control must have internally valid provenance receipt")
+
+    packed_tampered = bytearray(packed)
+    packed_tampered[-1] ^= 0x01
+
+    return [
+        _expect_value_error(
+            "authenticated_user_aad_mutation_retagged",
+            lambda: decrypt(MASTER, forged_aad, genome, surface),
+            "authentication failed",
+        ),
+        _expect_value_error(
+            "ciphertext_mutation_retagged",
+            lambda: decrypt(MASTER, forged_ciphertext, genome, surface),
+            "authentication failed",
+        ),
+        _expect_value_error(
+            "wrong_master_key",
+            lambda: decrypt(MASTER[::-1], envelope, genome, surface),
+            "authentication failed",
+        ),
+        _expect_value_error(
+            "packed_binary_mutation",
+            lambda: unpack_envelope(bytes(packed_tampered)),
+            "invalid provenance receipt",
+        ),
+    ]
 
 
 def run() -> dict[str, object]:
@@ -151,19 +238,20 @@ def run() -> dict[str, object]:
     if restored_user_aad != expected_user_aad:
         raise RuntimeError("authenticated BioOS user_aad changed after binary roundtrip")
 
-    deliberately_wrong_expected = expected_user_aad + b"\x00"
-    if restored_user_aad == deliberately_wrong_expected:
-        raise RuntimeError("negative expected-user-AAD equality control unexpectedly matched")
-
     recovered = decrypt(MASTER, restored, genome, surface)
     if recovered != plaintext:
         raise RuntimeError("DNCrypt decrypt did not recover exact PAUX plaintext")
 
-    ciphertext = base64.b64decode(restored.ciphertext_b64.encode("ascii"), validate=True)
+    adversarial_cases = _actual_aead_adversarial_cases(restored, genome, surface, packed)
+    if not all(case["status"] == "PASS_FAIL_CLOSED" for case in adversarial_cases):
+        raise RuntimeError("one or more actual DNCrypt adversarial cases did not fail closed")
+
+    ciphertext = b64d(restored.ciphertext_b64)
     receipt: dict[str, object] = {
         "schema": SCHEMA,
         "status": "PASS_DNCRYPT_BIOOS_DN36_AEAD_BINARY_CAPACITY",
         "bioos_source": BIOOS_SOURCE,
+        "dncrypt_implementation": DNCRYPT_IMPLEMENTATION,
         "dncrypt_protocol": restored.protocol_id,
         "binary_codec": "dncrypt.binary-envelope/v0.1",
         "sizes": {
@@ -187,18 +275,21 @@ def run() -> dict[str, object]:
             "binary_roundtrip_envelope_identity": True,
             "postunpack_receipt_valid": True,
             "embedded_user_aad_exact_after_unpack": True,
-            "wrong_expected_user_aad_rejected_by_equality_control": True,
             "decrypt_plaintext_exact": True,
             "pnstore_capacity_fit": True,
+            "actual_aead_adversarial_fail_closed": True,
         },
+        "adversarial_case_count": len(adversarial_cases),
+        "adversarial_cases": adversarial_cases,
         "security_claim": False,
         "dn36_identity_authority": False,
         "dn36_aead_authority": False,
         "canon_allowed": False,
         "claim_boundary": (
             "Deterministic compatibility/conformance execution for BioOS DN36-augmented user_aad "
-            "through DNCrypt v0.2 AEAD and binary-envelope v0.1, including current PNStore 3936-byte "
-            "capacity. It is not cryptanalysis and does not promote DN36 to cryptographic authority."
+            "through DNCrypt v0.2 ChaCha20-Poly1305 AEAD and binary-envelope v0.1, including current "
+            "PNStore 3936-byte capacity and fail-closed mutation checks. It is not cryptanalysis and "
+            "does not promote DN36 to cryptographic, identity, AEAD, or canon authority."
         ),
     }
     raw = canonical_json_bytes(receipt)
