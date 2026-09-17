@@ -49,13 +49,7 @@ DNCRYPT_IMPLEMENTATION = {
 
 
 def canonical_json_bytes(value: object) -> bytes:
-    return json.dumps(
-        value,
-        sort_keys=True,
-        separators=(",", ":"),
-        ensure_ascii=False,
-        allow_nan=False,
-    ).encode("utf-8")
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
 
 
 def _fixture() -> tuple[bytes, bytes]:
@@ -102,19 +96,28 @@ def _fixture() -> tuple[bytes, bytes]:
         raise RuntimeError("BioOS AAD-core fixture drift")
     if hashlib.sha256(binding_input).hexdigest() != aux["binding_input_sha256"]:
         raise RuntimeError("BioOS DN36 binding-input fixture drift")
-
-    user_aad = canonical_json_bytes(
-        {
-            "schema": "BIOOS_DNCRYPT_USER_AAD_WITH_DN36_AUX_V0_1",
-            "core": core,
-            "dn36_aux": aux,
-        }
-    )
+    user_aad = canonical_json_bytes({"schema": "BIOOS_DNCRYPT_USER_AAD_WITH_DN36_AUX_V0_1", "core": core, "dn36_aux": aux})
     if len(user_aad) != 1234:
         raise RuntimeError(f"BioOS user_aad length drift: {len(user_aad)} != 1234")
     if hashlib.sha256(user_aad).hexdigest() != "8921d4e288a994c82c75c1f996d83f41cb5a1692bdb49400ae76101fc93d45e5":
         raise RuntimeError("BioOS user_aad byte identity drift")
     return paux, user_aad
+
+
+def _make_envelope() -> tuple[bytes, bytes, object, object, DNCryptEnvelope, bytes]:
+    plaintext, expected_user_aad = _fixture()
+    genome = initial_genome(GENOME_ENTROPY)
+    surface = initial_surface(genome)
+    envelope = encrypt(
+        MASTER,
+        plaintext,
+        genome,
+        surface,
+        user_aad=expected_user_aad,
+        parent_receipt="bioos:dn36:parent:conformance-v01",
+        entropy=MESSAGE_ENTROPY,
+    )
+    return plaintext, expected_user_aad, genome, surface, envelope, pack_envelope(envelope)
 
 
 def _extract_user_aad(envelope: DNCryptEnvelope) -> tuple[bytes, bytes]:
@@ -125,8 +128,7 @@ def _extract_user_aad(envelope: DNCryptEnvelope) -> tuple[bytes, bytes]:
     encoded = meta.get("user_aad")
     if not isinstance(encoded, str):
         raise RuntimeError("DNCrypt authenticated AAD metadata lacks user_aad")
-    embedded = b64d(encoded)
-    return outer_aad, embedded
+    return outer_aad, b64d(encoded)
 
 
 def _retag(envelope: DNCryptEnvelope, **changes: object) -> DNCryptEnvelope:
@@ -135,11 +137,7 @@ def _retag(envelope: DNCryptEnvelope, **changes: object) -> DNCryptEnvelope:
     payload.pop("receipt_blake2b", None)
     payload.pop("receipt_sha3_256", None)
     raw = canonical_json_bytes(payload)
-    return DNCryptEnvelope(
-        **payload,
-        receipt_blake2b=blake2b256(raw),
-        receipt_sha3_256=sha3_256(raw),
-    )
+    return DNCryptEnvelope(**payload, receipt_blake2b=blake2b256(raw), receipt_sha3_256=sha3_256(raw))
 
 
 def _expect_value_error(name: str, fn: Callable[[], object], contains: str) -> dict[str, str]:
@@ -153,12 +151,7 @@ def _expect_value_error(name: str, fn: Callable[[], object], contains: str) -> d
     raise RuntimeError(f"{name}: unexpectedly admitted")
 
 
-def _actual_aead_adversarial_cases(
-    envelope: DNCryptEnvelope,
-    genome,
-    surface,
-    packed: bytes,
-) -> list[dict[str, str]]:
+def _actual_aead_adversarial_cases(envelope: DNCryptEnvelope, genome, surface, packed: bytes) -> list[dict[str, str]]:
     outer_aad = json.loads(b64d(envelope.aad_b64).decode("utf-8"))
     user_aad = bytearray(b64d(outer_aad["user_aad"]))
     user_aad[0] ^= 0x01
@@ -166,86 +159,46 @@ def _actual_aead_adversarial_cases(
     forged_aad = _retag(envelope, aad_b64=b64e(canonical_json_bytes(outer_aad)))
     if not forged_aad.verify_receipt():
         raise RuntimeError("forged AAD control must have internally valid provenance receipt")
-
     ciphertext = bytearray(b64d(envelope.ciphertext_b64))
     ciphertext[-1] ^= 0x01
     forged_ciphertext = _retag(envelope, ciphertext_b64=b64e(bytes(ciphertext)))
     if not forged_ciphertext.verify_receipt():
         raise RuntimeError("forged ciphertext control must have internally valid provenance receipt")
-
     packed_tampered = bytearray(packed)
     packed_tampered[-1] ^= 0x01
-
     return [
-        _expect_value_error(
-            "authenticated_user_aad_mutation_retagged",
-            lambda: decrypt(MASTER, forged_aad, genome, surface),
-            "authentication failed",
-        ),
-        _expect_value_error(
-            "ciphertext_mutation_retagged",
-            lambda: decrypt(MASTER, forged_ciphertext, genome, surface),
-            "authentication failed",
-        ),
-        _expect_value_error(
-            "wrong_master_key",
-            lambda: decrypt(MASTER[::-1], envelope, genome, surface),
-            "authentication failed",
-        ),
-        _expect_value_error(
-            "packed_binary_mutation",
-            lambda: unpack_envelope(bytes(packed_tampered)),
-            "invalid provenance receipt",
-        ),
+        _expect_value_error("authenticated_user_aad_mutation_retagged", lambda: decrypt(MASTER, forged_aad, genome, surface), "authentication failed"),
+        _expect_value_error("ciphertext_mutation_retagged", lambda: decrypt(MASTER, forged_ciphertext, genome, surface), "authentication failed"),
+        _expect_value_error("wrong_master_key", lambda: decrypt(MASTER[::-1], envelope, genome, surface), "authentication failed"),
+        _expect_value_error("packed_binary_mutation", lambda: unpack_envelope(bytes(packed_tampered)), "invalid provenance receipt"),
     ]
 
 
 def run() -> dict[str, object]:
-    plaintext, expected_user_aad = _fixture()
-    genome = initial_genome(GENOME_ENTROPY)
-    surface = initial_surface(genome)
-    envelope = encrypt(
-        MASTER,
-        plaintext,
-        genome,
-        surface,
-        user_aad=expected_user_aad,
-        parent_receipt="bioos:dn36:parent:conformance-v01",
-        entropy=MESSAGE_ENTROPY,
-    )
+    plaintext, expected_user_aad, genome, surface, envelope, packed = _make_envelope()
     if not envelope.verify_receipt():
         raise RuntimeError("DNCrypt provenance receipt failed before packing")
-
     outer_aad, embedded_user_aad = _extract_user_aad(envelope)
     if embedded_user_aad != expected_user_aad:
         raise RuntimeError("authenticated embedded BioOS user_aad mismatch before packing")
-
-    packed = pack_envelope(envelope)
     if len(packed) > PNSTORE_PAYLOAD_MAX:
-        raise RuntimeError(
-            f"DNCrypt binary envelope exceeds PNStore payload: {len(packed)} > {PNSTORE_PAYLOAD_MAX}"
-        )
-
+        raise RuntimeError(f"DNCrypt binary envelope exceeds PNStore payload: {len(packed)} > {PNSTORE_PAYLOAD_MAX}")
     restored = unpack_envelope(packed)
     if restored != envelope or restored.to_bytes() != envelope.to_bytes():
         raise RuntimeError("binary envelope roundtrip changed canonical DNCrypt envelope")
     if not restored.verify_receipt():
         raise RuntimeError("DNCrypt provenance receipt failed after unpack")
-
     restored_outer_aad, restored_user_aad = _extract_user_aad(restored)
     if restored_outer_aad != outer_aad:
         raise RuntimeError("authenticated outer AAD changed after binary roundtrip")
     if restored_user_aad != expected_user_aad:
         raise RuntimeError("authenticated BioOS user_aad changed after binary roundtrip")
-
     recovered = decrypt(MASTER, restored, genome, surface)
     if recovered != plaintext:
         raise RuntimeError("DNCrypt decrypt did not recover exact PAUX plaintext")
-
     adversarial_cases = _actual_aead_adversarial_cases(restored, genome, surface, packed)
     if not all(case["status"] == "PASS_FAIL_CLOSED" for case in adversarial_cases):
         raise RuntimeError("one or more actual DNCrypt adversarial cases did not fail closed")
-
     ciphertext = b64d(restored.ciphertext_b64)
     receipt: dict[str, object] = {
         "schema": SCHEMA,
@@ -268,6 +221,7 @@ def run() -> dict[str, object]:
             "bioos_user_aad_sha256": hashlib.sha256(expected_user_aad).hexdigest(),
             "paux_sha256": hashlib.sha256(plaintext).hexdigest(),
             "binary_envelope_id": binary_envelope_id(packed),
+            "packed_binary_sha256": hashlib.sha256(packed).hexdigest(),
         },
         "gates": {
             "prepack_receipt_valid": True,
@@ -286,10 +240,9 @@ def run() -> dict[str, object]:
         "dn36_aead_authority": False,
         "canon_allowed": False,
         "claim_boundary": (
-            "Deterministic compatibility/conformance execution for BioOS DN36-augmented user_aad "
-            "through DNCrypt v0.2 ChaCha20-Poly1305 AEAD and binary-envelope v0.1, including current "
-            "PNStore 3936-byte capacity and fail-closed mutation checks. It is not cryptanalysis and "
-            "does not promote DN36 to cryptographic, identity, AEAD, or canon authority."
+            "Deterministic compatibility/conformance execution for BioOS DN36-augmented user_aad through DNCrypt v0.2 "
+            "ChaCha20-Poly1305 AEAD and binary-envelope v0.1, including current PNStore 3936-byte capacity and fail-closed "
+            "mutation checks. It is not cryptanalysis and does not promote DN36 to cryptographic, identity, AEAD, or canon authority."
         ),
     }
     raw = canonical_json_bytes(receipt)
@@ -299,15 +252,17 @@ def run() -> dict[str, object]:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--out",
-        type=Path,
-        default=Path("evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json"),
-    )
+    parser.add_argument("--out", type=Path, default=Path("evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json"))
+    parser.add_argument("--binary-out", type=Path, default=Path("evidence/BIOOS_DN36_DNCRYPT_BINARY_ENVELOPE_V0_1.bin"))
     args = parser.parse_args()
     receipt = run()
+    _, _, _, _, _, packed = _make_envelope()
+    if hashlib.sha256(packed).hexdigest() != receipt["identity"]["packed_binary_sha256"]:
+        raise RuntimeError("binary fixture SHA drift after conformance run")
     args.out.parent.mkdir(parents=True, exist_ok=True)
+    args.binary_out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    args.binary_out.write_bytes(packed)
     print(json.dumps(receipt, indent=2, sort_keys=True))
     return 0
 
