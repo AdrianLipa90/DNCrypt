@@ -37,12 +37,14 @@ jobs:
         run: python -m pytest -q tests/test_binary_envelope_v01.py tests/test_dncrypt.py
       - name: BioOS DN36 AAD conformance tests
         run: python -m pytest -q tests/test_bioos_dn36_aad_conformance_v01.py
-      - name: Emit BioOS DN36 AAD evidence receipt
-        run: python -m tools.bioos_dn36_aad_conformance_v01 --out evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json
+      - name: Emit BioOS DN36 AAD evidence and exact binary fixture
+        run: python -m tools.bioos_dn36_aad_conformance_v01 --out evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json --binary-out evidence/BIOOS_DN36_DNCRYPT_BINARY_ENVELOPE_V0_1.bin
       - name: Upload BioOS DN36 AAD evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: bioos-dn36-aad-conformance-v01-evidence
-          path: evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json
+          path: |
+            evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json
+            evidence/BIOOS_DN36_DNCRYPT_BINARY_ENVELOPE_V0_1.bin
           if-no-files-found: error
