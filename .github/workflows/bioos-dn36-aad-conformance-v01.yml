@@ -6,12 +6,14 @@ on:
     branches:
       - feat/dncrypt-bioos-dn36-aad-conformance-v0.1
     paths:
+      - 'src/dncrypt/fitness.py'
       - 'tools/bioos_dn36_aad_conformance_v01.py'
       - 'tests/test_bioos_dn36_aad_conformance_v01.py'
       - 'docs/BIOOS_DN36_AAD_CONFORMANCE_V0_1.md'
       - '.github/workflows/bioos-dn36-aad-conformance-v01.yml'
   pull_request:
     paths:
+      - 'src/dncrypt/fitness.py'
       - 'tools/bioos_dn36_aad_conformance_v01.py'
       - 'tests/test_bioos_dn36_aad_conformance_v01.py'
       - 'docs/BIOOS_DN36_AAD_CONFORMANCE_V0_1.md'
