@@ -11,6 +11,13 @@ from .generalization import (
     select_generation_multifold,
 )
 from .security_admission import SecurityAdmissionBinding, select_generation_multifold_security_only
+from .causality import (
+    CausalityFirewallReceipt,
+    FitnessCausalityRegistry,
+    MetricCausalityBinding,
+    frozen_v02_causality_registry,
+    select_generation_multifold_causal,
+)
 from .security_control import (
     SecurityControlPolicy, SecurityControlState, SecurityControlObservation, SecurityControlDecision,
     SecurityControlEvaluation, derive_security_control_policy, apply_security_control,
@@ -32,6 +39,8 @@ __all__ = [
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
     "robust_pareto_survivor_indices","select_generation_multifold",
     "SecurityAdmissionBinding","select_generation_multifold_security_only",
+    "CausalityFirewallReceipt","FitnessCausalityRegistry","MetricCausalityBinding",
+    "frozen_v02_causality_registry","select_generation_multifold_causal",
     "SecurityControlPolicy","SecurityControlState","SecurityControlObservation","SecurityControlDecision",
     "SecurityControlEvaluation","derive_security_control_policy","apply_security_control",
     "rotate_control_state","evaluate_security_control",

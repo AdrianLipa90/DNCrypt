@@ -1,0 +1,47 @@
+{
+  "admission_fields": [],
+  "all_final_genomes_equal_initial": true,
+  "causality_registry_digest": "17cfb6f33d5e487f7e690efe7da30075438f487b0e236f92bfcc307245a3afaf",
+  "compileall": "PASS",
+  "date": "2026-08-28",
+  "diagnostic_fields": [
+    "avalanche_bias",
+    "delta_alpha",
+    "delta_bits",
+    "predictability",
+    "structural_leakage"
+  ],
+  "file_sha256": {
+    "docs/DNCRYPT_FITNESS_CAUSALITY_FIREWALL_V0_4_2.md": "b1ef7cb37ed1ad346e4c52cda620eb58be13edd31b65da16fc73de47ece840b9",
+    "src/dncrypt/__init__.py": "1eba03b7e909c05f99bcf3ff4570f834d8800098cdc345f317fbf29aa8ce659a",
+    "src/dncrypt/causality.py": "3713e8f41bbd1e3f0f6574d50b1f58fc6f51e4e71c35504f617293115094f4b5",
+    "tests/test_causality_firewall_v042.py": "5fd440c69d8bd10543a006bf2b627288a1955d5b53801deacc44170f17bb59bf",
+    "tests/test_cryptanalysis_challenge_v042.py": "1ee5437a2a71a8e6d2bde2cf3f8d9b2de77c11eef3f1680eaad42e2563e5191b",
+    "tools/cryptanalysis_challenge_v042.py": "a64e6afd952dcd4167cf43b955f1ae818d950e90a7060f1b5d5af8796f995c73"
+  },
+  "integration_tests": "32 passed",
+  "measurement_commitment_replay_1": "4368de96b9d1ca13af6bfad0f22c8155577c216138336a3831350e175532c762",
+  "measurement_commitment_replay_2": "a3e6c9c45d25d9f3f12d3b2f11c6c3df688c09ea784feb9b67aca607ba571490",
+  "measurement_commitments_differ": true,
+  "next_gate": "GENOME_CONTROLLED_SECURITY_POLICY_SURFACE",
+  "paired_entropy_schedule": true,
+  "receipt_sha256": "55ee75ca36502e9749644d93ada123f35e20e05512b27ebeb84cd6266926e6a7",
+  "schema": "dncrypt.v0.4.2-fitness-causality-firewall-receipt/v0.1",
+  "security_advantage_claim_promoted": false,
+  "security_commitment_equal_across_two_replays": true,
+  "security_evidence_commitment_blake2b": "ebc634dde1db25455d1fea84306145b3c380b779d4f4e01feada9679287edf70",
+  "stacked_base": "5c762264626568ca26134a442c9f772f25cae816",
+  "status": "PASS_CAUSALITY_FIREWALL_NULL_STABILITY",
+  "summary": {
+    "adaptive_holdout_wins": 0,
+    "all_holdouts_excluded_from_selection": true,
+    "mean_holdout_risk_delta_adaptive_minus_static": 0.0,
+    "mean_promotions": 0.0,
+    "median_holdout_risk_delta_adaptive_minus_static": 0.0,
+    "replicates": 6,
+    "sign_test_two_sided_p": 1.0,
+    "static_holdout_wins": 0,
+    "ties": 6
+  },
+  "verdict": "NO_SEALED_HOLDOUT_ADVANTAGE_DEMONSTRATED"
+}
