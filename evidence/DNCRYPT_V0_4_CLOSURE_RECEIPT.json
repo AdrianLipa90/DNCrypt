@@ -1,0 +1,48 @@
+{
+  "branch_head": "ecc1660cef0c6b2b5a85b37c67d115bb7e13da23",
+  "evidence": {
+    "causal_surface_receipt": "7ec8e1f819a587cc2c52e720265bfc1567b7d9d52c8515ee53e69b1280779d51",
+    "ci_job_steps_observed": 0,
+    "control_challenge": {
+      "losses": 0,
+      "mean_delta": -0.046500237483531874,
+      "scope": "CONTROLLED_SECURITY_CONTROL_SIMULATION",
+      "sign_test_p": 0.03125,
+      "ties": 6,
+      "wins": 6
+    },
+    "control_challenge_replay": "eed312015820432a2f7f1c14ebb0bab18184118f4cc911efd09f8b09e5668ba6",
+    "latest_ci_run_id": 33181784084,
+    "pytest_local": "33 passed",
+    "security_admission_replay": "6c25c831d86448f23a89a7f6da1d9cd4c06849219780233729d0ca5860aefe3d"
+  },
+  "frozen_anchor": {
+    "aead": "ChaCha20-Poly1305",
+    "kdf": "HKDF-SHA3-512"
+  },
+  "gates": {
+    "causal_security_control_state": "PASS",
+    "causal_surface_audit": "PASS",
+    "controlled_security_control_holdout": "PASS",
+    "deterministic_security_admission": "PASS",
+    "main_promotion": "BLOCKED",
+    "multifold_generalization": "PASS",
+    "release_ci": "BLOCKED_INFRA_BEFORE_RUNNER",
+    "sealed_holdout_excluded_from_selection": "PASS"
+  },
+  "next_frontier": "STATE_MEMORY_EXACT_ROLLBACK",
+  "pull_request": {
+    "base": "main",
+    "draft": true,
+    "mergeable": true,
+    "number": 2
+  },
+  "receipt_sha256": "12c241c82885f0ec9033a08f54cf6e5275f6546668079dbe9489fa67b498b4d6",
+  "schema": "dncrypt.v0.4-closure-receipt/v0.1",
+  "status": "MODEL_EVIDENCE_GATE_PASS_RELEASE_CI_BLOCKED",
+  "version_transition": {
+    "v0.4": "MODEL_CLOSED",
+    "v0.5": "CANDIDATE_STACK_ALLOWED",
+    "v0.5_promotion": "BLOCKED_UNTIL_RELEASE_CI_OR_EQUIVALENT_EXTERNAL_REPLAY"
+  }
+}

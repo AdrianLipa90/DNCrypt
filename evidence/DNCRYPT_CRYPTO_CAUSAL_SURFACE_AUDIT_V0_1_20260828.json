@@ -1,0 +1,45 @@
+{
+  "adaptive_state_binding": {
+    "candidate_policy_fields": [
+      "operator_vector",
+      "route",
+      "phase_seed_hex",
+      "mutation_nonce_hex"
+    ],
+    "genome_identity_commitment": "genome_id",
+    "next_frontier": "ADAPTIVE_SECURITY_CONTROL_STATE",
+    "surface_identity_commitment": "surface.commitment"
+  },
+  "dataflow": {
+    "aad_genome_attributes": [
+      "generation",
+      "genome_id"
+    ],
+    "aad_surface_attributes": [
+      "commitment",
+      "tick"
+    ],
+    "decrypt_genome_attributes": [
+      "generation",
+      "genome_id"
+    ],
+    "decrypt_surface_attributes": [
+      "commitment",
+      "tick"
+    ],
+    "message_key_genome_attributes": [
+      "genome_id"
+    ]
+  },
+  "frozen_anchor": {
+    "aead": "ChaCha20-Poly1305",
+    "kdf": "HKDF-SHA3-512"
+  },
+  "receipt_sha256": "7ec8e1f819a587cc2c52e720265bfc1567b7d9d52c8515ee53e69b1280779d51",
+  "schema": "dncrypt.crypto-causal-surface-audit/v0.1",
+  "source": {
+    "crypto_sha256": "7e229b41cacb969883568af4e276696787cb7dd388d990743eff74d91afa4a7e",
+    "genome_sha256": "f2569ef30f2b5b1a596344c499624b7c7483b96bcaa75abfa8c7439c1817c272"
+  },
+  "status": "PASS_CAUSAL_BOUNDARY_IDENTIFIED"
+}
