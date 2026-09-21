@@ -13,7 +13,7 @@ import time
 import numpy as np
 
 from dncrypt.causality import frozen_v02_causality_registry, select_generation_multifold_causal
-from dncrypt.crypto import DNCryptEnvelope, decrypt, encrypt
+from dncrypt.crypto import DNCryptEnvelope, decrypt, encrypt_deterministic_for_test
 from dncrypt.fitness import FitnessRecord
 from dncrypt.util import b64d, b64e, blake2b256, canonical_json_bytes
 
@@ -45,7 +45,7 @@ def evaluate_genome_paired(master_key: bytes, genome, surface, messages: list[by
     integrity_failures = 0
     for i, msg in enumerate(messages):
         entropy = paired_entropy(seed, messages, i)
-        env = encrypt(
+        env = encrypt_deterministic_for_test(
             master_key,
             msg,
             genome,
@@ -63,7 +63,7 @@ def evaluate_genome_paired(master_key: bytes, genome, surface, messages: list[by
 
         alt = bytearray(msg)
         alt[0] ^= 1
-        env2 = encrypt(
+        env2 = encrypt_deterministic_for_test(
             master_key,
             bytes(alt),
             genome,
