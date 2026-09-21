@@ -11,6 +11,7 @@ from dncrypt.twist_geometry_v02 import (
     permutation_cycles,
     relational_twist_class,
     relative_permutation,
+    vectorized_cyclic_novelty,
 )
 
 
@@ -76,3 +77,13 @@ def test_cycle_structure_changes_when_relative_route_changes():
     assert identity.cycle_lengths != shifted.cycle_lengths
     assert shifted.phase_novelty > 0.0
     assert identity.class_fingerprint != shifted.class_fingerprint
+
+
+def test_vectorized_cyclic_scan_matches_v01_reference():
+    from dncrypt.twist_geometry_v01 import cyclic_twist_scan
+
+    a = _slice()
+    b = tuple((x + 0.14 + 0.005 * (i % 4)) % (2.0 * math.pi) for i, x in enumerate(a))
+    reference = tuple(sig.novelty for sig in cyclic_twist_scan(a, b))
+    batched = vectorized_cyclic_novelty(a, b)
+    assert batched == pytest.approx(reference, abs=1e-12)
