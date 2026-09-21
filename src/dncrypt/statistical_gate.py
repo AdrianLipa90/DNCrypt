@@ -55,8 +55,6 @@ def exact_one_sided_sign_test(wins: int, losses: int) -> float:
     n = wins + losses
     if n == 0:
         return 1.0
-    if wins <= n // 2:
-        return 1.0
     return min(
         1.0,
         sum(math.comb(n, k) for k in range(wins, n + 1)) / (2 ** n),
