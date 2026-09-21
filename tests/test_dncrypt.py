@@ -3,7 +3,7 @@ from dataclasses import replace, asdict
 import pytest
 
 from dncrypt import (
-    decrypt, encrypt, initial_genome, initial_surface, evolve_surface,
+    decrypt, encrypt, encrypt_deterministic_for_test, initial_genome, initial_surface, evolve_surface,
     transition_surface, vectorized_mutation_population, population_commitment,
     envelope_to_dna, envelope_from_dna, DNCryptState, save_state_atomic, load_state,
     FitnessRecord, PopulationFitnessReport, EvolutionPolicy, propose_generation,
