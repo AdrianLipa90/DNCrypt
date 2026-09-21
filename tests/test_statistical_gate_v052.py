@@ -40,7 +40,7 @@ def _score(genome_id: str, deltas: tuple[float, ...], *, gate_pass: bool = True)
 def test_exact_sign_test_requires_repeated_directional_evidence():
     assert exact_one_sided_sign_test(6, 0) == pytest.approx(1 / 64)
     assert exact_one_sided_sign_test(5, 1) == pytest.approx(7 / 64)
-    assert exact_one_sided_sign_test(3, 3) == 1.0
+    assert exact_one_sided_sign_test(3, 3) == pytest.approx(42 / 64)
 
 
 def test_bh_qvalues_are_monotone_and_control_population_search():
