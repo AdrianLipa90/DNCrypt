@@ -99,6 +99,11 @@ def select_generation(parent: CipherGenome, parent_surface: CipherSurface, paren
         raise ValueError("parent report binding mismatch")
     if not parent_report.invariant_pass:
         raise ValueError("parent invariant report is not clean")
+    if any(g.parent_id != parent.genome_id or g.generation != parent.generation + 1 for g in population):
+        raise ValueError("population lineage mismatch")
+    expected_request = make_evaluation_request(parent, population)
+    if candidate_report.request_id != expected_request.request_id:
+        raise ValueError("candidate report request_id mismatch")
     candidate_report.validate_population(population)
     ordered = candidate_report.ordered_for(population)
     valid_indices = tuple(i for i, r in enumerate(ordered) if r.invariant_pass)
