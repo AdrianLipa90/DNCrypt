@@ -41,7 +41,6 @@ jobs:
         run: python -m tools.bioos_dn36_aad_conformance_v01 --out evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json --binary-out evidence/BIOOS_DN36_DNCRYPT_BINARY_ENVELOPE_V0_1.bin
       - name: Upload BioOS DN36 AAD evidence
         if: always()
-        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: bioos-dn36-aad-conformance-v01-evidence
