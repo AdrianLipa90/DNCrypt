@@ -1,7 +1,8 @@
-"""DNCrypt public API with frozen v0.2 compatibility and v0.4 candidate interfaces."""
+"""DNCrypt public API: frozen v0.2 AEAD anchor with v0.5 hardening interfaces."""
 from .adversary import AttackReport, MutationPolicy, EvolutionReceipt, evolve_from_attack
 from .binary_envelope import CODEC_ID as BINARY_ENVELOPE_CODEC_ID, binary_envelope_id, pack_envelope, unpack_envelope
 from .bus import EvaluationRequest, make_evaluation_request, write_evaluation_request, load_external_evaluation
+from .evaluator_auth import SignedEvaluationEnvelope, sign_evaluation_report, verify_signed_evaluation, load_signed_external_evaluation
 from .crypto import DNCryptEnvelope, decrypt, encrypt, encrypt_deterministic_for_test, generate_master_key
 from .evolution import EvolutionPolicy, ProposalReceipt, PromotionReceipt, propose_generation, select_generation
 from .generalization import (
@@ -31,11 +32,13 @@ from .state import DNCryptState, load_state, save_state_atomic
 from .ledger import append_ledger_record, resolve_ledger_record
 from .surface import CipherSurface, initial_surface, evolve_surface, transition_surface
 from .transport import bytes_to_dna, dna_to_bytes, envelope_to_dna, envelope_from_dna
+from .twist_geometry_v02 import RelationalTwistClass, relative_permutation, permutation_cycles, relational_twist_class
 
 __all__ = [
     "AttackReport","MutationPolicy","EvolutionReceipt","evolve_from_attack",
     "BINARY_ENVELOPE_CODEC_ID","binary_envelope_id","pack_envelope","unpack_envelope",
     "EvaluationRequest","make_evaluation_request","write_evaluation_request","load_external_evaluation",
+    "SignedEvaluationEnvelope","sign_evaluation_report","verify_signed_evaluation","load_signed_external_evaluation",
     "DNCryptEnvelope","decrypt","encrypt","encrypt_deterministic_for_test","generate_master_key",
     "EvolutionPolicy","ProposalReceipt","PromotionReceipt","propose_generation","select_generation",
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
@@ -52,4 +55,5 @@ __all__ = [
     "DNCryptState","load_state","save_state_atomic","append_ledger_record","resolve_ledger_record",
     "CipherSurface","initial_surface","evolve_surface","transition_surface",
     "bytes_to_dna","dna_to_bytes","envelope_to_dna","envelope_from_dna",
+    "RelationalTwistClass","relative_permutation","permutation_cycles","relational_twist_class",
 ]
