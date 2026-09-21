@@ -180,7 +180,7 @@ def test_pnv_uses_existing_relation_alphabet_only():
 def test_dncrypt_v02_exact_native_crypto_conformance():
     from dncrypt.genome import initial_genome
     from dncrypt.surface import initial_surface
-    from dncrypt.crypto import encrypt as ref_encrypt
+    from dncrypt.crypto import encrypt_deterministic_for_test as ref_encrypt
     from dncrypt.util import b64d, canonical_json_bytes
 
     genome = initial_genome(bytes(range(64)))
