@@ -32,7 +32,7 @@ from .state import DNCryptState, load_state, save_state_atomic
 from .ledger import append_ledger_record, resolve_ledger_record
 from .surface import CipherSurface, initial_surface, evolve_surface, transition_surface
 from .transport import bytes_to_dna, dna_to_bytes, envelope_to_dna, envelope_from_dna
-from .twist_geometry_v02 import RelationalTwistClass, relative_permutation, permutation_cycles, relational_twist_class
+from .twist_geometry_v02 import RelationalTwistClass, relative_permutation, permutation_cycles, relational_twist_class, vectorized_cyclic_novelty
 
 __all__ = [
     "AttackReport","MutationPolicy","EvolutionReceipt","evolve_from_attack",
@@ -55,5 +55,5 @@ __all__ = [
     "DNCryptState","load_state","save_state_atomic","append_ledger_record","resolve_ledger_record",
     "CipherSurface","initial_surface","evolve_surface","transition_surface",
     "bytes_to_dna","dna_to_bytes","envelope_to_dna","envelope_from_dna",
-    "RelationalTwistClass","relative_permutation","permutation_cycles","relational_twist_class",
+    "RelationalTwistClass","relative_permutation","permutation_cycles","relational_twist_class","vectorized_cyclic_novelty",
 ]
