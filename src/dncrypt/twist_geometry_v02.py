@@ -6,6 +6,8 @@ import json
 import math
 from typing import Sequence
 
+import numpy as np
+
 from .twist_geometry_v01 import (
     DIM,
     TwistGeometryError,
@@ -136,3 +138,21 @@ def relational_twist_class(
         residual_rms_rad=signature.residual_rms_rad,
         harmonic_magnitudes=signature.harmonic_magnitudes,
     )
+
+
+def vectorized_cyclic_novelty(
+    slice_a: Sequence[float],
+    slice_b: Sequence[float],
+) -> tuple[float, ...]:
+    """Return relational novelty for all 36 cyclic twists in one NumPy batch."""
+    if len(slice_a) != DIM or len(slice_b) != DIM:
+        raise TwistGeometryError("phase slices must contain exactly 36 values")
+    a = np.asarray(slice_a, dtype=np.float64)
+    b = np.asarray(slice_b, dtype=np.float64)
+    if not np.all(np.isfinite(a)) or not np.all(np.isfinite(b)):
+        raise TwistGeometryError("phase slice values must be finite")
+    shifts = (np.arange(DIM)[:, None] + np.arange(DIM)[None, :]) % DIM
+    relative = b[shifts] - a[None, :]
+    order = np.exp(1j * relative).mean(axis=1)
+    novelty = 1.0 - np.clip(np.abs(order), 0.0, 1.0)
+    return tuple(float(x) for x in novelty)
