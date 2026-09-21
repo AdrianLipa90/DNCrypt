@@ -41,7 +41,7 @@ def evaluate_genome(master_key: bytes, genome, surface, messages: list[bytes], s
     integrity_failures = 0
     for i, msg in enumerate(messages):
         entropy = derive(seed, label, genome.genome_id, i, "entropy", n=44)
-        env = encrypt(master_key, msg, genome, surface, user_aad=b"DNCrypt-Cryptanalysis-Challenge-v0.1", entropy=entropy)
+        env = encrypt_deterministic_for_test(master_key, msg, genome, surface, user_aad=b"DNCrypt-Cryptanalysis-Challenge-v0.1", entropy=entropy)
         raw_ct = b64d(env.ciphertext_b64)
         cts.append(raw_ct)
         try:
@@ -52,7 +52,7 @@ def evaluate_genome(master_key: bytes, genome, surface, messages: list[bytes], s
 
         # Offline avalanche probe: same deterministic message entropy, one flipped plaintext bit.
         alt = bytearray(msg); alt[0] ^= 1
-        env2 = encrypt(master_key, bytes(alt), genome, surface, user_aad=b"DNCrypt-Cryptanalysis-Challenge-v0.1", entropy=entropy)
+        env2 = encrypt_deterministic_for_test(master_key, bytes(alt), genome, surface, user_aad=b"DNCrypt-Cryptanalysis-Challenge-v0.1", entropy=entropy)
         raw2 = b64d(env2.ciphertext_b64)
         m = min(len(raw_ct), len(raw2))
         if m:
