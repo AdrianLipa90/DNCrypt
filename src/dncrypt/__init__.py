@@ -1,5 +1,6 @@
 """DNCrypt public API: frozen v0.2 AEAD anchor with v0.5 hardening interfaces."""
 from .adversary import AttackReport, MutationPolicy, EvolutionReceipt, evolve_from_attack
+from .anti_rollback import MonotonicJournalAnchor, MonotonicAnchorPort, InMemoryMonotonicAnchor, advance_journal_anchor, verify_journal_against_anchor
 from .binary_envelope import CODEC_ID as BINARY_ENVELOPE_CODEC_ID, binary_envelope_id, pack_envelope, unpack_envelope
 from .bus import EvaluationRequest, make_evaluation_request, write_evaluation_request, load_external_evaluation
 from .evaluator_auth import SignedEvaluationEnvelope, sign_evaluation_report, verify_signed_evaluation, load_signed_external_evaluation
@@ -13,6 +14,7 @@ from .generalization import (
     select_generation_multifold,
 )
 from .security_admission import SecurityAdmissionBinding, select_generation_multifold_security_only
+from .statistical_gate import StatisticalAdmissionPolicy, StatisticalCandidateEvidence, benjamini_hochberg_qvalues, population_statistical_gate, select_generation_multifold_statistically_hardened
 from .causality import (
     CausalityFirewallReceipt,
     FitnessCausalityRegistry,
@@ -36,6 +38,7 @@ from .twist_geometry_v02 import RelationalTwistClass, relative_permutation, perm
 
 __all__ = [
     "AttackReport","MutationPolicy","EvolutionReceipt","evolve_from_attack",
+    "MonotonicJournalAnchor","MonotonicAnchorPort","InMemoryMonotonicAnchor","advance_journal_anchor","verify_journal_against_anchor",
     "BINARY_ENVELOPE_CODEC_ID","binary_envelope_id","pack_envelope","unpack_envelope",
     "EvaluationRequest","make_evaluation_request","write_evaluation_request","load_external_evaluation",
     "SignedEvaluationEnvelope","sign_evaluation_report","verify_signed_evaluation","load_signed_external_evaluation",
@@ -44,6 +47,7 @@ __all__ = [
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
     "robust_pareto_survivor_indices","select_generation_multifold",
     "SecurityAdmissionBinding","select_generation_multifold_security_only",
+    "StatisticalAdmissionPolicy","StatisticalCandidateEvidence","benjamini_hochberg_qvalues","population_statistical_gate","select_generation_multifold_statistically_hardened",
     "CausalityFirewallReceipt","FitnessCausalityRegistry","MetricCausalityBinding",
     "frozen_v02_causality_registry","select_generation_multifold_causal",
     "SecurityControlPolicy","SecurityControlState","SecurityControlObservation","SecurityControlDecision",
