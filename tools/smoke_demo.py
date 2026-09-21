@@ -4,7 +4,7 @@ import json, tempfile
 from pathlib import Path
 
 from dncrypt import (
-    initial_genome, initial_surface, encrypt, decrypt, EvolutionPolicy,
+    initial_genome, initial_surface, encrypt_deterministic_for_test, decrypt, EvolutionPolicy,
     FitnessRecord, PopulationFitnessReport, propose_generation, make_evaluation_request,
     select_generation, append_evolution_receipt, verify_evolution_ledger,
 )
@@ -22,7 +22,7 @@ def main() -> int:
     key = bytes(range(32))
     parent = initial_genome(bytes(range(64)))
     surface = initial_surface(parent)
-    envelope = encrypt(key, b"DNCrypt v0.2 smoke", parent, surface, entropy=b"s" * 44)
+    envelope = encrypt_deterministic_for_test(key, b"DNCrypt v0.2 smoke", parent, surface, entropy=b"s" * 44)
     assert decrypt(key, envelope, parent, surface) == b"DNCrypt v0.2 smoke"
 
     policy = EvolutionPolicy(population_size=64, mutation_risk_threshold=0.02, surface_transition_steps=2)
