@@ -1,11 +1,14 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 import math
 import statistics
 from typing import Sequence
 
-from .generalization import CandidateGeneralizationScore
+from .generalization import CandidateGeneralizationScore, GeneralizationPolicy, select_generation_multifold
+from .genome import CipherGenome
+from .fitness import FitnessRecord, PopulationFitnessReport
+from .surface import CipherSurface
 from .util import blake2b256, canonical_json_bytes
 
 
@@ -119,3 +122,59 @@ def population_statistical_gate(
             reason="statistical_admission_gate_pass" if failed is None else failed,
         ))
     return tuple(out)
+
+
+def select_generation_multifold_statistically_hardened(
+    parent: CipherGenome,
+    parent_surface: CipherSurface,
+    parent_fold_reports: tuple[FitnessRecord, ...],
+    population: tuple[CipherGenome, ...],
+    candidate_fold_reports: tuple[PopulationFitnessReport, ...],
+    generalization_policy: GeneralizationPolicy,
+    statistical_policy: StatisticalAdmissionPolicy,
+    *,
+    sealed_holdout_commitment: str,
+):
+    """Run the existing multifold selector, then require population-level statistics.
+
+    This wrapper is deliberately fail-closed: if the candidate selected by the
+    multifold/Pareto gate fails the statistical admission gate, promotion is
+    cancelled rather than falling through to a weaker candidate.
+    """
+    child, child_surface, receipt, scores = select_generation_multifold(
+        parent,
+        parent_surface,
+        parent_fold_reports,
+        population,
+        candidate_fold_reports,
+        generalization_policy,
+        sealed_holdout_commitment=sealed_holdout_commitment,
+    )
+    evidence = population_statistical_gate(scores, statistical_policy)
+    if not receipt.promoted:
+        return child, child_surface, receipt, scores, evidence
+
+    selected = next(
+        (item for item in evidence if item.genome_id == receipt.selected_genome_id),
+        None,
+    )
+    if selected is None:
+        raise ValueError("selected genome missing statistical evidence")
+    if selected.gate_pass:
+        return child, child_surface, receipt, scores, evidence
+
+    rejected = replace(
+        receipt,
+        selected_genome_id=None,
+        selected_score_digest=None,
+        selected_fold_risk_deltas=None,
+        selected_median_risk_delta=None,
+        selected_worst_fold_risk_delta=None,
+        selected_delta_stddev=None,
+        selected_minimum_throughput_ratio=None,
+        selected_surface_commitment=None,
+        selected_tick=None,
+        promoted=False,
+        reason=f"statistical_admission_failed:{selected.reason}",
+    )
+    return parent, parent_surface, rejected, scores, evidence
