@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from dncrypt import decrypt, encrypt, initial_genome, initial_surface
+from dncrypt import decrypt, encrypt_deterministic_for_test, initial_genome, initial_surface
 from dncrypt.binary_envelope import MAGIC, binary_envelope_id, pack_envelope, unpack_envelope
 
 MASTER = bytes(range(32))
@@ -14,7 +14,7 @@ AAD = b'{"object_id":"pnv:test","generation":7,"paux_profile":"PAUX-EXACT"}'
 def _envelope(payload: bytes = b"x" * 576, *, parent: str | None = None):
     genome = initial_genome(GENOME_ENTROPY)
     surface = initial_surface(genome)
-    env = encrypt(MASTER, payload, genome, surface, user_aad=AAD, parent_receipt=parent, entropy=MESSAGE_ENTROPY)
+    env = encrypt_deterministic_for_test(MASTER, payload, genome, surface, user_aad=AAD, parent_receipt=parent, entropy=MESSAGE_ENTROPY)
     return genome, surface, env
 
 

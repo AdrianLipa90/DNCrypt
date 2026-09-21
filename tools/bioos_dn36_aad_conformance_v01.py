@@ -11,7 +11,7 @@ from dncrypt import (
     DNCryptEnvelope,
     binary_envelope_id,
     decrypt,
-    encrypt,
+    encrypt_deterministic_for_test,
     initial_genome,
     initial_surface,
     pack_envelope,
@@ -108,7 +108,7 @@ def _make_envelope() -> tuple[bytes, bytes, object, object, DNCryptEnvelope, byt
     plaintext, expected_user_aad = _fixture()
     genome = initial_genome(GENOME_ENTROPY)
     surface = initial_surface(genome)
-    envelope = encrypt(
+    envelope = encrypt_deterministic_for_test(
         MASTER,
         plaintext,
         genome,

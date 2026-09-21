@@ -3,7 +3,7 @@ from dataclasses import replace, asdict
 import pytest
 
 from dncrypt import (
-    decrypt, encrypt, initial_genome, initial_surface, evolve_surface,
+    decrypt, encrypt, encrypt_deterministic_for_test, initial_genome, initial_surface, evolve_surface,
     transition_surface, vectorized_mutation_population, population_commitment,
     envelope_to_dna, envelope_from_dna, DNCryptState, save_state_atomic, load_state,
     FitnessRecord, PopulationFitnessReport, EvolutionPolicy, propose_generation,
@@ -30,7 +30,7 @@ def make_report(request, population, records):
 
 
 def test_roundtrip_and_provenance():
-    k,g,s=fixture(); e=encrypt(k,b"secret payload",g,s,user_aad=b"meta",entropy=b"x"*44)
+    k,g,s=fixture(); e=encrypt_deterministic_for_test(k,b"secret payload",g,s,user_aad=b"meta",entropy=b"x"*44)
     assert e.verify_receipt() and decrypt(k,e,g,s)==b"secret payload"
     assert e.protocol_id=="dncrypt.frozen-protocol/v0.2"
 
@@ -41,24 +41,24 @@ def test_nondeterministic_ciphertext():
 
 
 def test_tamper_fails_closed():
-    k,g,s=fixture(); e=encrypt(k,b"secret",g,s,entropy=b"y"*44)
+    k,g,s=fixture(); e=encrypt_deterministic_for_test(k,b"secret",g,s,entropy=b"y"*44)
     bad=replace(e,ciphertext_b64=e.ciphertext_b64[:-2]+"AA")
     with pytest.raises(ValueError): decrypt(k,bad,g,s)
 
 
 def test_wrong_key_fails_closed():
-    k,g,s=fixture(); e=encrypt(k,b"secret",g,s,entropy=b"z"*44)
+    k,g,s=fixture(); e=encrypt_deterministic_for_test(k,b"secret",g,s,entropy=b"z"*44)
     with pytest.raises(ValueError): decrypt(bytes(reversed(k)),e,g,s)
 
 
 def test_surface_binding_and_internal_tick():
-    k,g,s=fixture(); e=encrypt(k,b"x",g,s,entropy=b"q"*44); s2=evolve_surface(s,g,steps=3)
+    k,g,s=fixture(); e=encrypt_deterministic_for_test(k,b"x",g,s,entropy=b"q"*44); s2=evolve_surface(s,g,steps=3)
     assert s2.tick==3 and s2.commitment!=s.commitment
     with pytest.raises(ValueError): decrypt(k,e,g,s2)
 
 
 def test_dna_transport_roundtrip():
-    k,g,s=fixture(); e=encrypt(k,b"DNA transport",g,s,entropy=b"r"*44); seq=envelope_to_dna(e)
+    k,g,s=fixture(); e=encrypt_deterministic_for_test(k,b"DNA transport",g,s,entropy=b"r"*44); seq=envelope_to_dna(e)
     assert set(seq)<=set("ACGT")
     e2=envelope_from_dna(seq); assert e2==e and decrypt(k,e2,g,s)==b"DNA transport"
 
@@ -82,7 +82,7 @@ def test_state_roundtrip_v02(tmp_path):
 
 
 def test_message_ledger_resolves_historical_state(tmp_path):
-    k,g,s=fixture(); e=encrypt(k,b"ledger",g,s,entropy=b"l"*44); p=tmp_path/"ledger.jsonl"
+    k,g,s=fixture(); e=encrypt_deterministic_for_test(k,b"ledger",g,s,entropy=b"l"*44); p=tmp_path/"ledger.jsonl"
     d=append_ledger_record(p,e,g,s); assert len(d)==64
     rg,rs=resolve_ledger_record(p,e.receipt_blake2b); assert rg==g and rs==s and decrypt(k,e,rg,rs)==b"ledger"
 

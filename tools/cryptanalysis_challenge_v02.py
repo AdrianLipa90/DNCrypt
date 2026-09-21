@@ -11,7 +11,7 @@ import time
 
 import numpy as np
 
-from dncrypt.crypto import DNCryptEnvelope, decrypt, encrypt
+from dncrypt.crypto import DNCryptEnvelope, decrypt, encrypt_deterministic_for_test
 from dncrypt.evolution import EvolutionPolicy, propose_generation
 from dncrypt.fitness import FitnessRecord, PopulationFitnessReport
 from dncrypt.generalization import GeneralizationPolicy, select_generation_multifold
@@ -57,7 +57,7 @@ def evaluate_genome(master_key: bytes, genome, surface, messages: list[bytes], s
     integrity_failures = 0
     for i, msg in enumerate(messages):
         entropy = derive(seed, label, genome.genome_id, i, "entropy", n=44)
-        env = encrypt(
+        env = encrypt_deterministic_for_test(
             master_key,
             msg,
             genome,
@@ -75,7 +75,7 @@ def evaluate_genome(master_key: bytes, genome, surface, messages: list[bytes], s
 
         alt = bytearray(msg)
         alt[0] ^= 1
-        env2 = encrypt(
+        env2 = encrypt_deterministic_for_test(
             master_key,
             bytes(alt),
             genome,

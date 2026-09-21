@@ -4,8 +4,12 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - feat/dncrypt-bioos-dn36-aad-conformance-v0.1
+      - main
     paths:
+      - 'src/dncrypt/crypto.py'
+      - 'src/dncrypt/binary_envelope.py'
+      - 'src/dncrypt/crypto.py'
+      - 'src/dncrypt/binary_envelope.py'
       - 'src/dncrypt/fitness.py'
       - 'tools/bioos_dn36_aad_conformance_v01.py'
       - 'tests/test_bioos_dn36_aad_conformance_v01.py'
