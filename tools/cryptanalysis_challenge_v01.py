@@ -4,7 +4,7 @@ from dataclasses import asdict
 from pathlib import Path
 import numpy as np
 
-from dncrypt.crypto import encrypt, decrypt
+from dncrypt.crypto import encrypt_deterministic_for_test, decrypt
 from dncrypt.genome import initial_genome
 from dncrypt.surface import initial_surface
 from dncrypt.fitness import FitnessRecord, PopulationFitnessReport
