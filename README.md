@@ -1,4 +1,4 @@
-# DNCrypt v0.5.1 candidate
+# DNCrypt v0.5.2 candidate
 
 **Dynamic Noncommutative Cryptography — provenance-preserving AEAD, causal adversarial evolution, exact rollback and relational 36D diagnostics.**
 
@@ -39,7 +39,15 @@ Metrics do not become security-admission evidence merely because they correlate 
 
 Multifold promotion uses independent folds with a sealed holdout excluded from selection. v0.5 candidate layers provide content-addressed checkpoints, ancestry verification, rollback receipts, checkpoint wire formats and an append-only logical state-memory journal.
 
-Durable external persistence and an external monotonic anti-rollback anchor remain open gates.
+The journal can now be bound to an external monotonic compare-and-swap witness. `MonotonicAnchorPort` records the journal receipt, event count, head event, active checkpoint/state and a chained anchor digest. Replaying an older local journal is rejected whenever the external anchor retains the newer head. The in-memory implementation is a test reference only; TPM/HSM or remote append-only persistence remains the production deployment gate.
+
+### Statistical admission hardening
+
+`StatisticalAdmissionPolicy` adds a second fail-closed layer after multifold generalization: exact one-sided sign evidence across folds, explicit median effect-size thresholds and Benjamini-Hochberg false-discovery-rate control across the searched population. `select_generation_multifold_statistically_hardened()` cancels promotion if the multifold winner does not survive that population-level gate.
+
+### Parser hardening
+
+Checkpoint wire decoding now enforces bounded payload size, exact field sets, canonical JSON, typed vector containers and a single fail-closed `ValueError` surface for malformed nested bodies. Hypothesis property fuzzing covers both checkpoint-wire and binary-envelope decoders, including arbitrary byte streams and single-bit mutation campaigns.
 
 ### Relational twist geometry
 
@@ -55,6 +63,6 @@ Twist metrics remain `EXPERIMENTAL_DIAGNOSTIC_ONLY / NO_SECURITY_ADMISSION`.
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.
 
-The repository contains fail-closed protocol tests, deterministic reference fixtures, binary-envelope and BioOS DN36 AAD conformance, signed-evaluator tests, causal-admission controls, rollback/lineage tests and twist-geometry invariance tests.
+The repository contains fail-closed protocol tests, deterministic reference fixtures, binary-envelope and BioOS DN36 AAD conformance, signed-evaluator tests, causal-admission controls, FDR/effect-size statistical gates, monotonic anti-rollback tests, property-fuzzed wire parsers, rollback/lineage tests and twist-geometry invariance tests.
 
 No claim is made that DNCrypt improves the cryptographic security of ChaCha20-Poly1305 or HKDF. Independent cryptanalysis remains required before any novel adaptive or relational mechanism is treated as a security advantage.
