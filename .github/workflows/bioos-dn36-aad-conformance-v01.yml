@@ -1,0 +1,51 @@
+name: BioOS DN36 AAD conformance v0.1
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - feat/dncrypt-bioos-dn36-aad-conformance-v0.1
+    paths:
+      - 'src/dncrypt/fitness.py'
+      - 'tools/bioos_dn36_aad_conformance_v01.py'
+      - 'tests/test_bioos_dn36_aad_conformance_v01.py'
+      - 'docs/BIOOS_DN36_AAD_CONFORMANCE_V0_1.md'
+      - '.github/workflows/bioos-dn36-aad-conformance-v01.yml'
+  pull_request:
+    paths:
+      - 'src/dncrypt/fitness.py'
+      - 'tools/bioos_dn36_aad_conformance_v01.py'
+      - 'tests/test_bioos_dn36_aad_conformance_v01.py'
+      - 'docs/BIOOS_DN36_AAD_CONFORMANCE_V0_1.md'
+      - '.github/workflows/bioos-dn36-aad-conformance-v01.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  bioos-dn36-aad:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install DNCrypt and test dependencies
+        run: python -m pip install --disable-pip-version-check -e '.[test]'
+      - name: Existing DNCrypt AEAD and binary-envelope regression gates
+        run: python -m pytest -q tests/test_binary_envelope_v01.py tests/test_dncrypt.py
+      - name: BioOS DN36 AAD conformance tests
+        run: python -m pytest -q tests/test_bioos_dn36_aad_conformance_v01.py
+      - name: Emit BioOS DN36 AAD evidence and exact binary fixture
+        run: python -m tools.bioos_dn36_aad_conformance_v01 --out evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json --binary-out evidence/BIOOS_DN36_DNCRYPT_BINARY_ENVELOPE_V0_1.bin
+      - name: Upload BioOS DN36 AAD evidence
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: bioos-dn36-aad-conformance-v01-evidence
+          path: |
+            evidence/BIOOS_DN36_AAD_CONFORMANCE_V0_1.json
+            evidence/BIOOS_DN36_DNCRYPT_BINARY_ENVELOPE_V0_1.bin
+          if-no-files-found: error

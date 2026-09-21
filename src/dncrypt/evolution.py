@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, asdict
 import math, secrets
+from .bus import make_evaluation_request
 from .fitness import FitnessRecord, PopulationFitnessReport, pareto_survivor_indices
 from .genome import CipherGenome, vectorized_mutation_population, population_commitment
 from .surface import CipherSurface, transition_surface
@@ -98,6 +99,11 @@ def select_generation(parent: CipherGenome, parent_surface: CipherSurface, paren
         raise ValueError("parent report binding mismatch")
     if not parent_report.invariant_pass:
         raise ValueError("parent invariant report is not clean")
+    if any(g.parent_id != parent.genome_id or g.generation != parent.generation + 1 for g in population):
+        raise ValueError("population lineage mismatch")
+    expected_request = make_evaluation_request(parent, population)
+    if candidate_report.request_id != expected_request.request_id:
+        raise ValueError("candidate report request_id mismatch")
     candidate_report.validate_population(population)
     ordered = candidate_report.ordered_for(population)
     valid_indices = tuple(i for i, r in enumerate(ordered) if r.invariant_pass)
