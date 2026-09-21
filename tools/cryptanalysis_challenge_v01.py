@@ -9,6 +9,7 @@ from dncrypt.genome import initial_genome
 from dncrypt.surface import initial_surface
 from dncrypt.fitness import FitnessRecord, PopulationFitnessReport
 from dncrypt.evolution import EvolutionPolicy, propose_generation, select_generation
+from dncrypt.bus import make_evaluation_request
 from dncrypt.util import canonical_json_bytes, blake2b256, b64d, b64e
 
 SCHEMA = "dncrypt.cryptanalysis-challenge/v0.1"
@@ -135,7 +136,7 @@ def run_replicate(rep: int, cfg: dict) -> dict:
             generations.append({"generation": gen_idx, "proposed": False, "reason": proposal.reason})
             break
         records = tuple(evaluate_genome(master, g, surface, train, rep_seed, f"train-candidate-{gen_idx}") for g in pop)
-        report = PopulationFitnessReport("dncrypt.external-evaluation/v0.2", proposal.digest, records)
+        request = make_evaluation_request(parent, pop)\n        report = PopulationFitnessReport("dncrypt.external-evaluation/v0.2", request.request_id, records)
         child, child_surface, promotion = select_generation(parent, surface, parent_train, pop, report, policy)
         generations.append({
             "generation": gen_idx,

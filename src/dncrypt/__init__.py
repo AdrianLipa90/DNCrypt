@@ -1,5 +1,6 @@
 """DNCrypt public API with frozen v0.2 compatibility and v0.4 candidate interfaces."""
 from .adversary import AttackReport, MutationPolicy, EvolutionReceipt, evolve_from_attack
+from .binary_envelope import CODEC_ID as BINARY_ENVELOPE_CODEC_ID, binary_envelope_id, pack_envelope, unpack_envelope
 from .bus import EvaluationRequest, make_evaluation_request, write_evaluation_request, load_external_evaluation
 from .crypto import DNCryptEnvelope, decrypt, encrypt, generate_master_key
 from .evolution import EvolutionPolicy, ProposalReceipt, PromotionReceipt, propose_generation, select_generation
@@ -33,6 +34,7 @@ from .transport import bytes_to_dna, dna_to_bytes, envelope_to_dna, envelope_fro
 
 __all__ = [
     "AttackReport","MutationPolicy","EvolutionReceipt","evolve_from_attack",
+    "BINARY_ENVELOPE_CODEC_ID","binary_envelope_id","pack_envelope","unpack_envelope",
     "EvaluationRequest","make_evaluation_request","write_evaluation_request","load_external_evaluation",
     "DNCryptEnvelope","decrypt","encrypt","generate_master_key",
     "EvolutionPolicy","ProposalReceipt","PromotionReceipt","propose_generation","select_generation",

@@ -1,6 +1,7 @@
 from __future__ import annotations
 from dataclasses import dataclass, asdict
 import math, secrets
+from .bus import make_evaluation_request
 from .fitness import FitnessRecord, PopulationFitnessReport, pareto_survivor_indices
 from .genome import CipherGenome, vectorized_mutation_population, population_commitment
 from .surface import CipherSurface, transition_surface
