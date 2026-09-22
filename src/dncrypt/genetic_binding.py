@@ -74,6 +74,8 @@ def verify_genetic_ir_binding(
 ) -> bytes:
     """Verify the authenticated IR commitment and return caller user AAD."""
 
+    if not envelope.verify_receipt():
+        raise ValueError("provenance receipt mismatch")
     nested_raw = _extract_authenticated_user_aad(envelope)
     try:
         nested = json.loads(nested_raw.decode("utf-8"))
