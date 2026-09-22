@@ -1,6 +1,6 @@
-# DNCrypt v0.5.2 candidate
+# DNCrypt v0.6.0a0 candidate
 
-**Dynamic Noncommutative Cryptography — provenance-preserving AEAD, causal adversarial evolution, exact rollback and relational 36D diagnostics.**
+**Dynamic Noncommutative Cryptography — provenance-preserving AEAD, causal adversarial evolution, typed Genetic IR, exact rollback and relational 36D diagnostics.**
 
 ## Frozen security anchor
 
@@ -13,15 +13,47 @@ The application-data cryptographic anchor remains intentionally conservative:
 - HKDF-SHA3-512 message-key derivation;
 - authenticated binding of genome generation, 36D surface commitment, internal tick, parent receipt and user AAD.
 
-The wire/protocol anchor remains `dncrypt.frozen-protocol/v0.2`. Later repository versions harden orchestration, provenance, evaluation and rollback around that anchor rather than replacing the standard AEAD primitive.
+The wire/protocol anchor remains `dncrypt.frozen-protocol/v0.2`. v0.6 does not replace or modify the standard AEAD primitive.
 
-## Current hardening
+## Genetic IR v0.6
+
+DNCrypt now has a typed Genetic IR compatible with the pinned CIELingo genomic-grammar research contract:
+
+```text
+KAKU -> RADICAL -> CONCEPT -> SENTENCE -> PARAGRAPH -> CHAPTER -> BOOK
+```
+
+The IR is strict and fail-closed: non-atomic nodes may contain only the immediately lower level, relations must connect immediate children, unknown schema fields are rejected, and every program receives a canonical BLAKE2b-256 semantic commitment.
+
+The source contract is pinned to `AdrianLipa90/cielingo-canon` PR #29, commit `59297d21fba563e17c7a656e0cb3139a5a302ee5`. That branch is treated as a candidate research binding, not as biological canon.
+
+### Grammar-constrained evolution
+
+The first semantic mutation surface supports payload rewrites, adjacent-child transposition and child deletion with incident-relation cleanup. Every operation reconstructs the typed tree and emits a parent/child semantic-commitment receipt.
+
+A deterministic 36D projection of Genetic IR is available for diagnostics and relational comparison. It is explicitly not cryptographic entropy and has no automatic security-admission authority.
+
+### Authenticated Genetic IR binding
+
+`genetic_user_aad()`, `encrypt_with_genetic_ir()` and `decrypt_with_genetic_ir()` bind the exact Genetic IR commitment inside the existing authenticated `user_aad` field.
+
+This preserves `dncrypt.frozen-protocol/v0.2`: key derivation, nonce generation, salt generation and ChaCha20-Poly1305 remain unchanged. A ciphertext bound to one Genetic IR program is rejected when verified against another program.
+
+### .pdna
+
+`PDNARecord` adds a canonical content-addressed `.pdna` container carrying the cipher genome, Genetic IR, cipher/genetic 36D projections, parent lineage, source provenance and metadata.
+
+A `.pdna` record must never contain master keys, AEAD salt/nonce secrets or evaluator private keys.
+
+See `docs/GENETIC_IR_V0_6.md` and `provenance/GENETIC_IR_V0_6_SOURCE_BINDING.json`.
+
+## Existing hardening
 
 ### AEAD boundary
 
 Production `encrypt()` generates salt and nonce entropy internally. Deterministic entropy injection is separated into `encrypt_deterministic_for_test()` for reproducible conformance fixtures only.
 
-`decrypt()` now validates the salt+nonce entropy commitment and reconstructs the authenticated-AAD schema before AEAD verification. Envelope metadata such as `parent_receipt`, generation, tick, genome id and surface commitment must agree with the authenticated AAD.
+`decrypt()` validates the salt+nonce entropy commitment and reconstructs the authenticated-AAD schema before AEAD verification. Envelope metadata such as `parent_receipt`, generation, tick, genome id and surface commitment must agree with the authenticated AAD.
 
 Unkeyed BLAKE2b/SHA3 receipts remain content commitments; they are not treated as substitutes for AEAD authentication.
 
@@ -37,9 +69,9 @@ Metrics do not become security-admission evidence merely because they correlate 
 
 ### Generalization and rollback
 
-Multifold promotion uses independent folds with a sealed holdout excluded from selection. v0.5 candidate layers provide content-addressed checkpoints, ancestry verification, rollback receipts, checkpoint wire formats and an append-only logical state-memory journal.
+Multifold promotion uses independent folds with a sealed holdout excluded from selection. v0.5 layers provide content-addressed checkpoints, ancestry verification, rollback receipts, checkpoint wire formats and an append-only logical state-memory journal.
 
-The journal can now be bound to an external monotonic compare-and-swap witness. `MonotonicAnchorPort` records the journal receipt, event count, head event, active checkpoint/state and a chained anchor digest. Replaying an older local journal is rejected whenever the external anchor retains the newer head. The in-memory implementation is a test reference only; TPM/HSM or remote append-only persistence remains the production deployment gate.
+The journal can be bound to an external monotonic compare-and-swap witness. `MonotonicAnchorPort` records the journal receipt, event count, head event, active checkpoint/state and a chained anchor digest. Replaying an older local journal is rejected whenever the external anchor retains the newer head. The in-memory implementation is a test reference only; TPM/HSM or remote append-only persistence remains the production deployment gate.
 
 ### Statistical admission hardening
 
@@ -47,7 +79,7 @@ The journal can now be bound to an external monotonic compare-and-swap witness. 
 
 ### Parser hardening
 
-Checkpoint wire decoding now enforces bounded payload size, exact field sets, canonical JSON, typed vector containers and a single fail-closed `ValueError` surface for malformed nested bodies. Hypothesis property fuzzing covers both checkpoint-wire and binary-envelope decoders, including arbitrary byte streams and single-bit mutation campaigns.
+Checkpoint wire decoding enforces bounded payload size, exact field sets, canonical JSON, typed vector containers and a single fail-closed `ValueError` surface for malformed nested bodies. Hypothesis property fuzzing covers both checkpoint-wire and binary-envelope decoders, including arbitrary byte streams and single-bit mutation campaigns.
 
 ### Relational twist geometry
 
@@ -63,6 +95,6 @@ Twist metrics remain `EXPERIMENTAL_DIAGNOSTIC_ONLY / NO_SECURITY_ADMISSION`.
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.
 
-The repository contains fail-closed protocol tests, deterministic reference fixtures, binary-envelope and BioOS DN36 AAD conformance, signed-evaluator tests, causal-admission controls, FDR/effect-size statistical gates, monotonic anti-rollback tests, property-fuzzed wire parsers, rollback/lineage tests and twist-geometry invariance tests.
+The repository contains fail-closed protocol tests, deterministic reference fixtures, binary-envelope and BioOS DN36 AAD conformance, signed-evaluator tests, causal-admission controls, FDR/effect-size statistical gates, monotonic anti-rollback tests, property-fuzzed wire parsers, rollback/lineage tests, twist-geometry invariance tests and Genetic IR/PDNA conformance tests.
 
-No claim is made that DNCrypt improves the cryptographic security of ChaCha20-Poly1305 or HKDF. Independent cryptanalysis remains required before any novel adaptive or relational mechanism is treated as a security advantage.
+No claim is made that Genetic IR, relational geometry or adaptive mutation improves the cryptographic security of ChaCha20-Poly1305 or HKDF. Independent cryptanalysis remains required before any novel adaptive or relational mechanism is treated as a security advantage.
