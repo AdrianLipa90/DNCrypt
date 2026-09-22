@@ -1,4 +1,4 @@
-"""DNCrypt public API: frozen v0.2 AEAD anchor with v0.5 hardening interfaces."""
+"""DNCrypt public API: frozen v0.2 AEAD anchor with v0.6 Genetic IR research interfaces."""
 from .adversary import AttackReport, MutationPolicy, EvolutionReceipt, evolve_from_attack
 from .anti_rollback import MonotonicJournalAnchor, MonotonicAnchorPort, InMemoryMonotonicAnchor, advance_journal_anchor, verify_journal_against_anchor
 from .binary_envelope import CODEC_ID as BINARY_ENVELOPE_CODEC_ID, binary_envelope_id, pack_envelope, unpack_envelope
@@ -30,6 +30,26 @@ from .security_control import (
 from .evolution_ledger import append_evolution_receipt, verify_evolution_ledger
 from .fitness import FitnessRecord, PopulationFitnessReport
 from .genome import CipherGenome, initial_genome, mutate_genome, vectorized_mutation_population, population_commitment
+from .genetic_ir import (
+    GeneticIRNode,
+    GeneticLevel,
+    GeneticMutationReceipt,
+    GeneticRelation,
+    compile_ir_to_phase36,
+    delete_child,
+    import_cielingo_genomic_unit,
+    rewrite_payload,
+    source_binding as genetic_ir_source_binding,
+    swap_adjacent_children,
+)
+from .genetic_binding import (
+    decrypt_with_genetic_ir,
+    encrypt_deterministic_with_genetic_ir_for_test,
+    encrypt_with_genetic_ir,
+    genetic_user_aad,
+    verify_genetic_ir_binding,
+)
+from .pdna import PDNARecord, PDNA_SCHEMA
 from .state import DNCryptState, load_state, save_state_atomic
 from .ledger import append_ledger_record, resolve_ledger_record
 from .surface import CipherSurface, initial_surface, evolve_surface, transition_surface
@@ -56,6 +76,12 @@ __all__ = [
     "append_evolution_receipt","verify_evolution_ledger",
     "FitnessRecord","PopulationFitnessReport",
     "CipherGenome","initial_genome","mutate_genome","vectorized_mutation_population","population_commitment",
+    "GeneticIRNode","GeneticLevel","GeneticMutationReceipt","GeneticRelation",
+    "compile_ir_to_phase36","delete_child","import_cielingo_genomic_unit",
+    "rewrite_payload","genetic_ir_source_binding","swap_adjacent_children",
+    "decrypt_with_genetic_ir","encrypt_deterministic_with_genetic_ir_for_test",
+    "encrypt_with_genetic_ir","genetic_user_aad","verify_genetic_ir_binding",
+    "PDNARecord","PDNA_SCHEMA",
     "DNCryptState","load_state","save_state_atomic","append_ledger_record","resolve_ledger_record",
     "CipherSurface","initial_surface","evolve_surface","transition_surface",
     "bytes_to_dna","dna_to_bytes","envelope_to_dna","envelope_from_dna",
