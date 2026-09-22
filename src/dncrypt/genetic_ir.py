@@ -195,6 +195,20 @@ class GeneticIRNode:
         schema = value.get("schema")
         if schema not in {IR_SCHEMA, CIELINGO_SCHEMA}:
             raise ValueError(f"unsupported Genetic IR schema: {schema!r}")
+        if schema == CIELINGO_SCHEMA:
+            if value.get("biological_equivalence_claim") not in {None, False}:
+                raise ValueError("biological-equivalence promotion is not admitted")
+            status = value.get("epistemic_status")
+            if status not in {None, "COMPUTATIONAL_HYPOTHESIS"}:
+                raise ValueError("unsupported CIELingo epistemic status")
+        if schema == IR_SCHEMA and "authority" in value:
+            expected_authority = {
+                "diagnostic_only": True,
+                "security_admission": False,
+                "changes_frozen_aead": False,
+            }
+            if value.get("authority") != expected_authority:
+                raise ValueError("Genetic IR authority block mismatch")
 
         level_raw = value.get("level")
         try:
