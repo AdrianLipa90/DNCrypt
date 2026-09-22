@@ -1,0 +1,28 @@
+{
+  "schema": "DNCRYPT_GENETIC_IR_SOURCE_BINDING_V0_6",
+  "status": "CANDIDATE_RESEARCH_BINDING",
+  "source": {
+    "repository": "AdrianLipa90/cielingo-canon",
+    "branch": "feature/cielingo-gremlin-genomic-grammar-v01-20260922",
+    "commit": "59297d21fba563e17c7a656e0cb3139a5a302ee5",
+    "pull_request": 29,
+    "source_schema": "CIELINGO_GENOMIC_GRAMMAR_V0_1",
+    "grammar_blob_sha": "f6e9ec64ad993b83821c9709c194dcd9dbb2aa5b",
+    "parser_blob_sha": "0d464e124e5adf753138fba3e417f77a832e1406"
+  },
+  "representation_ladder": [
+    "KAKU",
+    "RADICAL",
+    "CONCEPT",
+    "SENTENCE",
+    "PARAGRAPH",
+    "CHAPTER",
+    "BOOK"
+  ],
+  "authority": {
+    "cielingo_canon_claim": false,
+    "biological_equivalence_claim": false,
+    "dncrypt_security_admission": false,
+    "changes_frozen_aead": false
+  }
+}
