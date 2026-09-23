@@ -105,6 +105,12 @@ and derives its cycle decomposition plus per-cycle phase holonomies. The relatio
 
 Twist metrics remain `EXPERIMENTAL_DIAGNOSTIC_ONLY / NO_SECURITY_ADMISSION`.
 
+## Genetic operators and candidate policy compiler
+
+v0.6.2 adds bounded structural Genetic IR operators for duplication, inversion, translocation and crossover. Every operator produces a content-addressed receipt and remains `CANDIDATE_ONLY`; the operators do not derive keys, salts, nonces or evaluator credentials and do not alter the frozen v0.2 AEAD anchor.
+
+`compile_genetic_security_policy()` deterministically maps a Genetic IR program into a bounded `SecurityControlPolicy` proposal. The compiler locks nonce-domain tracking and fail-closed quarantine invariants on, constrains every numeric field to the existing frozen safe ranges, and marks the result as non-entropy / non-admission. A compiled policy must still pass the existing causal, multifold, statistical and signed-evaluator evidence pipeline before any deployment-specific admission decision.
+
 ## Evidence status
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.

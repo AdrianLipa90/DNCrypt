@@ -59,6 +59,17 @@ from .genetic_compiler import (
     program_stats,
     vectorized_genetic_population,
 )
+from .genetic_operators import (
+    GeneticOperatorReceipt,
+    duplicate_child,
+    invert_children,
+    recombine_children,
+    translocate_child,
+)
+from .genetic_policy import (
+    GeneticSecurityPolicyCandidate,
+    compile_genetic_security_policy,
+)
 from .genetic_geometry import (
     DEFAULT_RESOURCE_LIMITS,
     GeneticPhaseNode,
@@ -125,6 +136,8 @@ __all__ = [
     "GeneticMutationBinding","GeneticProgramStats","MutationPhenotype",
     "compile_genetic_program","genetic_dictionary_v1","mutate_genome_with_program",
     "program_stats","vectorized_genetic_population",
+    "GeneticOperatorReceipt","duplicate_child","invert_children","recombine_children","translocate_child",
+    "GeneticSecurityPolicyCandidate","compile_genetic_security_policy",
     "DEFAULT_RESOURCE_LIMITS","GeneticPhaseNode","GeneticResourceLimits",
     "bounded_genetic_ir_from_mapping","genetic_phase_tree","level_phase_coherence","parent_child_phase_distance",
     "PDNARecord","PDNA_SCHEMA",
