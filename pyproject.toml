@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dncrypt"
-version = "0.6.0a0"
-description = "DNCrypt — provenance-preserving AEAD with causal evolution, Genetic IR, rollback, and relational 36D diagnostics"
+version = "0.6.1a0"
+description = "DNCrypt — provenance-preserving AEAD with causal evolution, bounded Genetic IR compilation, unified rollback, and hierarchical 36D diagnostics"
 requires-python = ">=3.10"
 dependencies = ["cryptography>=42", "numpy>=1.26"]
 
