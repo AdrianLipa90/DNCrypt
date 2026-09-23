@@ -1,0 +1,37 @@
+{
+  "challenge_id": "3503af1b8eefe524348701ba5d2a03f7c776e2f6ee122691b6a79e0deb7b4d6b",
+  "manifest": {
+    "schema": "dncrypt.external-cryptanalysis-manifest/v1",
+    "target_repository": "AdrianLipa90/DNCrypt",
+    "target_commit_sha": "8651c3914e060cad5fd6ca1751f4420eb7a8360d",
+    "target_version": "0.8.1a0",
+    "frozen_protocol_id": "dncrypt.frozen-protocol/v0.2",
+    "seed_commitment": "e91e6878f53971cd22d10db824d32012ebfadf5caa6f246a4ca8f3fbf01f304d",
+    "attack_tracks": [
+      "AEAD_AUTHENTICATION_AND_TAMPER",
+      "NONCE_AND_ENTROPY_MISUSE_BOUNDARIES",
+      "PARSER_AND_BINARY_ENVELOPE_FUZZING",
+      "ROLLBACK_AND_EXTERNAL_WITNESS_REPLAY",
+      "SIGNED_EVALUATOR_FORGERY_AND_CAUSALITY",
+      "HYBRID_KEM_TRANSCRIPT_AND_PROVIDER_CONFUSION",
+      "SECRET_BACKEND_HANDLE_ISOLATION",
+      "SPECTRAL_EVIDENCE_HEADER_AND_LINEAGE_TAMPER",
+      "ADAPTIVE_CONTROL_HOLDOUT_GENERALIZATION"
+    ],
+    "required_artifacts": [
+      "raw_results",
+      "tool_source_or_commitment",
+      "environment_manifest",
+      "reproduction_instructions",
+      "limitations",
+      "signed_submission"
+    ],
+    "evidence_class": "EXTERNAL_EVALUATION_REQUIRED",
+    "claim_scope": "SYSTEM_SECURITY_EVALUATION_NO_NOVEL_CIPHER_CLAIM"
+  },
+  "internal_benchmark": {
+    "path": "tools/cryptanalysis_challenge_v01.py",
+    "classification": "CONTROLLED_INTERNAL_BENCHMARK_NOT_INDEPENDENT_CRYPTANALYSIS"
+  },
+  "status": "FROZEN_TARGET_READY_FOR_EXTERNAL_EVALUATION"
+}
