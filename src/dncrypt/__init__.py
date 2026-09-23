@@ -22,6 +22,17 @@ from .causality import (
     frozen_v02_causality_registry,
     select_generation_multifold_causal,
 )
+from .secret_backend import (
+    InMemorySecretBackend,
+    SecretBackendCapabilities,
+    SecretBackendPolicy,
+    SecretBackendPort,
+    SecretDestructionReceipt,
+    SecretHandle,
+    decrypt_with_secret_handle,
+    encrypt_with_secret_handle,
+    require_secret_backend,
+)
 from .security_control import (
     SecurityControlPolicy, SecurityControlState, SecurityControlObservation, SecurityControlDecision,
     SecurityControlEvaluation, derive_security_control_policy, apply_security_control,
@@ -138,6 +149,8 @@ __all__ = [
     "StatisticalAdmissionPolicy","StatisticalCandidateEvidence","benjamini_hochberg_qvalues","population_statistical_gate","select_generation_multifold_statistically_hardened",
     "CausalityFirewallReceipt","FitnessCausalityRegistry","MetricCausalityBinding",
     "frozen_v02_causality_registry","select_generation_multifold_causal",
+    "InMemorySecretBackend","SecretBackendCapabilities","SecretBackendPolicy","SecretBackendPort",
+    "SecretDestructionReceipt","SecretHandle","decrypt_with_secret_handle","encrypt_with_secret_handle","require_secret_backend",
     "SecurityControlPolicy","SecurityControlState","SecurityControlObservation","SecurityControlDecision",
     "SecurityControlEvaluation","derive_security_control_policy","apply_security_control",
     "rotate_control_state","evaluate_security_control",
