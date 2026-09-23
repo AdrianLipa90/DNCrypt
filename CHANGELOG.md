@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## v0.6.1a0
+- Added deterministic Genetic IR -> bounded mutation phenotype compilation while requiring fresh external mutation entropy.
+- Added program-shaped genome populations without changing the frozen v0.2 AEAD/key/salt/nonce boundary.
+- Added hierarchical per-node 36D Genetic IR projections, level coherence diagnostics and parent/child phase distances.
+- Added iterative raw-tree resource preflight for node, relation, depth, fanout and payload budgets.
+- Added UnifiedDNCryptState binding genome, surface, Genetic IR, compiler commitment, evidence commitment and PDNA lineage.
+- Bound PDNA metadata to the active surface and unified closure commitment without creating a hash cycle.
+- Added unified checkpoints, rollback receipts, append-only state-memory journal and external monotonic anti-rollback witness including active PDNA identity.
+- Added adversarial regression tests for cross-plane mismatch, state drift, resource bombs and mutation-scope escape.
+- Security status remains candidate-only; Genetic IR diagnostics are not security-admission evidence.
+
+
 ## v0.6.0a0
 - Added typed Genetic IR with the KAKU -> RADICAL -> CONCEPT -> SENTENCE -> PARAGRAPH -> CHAPTER -> BOOK hierarchy.
 - Pinned the CIELingo genomic-grammar candidate source contract to commit `59297d21fba563e17c7a656e0cb3139a5a302ee5`.

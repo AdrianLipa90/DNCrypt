@@ -16,10 +16,12 @@ from .genetic_ir import (
     compile_ir_to_phase36,
     source_binding,
 )
+from .genetic_geometry import bounded_genetic_ir_from_mapping
 from .genome import CipherGenome
 from .util import blake2b256, canonical_json_bytes
 
 PDNA_SCHEMA = "dncrypt.pdna/v0.6"
+PDNA_MAX_BYTES = 8 * 1024 * 1024
 _TOP_LEVEL_FIELDS = frozenset({
     "schema",
     "pdna_id",
@@ -98,6 +100,8 @@ class PDNARecord:
 
     @classmethod
     def from_bytes(cls, raw: bytes) -> "PDNARecord":
+        if len(raw) > PDNA_MAX_BYTES:
+            raise ValueError("PDNA payload exceeds maximum size")
         try:
             value = json.loads(bytes(raw).decode("utf-8"))
         except (UnicodeDecodeError, json.JSONDecodeError) as exc:
@@ -125,7 +129,7 @@ class PDNARecord:
             genome = CipherGenome(**dict(genome_value))
         except (TypeError, ValueError) as exc:
             raise ValueError("invalid cipher_genome") from exc
-        program = GeneticIRNode.from_mapping(ir_value)
+        program = bounded_genetic_ir_from_mapping(ir_value)
 
         record = cls(
             genome=genome,
