@@ -231,6 +231,7 @@ class UnifiedStateMemoryJournal:
         self._events: list[UnifiedStateMemoryEvent] = []
         self._checkpoint_parents: dict[str, str | None] = {}
         self._checkpoint_pdna: dict[str, str] = {}
+        self._checkpoint_state: dict[str, str] = {}
 
     @property
     def events(self) -> tuple[UnifiedStateMemoryEvent, ...]:
@@ -265,6 +266,7 @@ class UnifiedStateMemoryJournal:
         )
         self._checkpoint_parents[checkpoint_id] = checkpoint.parent_checkpoint_id
         self._checkpoint_pdna[checkpoint_id] = state.pdna_id
+        self._checkpoint_state[checkpoint_id] = state.commitment
         return event
 
     def append_rollback(
@@ -278,8 +280,11 @@ class UnifiedStateMemoryJournal:
         if receipt.checkpoint_id not in self._checkpoint_parents:
             raise ValueError("rollback target checkpoint is not recorded in unified journal")
         expected_pdna = self._checkpoint_pdna[receipt.checkpoint_id]
+        expected_state = self._checkpoint_state[receipt.checkpoint_id]
         if receipt.restored_pdna_id != expected_pdna:
             raise ValueError("rollback restored PDNA does not match checkpoint lineage")
+        if receipt.restored_state_commitment != expected_state:
+            raise ValueError("rollback restored state does not match checkpoint lineage")
         return self._append_event(
             event_type="ROLLBACK",
             checkpoint_id=receipt.checkpoint_id,
@@ -324,7 +329,7 @@ class UnifiedStateMemoryJournal:
 
     def verify(self) -> UnifiedJournalReceipt | None:
         if not self._events:
-            if self._checkpoint_parents or self._checkpoint_pdna:
+            if self._checkpoint_parents or self._checkpoint_pdna or self._checkpoint_state:
                 raise ValueError("empty unified journal has checkpoint index state")
             return None
         previous: str | None = None
@@ -343,6 +348,8 @@ class UnifiedStateMemoryJournal:
             previous = event.event_id
         if known != set(self._checkpoint_parents):
             raise ValueError("unified checkpoint index diverges from journal")
+        if known != set(self._checkpoint_pdna) or known != set(self._checkpoint_state):
+            raise ValueError("unified checkpoint binding indexes diverge from journal")
         return self.receipt()
 
 
