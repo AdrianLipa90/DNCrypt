@@ -1,4 +1,4 @@
-"""DNCrypt public API: frozen v0.2 AEAD anchor with v0.6 Genetic IR research interfaces."""
+"""DNCrypt public API: frozen v0.2 AEAD anchor with v0.6.1 bounded Genetic IR and unified-state research interfaces."""
 from .adversary import AttackReport, MutationPolicy, EvolutionReceipt, evolve_from_attack
 from .anti_rollback import MonotonicJournalAnchor, MonotonicAnchorPort, InMemoryMonotonicAnchor, advance_journal_anchor, verify_journal_against_anchor
 from .binary_envelope import CODEC_ID as BINARY_ENVELOPE_CODEC_ID, binary_envelope_id, pack_envelope, unpack_envelope
@@ -49,8 +49,49 @@ from .genetic_binding import (
     genetic_user_aad,
     verify_genetic_ir_binding,
 )
+from .genetic_compiler import (
+    GeneticMutationBinding,
+    GeneticProgramStats,
+    MutationPhenotype,
+    compile_genetic_program,
+    genetic_dictionary_v1,
+    mutate_genome_with_program,
+    program_stats,
+    vectorized_genetic_population,
+)
+from .genetic_geometry import (
+    DEFAULT_RESOURCE_LIMITS,
+    GeneticPhaseNode,
+    GeneticResourceLimits,
+    bounded_genetic_ir_from_mapping,
+    genetic_phase_tree,
+    level_phase_coherence,
+    parent_child_phase_distance,
+)
 from .pdna import PDNARecord, PDNA_SCHEMA
 from .state import DNCryptState, load_state, save_state_atomic
+from .unified_state import (
+    PDNA_STATE_BINDING_SCHEMA,
+    UNIFIED_STATE_SCHEMA,
+    UnifiedDNCryptState,
+    bind_unified_state,
+    transition_unified_state,
+)
+from .unified_checkpoint import (
+    InMemoryUnifiedCheckpointStore,
+    InMemoryUnifiedMonotonicAnchor,
+    UnifiedCheckpoint,
+    UnifiedJournalReceipt,
+    UnifiedMonotonicAnchor,
+    UnifiedRollbackReceipt,
+    UnifiedStateMemoryEvent,
+    UnifiedStateMemoryJournal,
+    advance_unified_journal_anchor,
+    create_unified_checkpoint,
+    restore_unified_checkpoint,
+    rollback_unified_state,
+    verify_unified_journal_against_anchor,
+)
 from .ledger import append_ledger_record, resolve_ledger_record
 from .surface import CipherSurface, initial_surface, evolve_surface, transition_surface
 from .transport import bytes_to_dna, dna_to_bytes, envelope_to_dna, envelope_from_dna
@@ -81,8 +122,21 @@ __all__ = [
     "rewrite_payload","genetic_ir_source_binding","swap_adjacent_children",
     "decrypt_with_genetic_ir","encrypt_deterministic_with_genetic_ir_for_test",
     "encrypt_with_genetic_ir","genetic_user_aad","verify_genetic_ir_binding",
+    "GeneticMutationBinding","GeneticProgramStats","MutationPhenotype",
+    "compile_genetic_program","genetic_dictionary_v1","mutate_genome_with_program",
+    "program_stats","vectorized_genetic_population",
+    "DEFAULT_RESOURCE_LIMITS","GeneticPhaseNode","GeneticResourceLimits",
+    "bounded_genetic_ir_from_mapping","genetic_phase_tree","level_phase_coherence","parent_child_phase_distance",
     "PDNARecord","PDNA_SCHEMA",
-    "DNCryptState","load_state","save_state_atomic","append_ledger_record","resolve_ledger_record",
+    "DNCryptState","load_state","save_state_atomic",
+    "PDNA_STATE_BINDING_SCHEMA","UNIFIED_STATE_SCHEMA","UnifiedDNCryptState",
+    "bind_unified_state","transition_unified_state",
+    "InMemoryUnifiedCheckpointStore","InMemoryUnifiedMonotonicAnchor","UnifiedCheckpoint",
+    "UnifiedJournalReceipt","UnifiedMonotonicAnchor","UnifiedRollbackReceipt",
+    "UnifiedStateMemoryEvent","UnifiedStateMemoryJournal","advance_unified_journal_anchor",
+    "create_unified_checkpoint","restore_unified_checkpoint","rollback_unified_state",
+    "verify_unified_journal_against_anchor",
+    "append_ledger_record","resolve_ledger_record",
     "CipherSurface","initial_surface","evolve_surface","transition_surface",
     "bytes_to_dna","dna_to_bytes","envelope_to_dna","envelope_from_dna",
     "RelationalTwistClass","relative_permutation","permutation_cycles","relational_twist_class","vectorized_cyclic_novelty",
