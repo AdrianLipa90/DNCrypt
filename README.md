@@ -129,6 +129,12 @@ v0.8 introduces a `SecretBackendPort` so the Python orchestration layer can oper
 
 The default production capability policy requires an admitted native/HSM/TPM implementation class, locked secret memory and explicit zeroization. Hardware backing and side-channel review can be made mandatory per deployment. The bundled in-memory Python implementation is a conformance fixture and intentionally fails the default production policy.
 
+## Spectral Evidence Vault
+
+v0.8.1 adds a chemistry/spectroscopy vertical in which the raw spectrum remains an ordinary encrypted DNCrypt payload behind the opaque secret-backend boundary. The authenticated header binds sample and instrument identifiers, calibration commitment, acquisition-metadata commitment, raw-spectrum commitment, parent evidence lineage and a deterministic 36D relational spectral fingerprint.
+
+The 36D fingerprint is explicitly diagnostic authenticated metadata. It is normalized against affine intensity offset/positive scaling and is not key, salt, nonce, cryptographic entropy or a security-admission metric. Opening an entry recomputes the raw record commitment and the 36D header and rejects any mismatch.
+
 ## Evidence status
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.
