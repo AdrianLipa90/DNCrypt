@@ -111,6 +111,12 @@ v0.6.2 adds bounded structural Genetic IR operators for duplication, inversion, 
 
 `compile_genetic_security_policy()` deterministically maps a Genetic IR program into a bounded `SecurityControlPolicy` proposal. The compiler locks nonce-domain tracking and fail-closed quarantine invariants on, constrains every numeric field to the existing frozen safe ranges, and marks the result as non-entropy / non-admission. A compiled policy must still pass the existing causal, multifold, statistical and signed-evaluator evidence pipeline before any deployment-specific admission decision.
 
+## Signed external monotonic witness
+
+v0.6.3 adds a signed external witness protocol for unified state-memory anchors. The client verifies canonical records, Ed25519 signatures, witness identity, exact compare-and-swap ancestry, sequence monotonicity, the signed anchor digest and the previous witness-record digest before accepting an advance.
+
+The included in-memory witness service is a test reference only. A production deployment must place the witness outside rollbackable DNCrypt process/storage state, for example behind HSM/TPM-mediated signing or a remote append-only service. Local persistence by itself is not claimed to provide rollback resistance.
+
 ## Evidence status
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.
