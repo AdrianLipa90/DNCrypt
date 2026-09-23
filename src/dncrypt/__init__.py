@@ -98,6 +98,15 @@ from .genetic_geometry import (
     parent_child_phase_distance,
 )
 from .pdna import PDNARecord, PDNA_SCHEMA
+from .spectral_vault import (
+    SpectralEvidenceHeader,
+    SpectralEvidenceRecord,
+    SpectralVaultEntry,
+    open_spectral_evidence,
+    seal_spectral_evidence,
+    spectral_header,
+    spectral_phase36,
+)
 from .state import DNCryptState, load_state, save_state_atomic
 from .unified_state import (
     PDNA_STATE_BINDING_SCHEMA,
@@ -171,6 +180,8 @@ __all__ = [
     "DEFAULT_RESOURCE_LIMITS","GeneticPhaseNode","GeneticResourceLimits",
     "bounded_genetic_ir_from_mapping","genetic_phase_tree","level_phase_coherence","parent_child_phase_distance",
     "PDNARecord","PDNA_SCHEMA",
+    "SpectralEvidenceHeader","SpectralEvidenceRecord","SpectralVaultEntry",
+    "open_spectral_evidence","seal_spectral_evidence","spectral_header","spectral_phase36",
     "DNCryptState","load_state","save_state_atomic",
     "PDNA_STATE_BINDING_SCHEMA","UNIFIED_STATE_SCHEMA","UnifiedDNCryptState",
     "bind_unified_state","transition_unified_state",
