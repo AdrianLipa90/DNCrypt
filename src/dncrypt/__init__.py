@@ -110,6 +110,15 @@ from .unified_checkpoint import (
     rollback_unified_state,
     verify_unified_journal_against_anchor,
 )
+from .key_establishment import (
+    APPROVED_MLKEM_IDS,
+    HybridKEMEnvelope,
+    KEMProvider,
+    KeyEstablishmentReceipt,
+    X25519KeyEstablishment,
+    hybrid_decapsulate,
+    hybrid_encapsulate,
+)
 from .ledger import append_ledger_record, resolve_ledger_record
 from .surface import CipherSurface, initial_surface, evolve_surface, transition_surface
 from .transport import bytes_to_dna, dna_to_bytes, envelope_to_dna, envelope_from_dna
@@ -157,6 +166,7 @@ __all__ = [
     "UnifiedStateMemoryEvent","UnifiedStateMemoryJournal","advance_unified_journal_anchor",
     "create_unified_checkpoint","restore_unified_checkpoint","rollback_unified_state",
     "verify_unified_journal_against_anchor",
+    "APPROVED_MLKEM_IDS","HybridKEMEnvelope","KEMProvider","KeyEstablishmentReceipt","X25519KeyEstablishment","hybrid_decapsulate","hybrid_encapsulate",
     "append_ledger_record","resolve_ledger_record",
     "CipherSurface","initial_surface","evolve_surface","transition_surface",
     "bytes_to_dna","dna_to_bytes","envelope_to_dna","envelope_from_dna",

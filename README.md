@@ -117,6 +117,12 @@ v0.6.3 adds a signed external witness protocol for unified state-memory anchors.
 
 The included in-memory witness service is a test reference only. A production deployment must place the witness outside rollbackable DNCrypt process/storage state, for example behind HSM/TPM-mediated signing or a remote append-only service. Local persistence by itself is not claimed to provide rollback resistance.
 
+## Crypto-agility and post-quantum key establishment
+
+v0.7 adds an algorithm-neutral key-establishment boundary above the frozen v0.2 data-encryption protocol. The built-in classical adapter uses ephemeral-static X25519 with HKDF-SHA3-512. The post-quantum side is deliberately provider-based rather than reimplemented inside DNCrypt and accepts the FIPS 203 ML-KEM parameter-set identifiers ML-KEM-512, ML-KEM-768 and ML-KEM-1024.
+
+A hybrid envelope binds both public encapsulations and algorithm identifiers into a transcript commitment. The two independently established shared secrets are combined through HKDF-SHA3-512 into the existing 32-byte DNCrypt master-key boundary. The master key is never serialized in the public receipt, and this layer does not replace ChaCha20-Poly1305 or the frozen v0.2 message protocol.
+
 ## Evidence status
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.
