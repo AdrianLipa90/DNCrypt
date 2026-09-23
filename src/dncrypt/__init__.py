@@ -27,6 +27,13 @@ from .security_control import (
     SecurityControlEvaluation, derive_security_control_policy, apply_security_control,
     rotate_control_state, evaluate_security_control,
 )
+from .external_witness import (
+    InMemorySignedWitnessService,
+    RemoteSignedUnifiedAnchorPort,
+    SignedWitnessRecord,
+    SignedWitnessTransport,
+    WitnessAdvanceRequest,
+)
 from .evolution_ledger import append_evolution_receipt, verify_evolution_ledger
 from .fitness import FitnessRecord, PopulationFitnessReport
 from .genome import CipherGenome, initial_genome, mutate_genome, vectorized_mutation_population, population_commitment
@@ -125,6 +132,7 @@ __all__ = [
     "SecurityControlPolicy","SecurityControlState","SecurityControlObservation","SecurityControlDecision",
     "SecurityControlEvaluation","derive_security_control_policy","apply_security_control",
     "rotate_control_state","evaluate_security_control",
+    "InMemorySignedWitnessService","RemoteSignedUnifiedAnchorPort","SignedWitnessRecord","SignedWitnessTransport","WitnessAdvanceRequest",
     "append_evolution_receipt","verify_evolution_ledger",
     "FitnessRecord","PopulationFitnessReport",
     "CipherGenome","initial_genome","mutate_genome","vectorized_mutation_population","population_commitment",
