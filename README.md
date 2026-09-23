@@ -123,6 +123,12 @@ v0.7 adds an algorithm-neutral key-establishment boundary above the frozen v0.2 
 
 A hybrid envelope binds both public encapsulations and algorithm identifiers into a transcript commitment. The two independently established shared secrets are combined through HKDF-SHA3-512 into the existing 32-byte DNCrypt master-key boundary. The master key is never serialized in the public receipt, and this layer does not replace ChaCha20-Poly1305 or the frozen v0.2 message protocol.
 
+## Opaque native/HSM secret boundary
+
+v0.8 introduces a `SecretBackendPort` so the Python orchestration layer can operate on opaque key handles rather than raw master-key bytes. A production backend generates the master key internally, performs the frozen v0.2 AEAD operations behind the boundary, and returns only public envelopes, plaintext results and destruction receipts.
+
+The default production capability policy requires an admitted native/HSM/TPM implementation class, locked secret memory and explicit zeroization. Hardware backing and side-channel review can be made mandatory per deployment. The bundled in-memory Python implementation is a conformance fixture and intentionally fails the default production policy.
+
 ## Evidence status
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.
