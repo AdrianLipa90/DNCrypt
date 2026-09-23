@@ -1,4 +1,4 @@
-# DNCrypt v0.6.0a0 candidate
+# DNCrypt v0.6.1a0 candidate
 
 **Dynamic Noncommutative Cryptography — provenance-preserving AEAD, causal adversarial evolution, typed Genetic IR, exact rollback and relational 36D diagnostics.**
 
@@ -46,6 +46,20 @@ This preserves `dncrypt.frozen-protocol/v0.2`: key derivation, nonce generation,
 A `.pdna` record must never contain master keys, AEAD salt/nonce secrets or evaluator private keys.
 
 See `docs/GENETIC_IR_V0_6.md` and `provenance/GENETIC_IR_V0_6_SOURCE_BINDING.json`.
+
+## Genetic state closure v0.6.1
+
+v0.6.1 adds a bounded compiler from Genetic IR into a **mutation-control phenotype**. The phenotype may constrain which genome loci and route topology are explored, but it is public search control rather than cryptographic entropy. Every candidate still requires fresh external mutation entropy; the frozen v0.2 key, salt, nonce and AEAD path is unchanged.
+
+`UnifiedDNCryptState` closes the logical generation across the active `CipherGenome`, `CipherSurface`, Genetic IR program, compiler commitment, optional evidence commitment and parent `.pdna` lineage. Its PDNA metadata binds the active surface and a cross-plane closure commitment.
+
+Candidate rollback now has a matching full-state path: `UnifiedCheckpoint`, `UnifiedStateMemoryJournal` and `UnifiedMonotonicAnchor` bind the active PDNA identity alongside the state commitment. This prevents a research-layer rollback from restoring crypto state while silently retaining Genetic IR from another logical generation.
+
+Hierarchical diagnostics no longer require flattening the entire grammar to one phase point. `genetic_phase_tree()` emits one 36D diagnostic projection per node, with per-level coherence and immediate parent/child phase distances. These values remain diagnostic-only.
+
+`bounded_genetic_ir_from_mapping()` preflights untrusted nested Genetic IR using explicit node, relation, depth, fanout and payload budgets before the recursive typed parser is entered.
+
+See `docs/DNCRYPT_GENETIC_STATE_CLOSURE_V0_6_1.md`.
 
 ## Existing hardening
 
