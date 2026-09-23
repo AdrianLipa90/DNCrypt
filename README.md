@@ -135,6 +135,12 @@ v0.8.1 adds a chemistry/spectroscopy vertical in which the raw spectrum remains 
 
 The 36D fingerprint is explicitly diagnostic authenticated metadata. It is normalized against affine intensity offset/positive scaling and is not key, salt, nonce, cryptographic entropy or a security-admission metric. Opening an entry recomputes the raw record commitment and the 36D header and rejects any mismatch.
 
+## External cryptanalysis release
+
+v0.9 freezes the v0.8.1 implementation at commit `8651c3914e060cad5fd6ca1751f4420eb7a8360d` as External Cryptanalysis Challenge v1. The challenge manifest has content id `3503af1b8eefe524348701ba5d2a03f7c776e2f6ee122691b6a79e0deb7b4d6b` and defines explicit system-security attack tracks and required reproduction artifacts.
+
+External submissions bind the exact challenge/commit, evaluator identity, evaluator tool bytes, raw result bytes and canonical summary under an Ed25519 signature. This provides provenance only: a submission is called independent only when the evaluator, key, environment and analysis are controlled outside DNCrypt development. The existing `tools/cryptanalysis_challenge_v01.py` remains classified as an internal controlled benchmark, not independent cryptanalysis.
+
 ## Evidence status
 
 Status: `IMPLEMENTATION_CONFORMANCE_PROTOTYPE / INDEPENDENT_CRYPTANALYSIS_OPEN`.

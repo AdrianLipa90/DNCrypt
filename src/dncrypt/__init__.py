@@ -5,6 +5,12 @@ from .binary_envelope import CODEC_ID as BINARY_ENVELOPE_CODEC_ID, binary_envelo
 from .bus import EvaluationRequest, make_evaluation_request, write_evaluation_request, load_external_evaluation
 from .evaluator_auth import SignedEvaluationEnvelope, sign_evaluation_report, verify_signed_evaluation, load_signed_external_evaluation
 from .crypto import DNCryptEnvelope, decrypt, encrypt, encrypt_deterministic_for_test, generate_master_key
+from .cryptanalysis_release import (
+    CryptanalysisChallengeManifest,
+    ExternalCryptanalysisSubmission,
+    build_external_submission,
+    verify_external_submission,
+)
 from .evolution import EvolutionPolicy, ProposalReceipt, PromotionReceipt, propose_generation, select_generation
 from .generalization import (
     CandidateGeneralizationScore,
@@ -151,6 +157,7 @@ __all__ = [
     "EvaluationRequest","make_evaluation_request","write_evaluation_request","load_external_evaluation",
     "SignedEvaluationEnvelope","sign_evaluation_report","verify_signed_evaluation","load_signed_external_evaluation",
     "DNCryptEnvelope","decrypt","encrypt","encrypt_deterministic_for_test","generate_master_key",
+    "CryptanalysisChallengeManifest","ExternalCryptanalysisSubmission","build_external_submission","verify_external_submission",
     "EvolutionPolicy","ProposalReceipt","PromotionReceipt","propose_generation","select_generation",
     "GeneralizationPolicy","CandidateGeneralizationScore","GeneralizationPromotionReceipt",
     "robust_pareto_survivor_indices","select_generation_multifold",
