@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## v0.6.1a0
+- Added deterministic Genetic IR -> bounded mutation phenotype compilation while requiring fresh external mutation entropy.
+- Added program-shaped genome populations without changing the frozen v0.2 AEAD/key/salt/nonce boundary.
+- Added hierarchical per-node 36D Genetic IR projections, level coherence diagnostics and parent/child phase distances.
+- Added iterative raw-tree resource preflight for node, relation, depth, fanout and payload budgets.
+- Added UnifiedDNCryptState binding genome, surface, Genetic IR, compiler commitment, evidence commitment and PDNA lineage.
+- Bound PDNA metadata to the active surface and unified closure commitment without creating a hash cycle.
+- Added unified checkpoints, rollback receipts, append-only state-memory journal and external monotonic anti-rollback witness including active PDNA identity.
+- Added adversarial regression tests for cross-plane mismatch, state drift, resource bombs and mutation-scope escape.
+- Security status remains candidate-only; Genetic IR diagnostics are not security-admission evidence.
+
+
+## v0.6.0a0
+- Added typed Genetic IR with the KAKU -> RADICAL -> CONCEPT -> SENTENCE -> PARAGRAPH -> CHAPTER -> BOOK hierarchy.
+- Pinned the CIELingo genomic-grammar candidate source contract to commit `59297d21fba563e17c7a656e0cb3139a5a302ee5`.
+- Added fail-closed CIELingo serialized-unit import and canonical semantic commitments.
+- Added deterministic 36D Genetic IR diagnostic projection with an explicit no-cryptographic-entropy boundary.
+- Added grammar-constrained payload rewrite, adjacent-child transposition and child-deletion mutations with lineage receipts.
+- Added Genetic IR binding inside the frozen v0.2 authenticated `user_aad` channel without changing AEAD/key/nonce derivation.
+- Added canonical content-addressed `.pdna` state containers with dual 36D projections and parent lineage.
+- Added Genetic IR, authenticated-binding and PDNA tamper/round-trip tests.
+
+## v0.5.2
+- Added external monotonic anti-rollback anchor support.
+- Added exact one-sided sign evidence, median effect-size thresholds and Benjamini-Hochberg population FDR admission.
+- Added bounded/canonical checkpoint parser hardening and property fuzzing.
+- Added relational twist v0.2 invariants and vectorized cyclic novelty diagnostics.
+
 ## v0.1.0
 - Added 256-bit ChaCha20-Poly1305 authenticated-encryption anchor.
 - Added HKDF-SHA3-512 per-message subkey derivation with fresh 256-bit salt.

@@ -1,0 +1,22 @@
+{
+  "schema": "DNCRYPT_GENETIC_STATE_CLOSURE_V0_6_1_PROVENANCE",
+  "status": "IMPLEMENTED_CANDIDATE_EXACT_HEAD_CI_GREEN",
+  "source_branch": "feature/genetic-ir-v060-20260922",
+  "source_head": "b86cee8439405b6a58619f620ca50e856a08e2a5",
+  "implementation_branch": "feature/genetic-state-closure-v061-20260923",
+  "frozen_crypto_anchor": "dncrypt.frozen-protocol/v0.2",
+  "genetic_ir_security_admission": false,
+  "genetic_ir_cryptographic_entropy": false,
+  "fresh_mutation_entropy_required": true,
+  "main_merge_authorized": false,
+  "gremlin_library_skill": "GREMLIN_GLOBAL_RESEARCH_TOOL_V1",
+  "validation": {
+    "exact_head_ci": "GREEN",
+    "validated_head": "ceb29a83ba25ee0673cb45a352d33c7aa6e1836b",
+    "workflow_run_id": 35808396461,
+    "python_3_10": "PASS",
+    "python_3_12": "PASS",
+    "pytest_3_12": "162 passed",
+    "independent_cryptanalysis": "OPEN"
+  }
+}
