@@ -1,0 +1,48 @@
+name: DNCrypt NOEMA Prime-Gap Codon V6.1 Native
+
+on:
+  push:
+    branches:
+      - experiment/noema-prime-gap-codon-v6-1-native-20260926
+    paths:
+      - "tools/noema_prime_gap_codon_wire_v61.py"
+      - "tools/noema_prime_gap_codon_native_v61.py"
+      - "tests/test_noema_prime_gap_codon_wire_v61.py"
+      - "tests/test_noema_prime_gap_codon_native_v61.py"
+      - "tests/fixtures/noema_prime_gap_codon_v6_1_pair.json"
+      - "docs/NOEMA_PRIME_GAP_CODON_NATIVE_V6_1.md"
+      - ".github/workflows/dncrypt-noema-prime-gap-codon-v61.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  wire-conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Wire conformance
+        run: python -m pytest -q tests/test_noema_prime_gap_codon_wire_v61.py
+
+  native-closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install exact branch
+        run: python -m pip install -e ".[test]"
+      - name: Dependency integrity
+        run: python -m pip check
+      - name: Compile adapter
+        run: python -m py_compile tools/noema_prime_gap_codon_wire_v61.py tools/noema_prime_gap_codon_native_v61.py tests/test_noema_prime_gap_codon_native_v61.py
+      - name: Native closure
+        run: python -m pytest -q tests/test_noema_prime_gap_codon_native_v61.py
