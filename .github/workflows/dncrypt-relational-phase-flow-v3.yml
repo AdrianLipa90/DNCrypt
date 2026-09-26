@@ -1,0 +1,36 @@
+name: DNCrypt NOEMA relational phase-flow v3
+
+on:
+  push:
+    branches:
+      - experiment/noema-relational-phase-flow-v3-20260926
+    paths:
+      - 'tools/relational_phase_flow_v3_challenge.py'
+      - 'tests/test_relational_phase_flow_v3_challenge.py'
+      - 'docs/RELATIONAL_PHASE_FLOW_V3_CHALLENGE.md'
+      - '.github/workflows/dncrypt-relational-phase-flow-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  relflow-v3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -e ".[test]"
+      - run: python -m compileall -q src tools tests
+      - run: python -m pytest -q tests/test_relational_phase_flow_v3_challenge.py
+      - name: Preregistered actual-ciphertext run
+        run: python tools/relational_phase_flow_v3_challenge.py --output RELATIONAL_PHASE_FLOW_V3_RESULT.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dncrypt-noema-relational-phase-flow-v3
+          path: RELATIONAL_PHASE_FLOW_V3_RESULT.json
+          if-no-files-found: error

@@ -1,0 +1,56 @@
+{
+  "authority": {
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "physical_neutrino_carrier_verified": false,
+    "security_admission": false
+  },
+  "configuration": {
+    "fdr_alpha": 0.05,
+    "fold_messages": 16,
+    "folds": 6,
+    "holdout_messages": 64,
+    "maximum_delta_stddev": 0.05,
+    "maximum_worst_fold_regression": 0.02,
+    "message_bytes": 128,
+    "minimum_winning_fraction": 0.6666666666666666,
+    "population_size": 12,
+    "replicates": 24
+  },
+  "date": "2026-09-26",
+  "implementation_binding": {
+    "flow_hash_semantics": "BYTE_EXACT_WITH_NOEMA_TELEKOM_V3_FIXTURE",
+    "no_parameter_tuning_after_holdout": true,
+    "relation": "R_t=exp(i(theta_t-theta_tminus1))",
+    "three_independent_ordered_streams": true
+  },
+  "lineage": {
+    "dncrypt_base_branch": "experiment/noema-prime-phase-abcd-20260926",
+    "dncrypt_base_commit": "7fdb491b620218660bcb9ba4a6e6cea4fdde61a7",
+    "noema_preregistration_commit": "627ead3e30d15c53a5a61c1c0aa05701403688bd",
+    "noema_relational_phase_flow_commit": "2f8a21f6d6bd5a73f0a9a548644406060b8cd8cf",
+    "noema_telekom_branch": "protocol/telekom-v0.3-20260926"
+  },
+  "matched_design": {
+    "holdout_used_for_selection": false,
+    "only_operator_locus_ordering_varies": true,
+    "same_fresh_population_entropy": true,
+    "same_native_genetic_ir_phenotype": true,
+    "same_paired_ciphertext_entropy_schedule": true,
+    "same_parent": true,
+    "same_route_phase_seed_mutation_nonce": true,
+    "same_sealed_holdout": true,
+    "same_selection_corpora": true
+  },
+  "predecessor_result": {
+    "v2_p": 0.8318119049072266,
+    "v2_primary_mean_D_minus_B": -0.004132518137925696,
+    "v2_status": "FAIL_NO_PROMOTION"
+  },
+  "preregistration_sha256": "32b9be0403eb9383e66d4975dc4bd77e1c8d361270e073960f23e19136e5efbd",
+  "primary_comparison": "E_RELATIONAL_PHASE_FLOW_V3 minus B_RANDOM_LOCUS_NULL",
+  "result": null,
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V3_PREREGISTRATION_V1",
+  "status": "PREREGISTERED_NOT_RUN",
+  "success_rule": "mean(E-B)<0 AND paired two-sided sign-test p<0.05"
+}

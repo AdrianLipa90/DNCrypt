@@ -1,0 +1,36 @@
+{
+  "authority": "PREREGISTERED_NO_PROMOTION",
+  "claim_boundary": "Static/local conformance only. No ciphertext result or promotion is claimed.",
+  "date": "2026-09-26",
+  "files": {
+    ".github/workflows/dncrypt-relational-phase-flow-v3.yml": {
+      "sha256": "d95ae843e221e37f6ee0bbd703f2423e7e3f1c4cb1e673520453347fc57a0c86",
+      "size": 1189
+    },
+    "docs/RELATIONAL_PHASE_FLOW_V3_CHALLENGE.md": {
+      "sha256": "12adc6bce9d4d5f6bbd9b4ea6e5db681735c123bf730e398c093dbe63be2c473",
+      "size": 1680
+    },
+    "evidence/NOEMA_RELATIONAL_PHASE_FLOW_V3_PREREGISTRATION.json": {
+      "sha256": "619525d78f0900bbcdf2aa1465f5a30855e67540662476786e49251f2491cd0e",
+      "size": 2097
+    },
+    "tests/test_relational_phase_flow_v3_challenge.py": {
+      "sha256": "711e06f90505c6ec5fe8c32693461dd6c8c6682d4f1acb8e8c6a75ee075635e8",
+      "size": 2871
+    },
+    "tools/relational_phase_flow_v3_challenge.py": {
+      "sha256": "c51cefa4b062970624c6cb840a5de0e4668f75aeaf2bfe8f06ffdacb41614734",
+      "size": 23221
+    }
+  },
+  "receipt_sha256": "5915d0952624646eab64eb9316e90603ab5266e657affecfbea7637fb76c13b8",
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V3_LOCAL_CONFORMANCE_V1",
+  "status": "PASS_LOCAL_STATIC_CONFORMANCE",
+  "tests": {
+    "actual_ciphertext_preregistered_run": "NOT_RUN",
+    "compileall": "PASS",
+    "full_dncrypt_pytest": "NOT_RUN_LOCAL_SOURCE_NOT_MATERIALIZED",
+    "noema_flow_hash_fixture": "PASS_BYTE_EXACT"
+  }
+}
