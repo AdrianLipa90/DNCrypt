@@ -1,0 +1,30 @@
+{
+  "benchmark_claim": false,
+  "date": "2026-09-26",
+  "implementation_commit": "5099af2fe59f38ead4956ad8b1570946b5a48dca",
+  "jobs": [
+    {
+      "conclusion": "failure",
+      "id": 108497714903,
+      "name": "wire-conformance",
+      "steps": null
+    },
+    {
+      "conclusion": "failure",
+      "id": 108497715144,
+      "name": "native-closure",
+      "steps": null
+    }
+  ],
+  "local_validation": {
+    "native_adapter_py_compile": "PASS",
+    "native_dncrypt_execution": "NOT_EXECUTED",
+    "wire_pytest": "3/3 PASS"
+  },
+  "next_gate": "PRODUCE_VALID_NATIVE_PAIR_RECEIPT_ON_EXECUTION_SUBSTRATE",
+  "noema_source_commit": "69b5fbcdcc37094831d04061ea88a876fe6b84af",
+  "schema": "DNCRYPT_NOEMA_PRIME_GAP_CODON_V6_1_EXECUTION_STATUS_V1",
+  "security_admission_claim": false,
+  "status": "EXECUTION_BLOCKED_BY_GITHUB_RUNNER_PRE_STEP",
+  "workflow_run_id": 36275637901
+}

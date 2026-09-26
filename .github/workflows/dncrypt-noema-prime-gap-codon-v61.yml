@@ -7,8 +7,11 @@ on:
     paths:
       - "tools/noema_prime_gap_codon_wire_v61.py"
       - "tools/noema_prime_gap_codon_native_v61.py"
+      - "tools/noema_prime_gap_codon_native_receipt_v61.py"
+      - "tools/noema_prime_gap_codon_evaluator_gate_v61.py"
       - "tests/test_noema_prime_gap_codon_wire_v61.py"
       - "tests/test_noema_prime_gap_codon_native_v61.py"
+      - "tests/test_noema_prime_gap_codon_evaluator_gate_v61.py"
       - "tests/fixtures/noema_prime_gap_codon_v6_1_pair.json"
       - "docs/NOEMA_PRIME_GAP_CODON_NATIVE_V6_1.md"
       - ".github/workflows/dncrypt-noema-prime-gap-codon-v61.yml"
@@ -26,8 +29,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Wire conformance
-        run: python -m pytest -q tests/test_noema_prime_gap_codon_wire_v61.py
+      - name: Wire and evaluator-gate conformance
+        run: python -m pytest -q tests/test_noema_prime_gap_codon_wire_v61.py tests/test_noema_prime_gap_codon_evaluator_gate_v61.py
 
   native-closure:
     runs-on: ubuntu-latest
@@ -46,3 +49,14 @@ jobs:
         run: python -m py_compile tools/noema_prime_gap_codon_wire_v61.py tools/noema_prime_gap_codon_native_v61.py tests/test_noema_prime_gap_codon_native_v61.py
       - name: Native closure
         run: python -m pytest -q tests/test_noema_prime_gap_codon_native_v61.py
+      - name: Produce native pair receipt
+        run: |
+          python tools/noema_prime_gap_codon_native_receipt_v61.py \
+            --fixture tests/fixtures/noema_prime_gap_codon_v6_1_pair.json \
+            --output noema_prime_gap_codon_native_pair_receipt_v61.json
+      - name: Upload native pair receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: dncrypt-noema-prime-gap-codon-v61-native-receipt
+          path: noema_prime_gap_codon_native_pair_receipt_v61.json
+          if-no-files-found: error
