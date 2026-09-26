@@ -1,0 +1,50 @@
+{
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V4_PREREGISTRATION_V1",
+  "date": "2026-09-26",
+  "status": "PREREGISTERED_NOT_RUN",
+  "implementation_commit": "3f1b1a8770586cee8a786ed012208b0261fe23ce",
+  "noema_telekom_v4_commit": "0ddb4b4e63deaddc4106a8289344d731e3701a0d",
+  "predecessor_v3_stop_commit": "f7c45818dd563bd6b3343feaa1962829e72c7e9d",
+  "source_dncrypt_main": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "seed_label": "DNCrypt NOEMA relational phase-flow v4 preregistered seed 2026-09-26",
+  "seed_hex": "986e926140fd4f8576b6f8a504cb0dbfa60488001828d71244d6ededdb164f0e",
+  "configuration": {
+    "replicates": 24,
+    "population_size": 12,
+    "folds": 6,
+    "fold_messages": 16,
+    "holdout_messages": 64,
+    "message_bytes": 128
+  },
+  "primary_comparison": "F_RELATIONAL_MATCHED_NUISANCE_V4 minus B_RANDOM_LOCUS_NULL",
+  "primary_endpoint": "sealed holdout diagnostic adversarial-risk delta of selection-fold exploratory winner",
+  "success_rule": "mean(F-B)<0 AND paired two-sided sign-test p<0.05",
+  "matched_design": {
+    "same_parent": true,
+    "same_fresh_population_entropy": true,
+    "same_native_genetic_ir_phenotype": true,
+    "same_unconstrained_candidate_pool": true,
+    "same_route_phase_seed_mutation_nonce": true,
+    "exact_same_shell_marginals": true,
+    "exact_same_flavour_marginals": true,
+    "same_selection_corpora": true,
+    "same_paired_ciphertext_entropy_schedule": true,
+    "same_sealed_holdout": true,
+    "holdout_used_for_selection": false,
+    "only_arithmetic_observable_pairing_may_vary": true
+  },
+  "preholdout_gate": {
+    "status": "PASS_PREHOLDOUT_EXACT_SUBSTRATE_QA",
+    "samples": 20000,
+    "exact_nuisance_match_fraction": 1,
+    "selection_changed_vs_null_fraction": 0.62485,
+    "phenotype_commitment": "af6553259688f3f1e1b40ecc3bf33d8ae305e4040a17105ac187bd2ed946d788"
+  },
+  "authority": {
+    "security_admission": false,
+    "cryptographic_entropy": false,
+    "changes_frozen_aead": false,
+    "physical_neutrino_carrier_verified": false
+  },
+  "result": null
+}
