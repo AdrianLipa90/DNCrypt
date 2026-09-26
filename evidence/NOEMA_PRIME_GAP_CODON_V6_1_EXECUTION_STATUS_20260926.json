@@ -1,30 +1,61 @@
 {
-  "benchmark_claim": false,
+  "schema": "DNCRYPT_NOEMA_PRIME_GAP_CODON_V6_1_EXECUTION_STATUS_V1",
   "date": "2026-09-26",
-  "implementation_commit": "5099af2fe59f38ead4956ad8b1570946b5a48dca",
-  "jobs": [
+  "status": "EXECUTION_BLOCKED_BY_GITHUB_RUNNER_PRE_STEP",
+  "implementation_commit": "83a7856a334c0db577416aef76f3ccdbe6a3f478",
+  "noema_source_commit": "69b5fbcdcc37094831d04061ea88a876fe6b84af",
+  "github_actions": [
     {
-      "conclusion": "failure",
-      "id": 108497714903,
-      "name": "wire-conformance",
-      "steps": null
+      "workflow_run_id": 36275637901,
+      "head_commit": "5099af2fe59f38ead4956ad8b1570946b5a48dca",
+      "jobs": [
+        {
+          "id": 108497714903,
+          "name": "wire-conformance",
+          "conclusion": "failure",
+          "steps": null
+        },
+        {
+          "id": 108497715144,
+          "name": "native-closure",
+          "conclusion": "failure",
+          "steps": null
+        }
+      ]
     },
     {
-      "conclusion": "failure",
-      "id": 108497715144,
-      "name": "native-closure",
-      "steps": null
+      "workflow_run_id": 36275805313,
+      "head_commit": "83a7856a334c0db577416aef76f3ccdbe6a3f478",
+      "jobs": [
+        {
+          "id": 108498199794,
+          "name": "wire-conformance",
+          "conclusion": "failure",
+          "steps": null
+        },
+        {
+          "id": 108498199914,
+          "name": "native-closure",
+          "conclusion": "failure",
+          "steps": null
+        }
+      ]
     }
   ],
   "local_validation": {
+    "wire_pytest": "3/3 PASS",
+    "evaluator_gate_pytest": "3/3 PASS",
     "native_adapter_py_compile": "PASS",
-    "native_dncrypt_execution": "NOT_EXECUTED",
-    "wire_pytest": "3/3 PASS"
+    "native_receipt_generator_py_compile": "PASS",
+    "native_dncrypt_execution": "NOT_EXECUTED"
   },
-  "next_gate": "PRODUCE_VALID_NATIVE_PAIR_RECEIPT_ON_EXECUTION_SUBSTRATE",
-  "noema_source_commit": "69b5fbcdcc37094831d04061ea88a876fe6b84af",
-  "schema": "DNCRYPT_NOEMA_PRIME_GAP_CODON_V6_1_EXECUTION_STATUS_V1",
+  "gate_policy": {
+    "native_pair_receipt_required_for_preregistration": true,
+    "valid_native_receipt_allows": "PRE_REGISTRATION_ONLY",
+    "ciphertext_holdout_authorized": false,
+    "security_admission_claim": false
+  },
+  "benchmark_claim": false,
   "security_admission_claim": false,
-  "status": "EXECUTION_BLOCKED_BY_GITHUB_RUNNER_PRE_STEP",
-  "workflow_run_id": 36275637901
+  "next_gate": "PRODUCE_VALID_NATIVE_PAIR_RECEIPT_ON_EXECUTION_SUBSTRATE"
 }
