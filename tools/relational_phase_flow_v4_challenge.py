@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Sequence
 
 from dncrypt.genetic_compiler import compile_genetic_program
-from dncrypt.genome import CipherGenome, DIM, mutate_genome
+from dncrypt.genome import CipherGenome, DIM, mutate_genome, population_commitment
 from dncrypt.util import blake2b256, canonical_json_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -181,6 +181,27 @@ def mutate_with_strategy(
     return child, binding
 
 
+
+def strategy_population(parent, program, population_size: int, *, entropy: bytes, strategy: str):
+    if population_size < 1:
+        raise ValueError("population_size must be positive")
+    raw = bytes(entropy)
+    if len(raw) != population_size * 64:
+        raise ValueError("population entropy must be exactly population_size*64 bytes")
+    genomes=[]; bindings=[]
+    for index in range(population_size):
+        child_entropy = hashlib.shake_256(
+            b"DNCrypt/v0.6.1/genetic-population|" + raw + index.to_bytes(8,"big")
+        ).digest(64)
+        child,binding=mutate_with_strategy(
+            parent,program,fresh_entropy=child_entropy,strategy=strategy
+        )
+        genomes.append(child); bindings.append(binding)
+    population=tuple(genomes)
+    if len({g.genome_id for g in population}) != len(population):
+        raise RuntimeError("v4 population produced duplicate genome ids")
+    return population,tuple(bindings),population_commitment(population)
+
 def compare_candidate_pair(parent: CipherGenome, program, *, fresh_entropy: bytes) -> dict[str, object]:
     b_child, b = mutate_with_strategy(
         parent, program, fresh_entropy=fresh_entropy, strategy="B_RANDOM_LOCUS_NULL"
@@ -215,4 +236,5 @@ __all__ = [
     "V4CandidateBinding",
     "mutate_with_strategy",
     "compare_candidate_pair",
+    "strategy_population",
 ]
