@@ -1,0 +1,44 @@
+{
+  "authority": {
+    "candidate_only": true,
+    "changes_frozen_aead": false,
+    "ciphertext_holdout_opened": false,
+    "cryptographic_entropy": false,
+    "security_admission": false
+  },
+  "date": "2026-09-26",
+  "execution": {
+    "all_closed": true,
+    "distinct_null_final_semantic_states": 4,
+    "distinct_relational_final_semantic_states": 4,
+    "orders_changed_count": 3504,
+    "orders_changed_fraction": 0.85546875,
+    "state_changed_given_order_changed_count": 2720,
+    "state_changed_given_order_changed_fraction": 0.776255707762557
+  },
+  "full_local_receipt": {
+    "canonical_receipt_sha256": "f5ba1805f230fdf8d37d75a87223c49cbe696b3b3ace1e4e41e7b6157fb025a4",
+    "file_sha256": "7fea11c1eaf1bfb86eb10ed199d570a113b5b8e32a122495eb618ef4e4fedf54",
+    "filename": "NOEMA_MUTATION_WORD_NATIVE_MATCHED_STATE_STRESS_V1.json"
+  },
+  "matched_design": {
+    "batch_sha256": "86ab66e337d850b332e0f943c774aa86a8006df2545f17ee460386a6891836c1",
+    "candidate_parameter_multiset_matched": true,
+    "exact_order_distribution_match": true,
+    "exact_position_marginal_match": true,
+    "native_operator_parameter_mode": "FIXED_SEMANTIC_ANCHORS_V1",
+    "note": "V5 token parameter_u64 commitments are matched but not yet mapped into native operator parameters; this gate isolates order under fixed semantic anchors.",
+    "rotation_offset": 3912
+  },
+  "next_gate": "V5_3_BIND_TOKEN_PARAMETERS_TO_BOUNDED_NATIVE_OPERATOR_ARGUMENTS_THEN_REPEAT_MATCHED_NATIVE_EXECUTION",
+  "samples": 4096,
+  "schema": "DNCRYPT_NOEMA_MUTATION_WORD_NATIVE_MATCHED_STATE_STRESS_V1_SUMMARY",
+  "source_blob_shas": {
+    "genetic_ir.py": "fb1b57e1d0054b8e30575793cb962e9a74e5eaa2",
+    "genetic_operators.py": "359f94414639b4ad94b83550ab218c692670af2b",
+    "util.py": "81dbbcfb121a15810bb990431abb49d7fdf1d57c"
+  },
+  "source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "status": "PASS_NATIVE_MATCHED_ORDER_EXECUTION",
+  "summary_sha256": "84bc05967fbbe5419714a2ee4aa5b0084f2f3d3fc868216a80cee5854c7bf6af"
+}

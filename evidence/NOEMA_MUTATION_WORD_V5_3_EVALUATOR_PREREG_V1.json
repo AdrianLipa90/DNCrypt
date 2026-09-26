@@ -1,0 +1,51 @@
+{
+  "authority": {
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "observation_only": true,
+    "security_admission": false
+  },
+  "date": "2026-09-26",
+  "design": {
+    "arms": [
+      "RELATIONAL_ORDER_V5_3",
+      "MATCHED_STATE_SHUFFLE_NULL_V5_3"
+    ],
+    "fold_messages": 16,
+    "folds": 6,
+    "holdout_excluded_from_selection": true,
+    "holdout_messages": 64,
+    "message_bytes": 128,
+    "only_intended_variable": "STATE_ALIGNMENT_OF_OPERATOR_ORDER",
+    "population_size": 12,
+    "replicates": 32,
+    "same_evaluator": true,
+    "same_fresh_entropy_per_candidate": true,
+    "same_operator_multiset": true,
+    "same_parent_per_replicate": true,
+    "same_sealed_holdout": true,
+    "same_selection_corpora": true,
+    "same_semantic_parameter_map_per_candidate": true
+  },
+  "dncrypt_source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "execution_status": "NOT_RUN",
+  "implementation_commit": "db045a49002d74b0f6aa2805b52db421f3b7461d",
+  "noema_source_commit": "8126e777d92d4d059d2e75f8cc18404ebfda3c58",
+  "prereg_sha256": "42d74fab28b39082ada4194a1ed656b00985fe52a7fced57e5889be467bf1713",
+  "primary_comparison": "RELATIONAL_ORDER_V5_3 minus MATCHED_STATE_SHUFFLE_NULL_V5_3",
+  "primary_endpoint": "paired sealed-holdout diagnostic adversarial-risk delta of selection-fold exploratory winner",
+  "schema": "DNCRYPT_NOEMA_MUTATION_WORD_V5_3_EVALUATOR_PREREG_V1",
+  "seed_hex": "ec83e970ca029fd6f34a4ef424d97f91e1fb47ee684eadfabf944f4f1784bebb",
+  "status": "FROZEN_BEFORE_EVALUATION",
+  "stop_rules": [
+    "FAIL_CLOSED_ON_ANY_DECRYPT_OR_INTEGRITY_FAILURE",
+    "FAIL_CLOSED_ON_SUBSTRATE_MISMATCH",
+    "FAIL_CLOSED_ON_PARAMETER_MAP_MISMATCH",
+    "NO_TUNING_AFTER_HOLDOUT_OPEN"
+  ],
+  "success_rule": {
+    "direction": "RELATIONAL minus NULL < 0",
+    "mean_paired_delta_lt": 0.0,
+    "paired_sign_test_two_sided_p_lt": 0.05
+  }
+}
