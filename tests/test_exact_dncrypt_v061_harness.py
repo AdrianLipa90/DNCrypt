@@ -21,6 +21,6 @@ def test_candidate_pair_exact_nuisance_match_over_4096_cases():
         sk=tuple(h.null_order(pool,e)[:min(p['mutation_budget'],len(pool))])
         s=v4.v3.relational_source_triple(e); f=v4.select_subset(s,pool,sk,e)
         assert v4.nuisance_signature(f)==v4.nuisance_signature(sk)
-        exact+=1; changed_count+=int(tuple(f)!=tuple(sk))
+        exact+=1; changed_count+=int(set(f)!=set(sk))
     assert exact==4096
     assert changed_count>0

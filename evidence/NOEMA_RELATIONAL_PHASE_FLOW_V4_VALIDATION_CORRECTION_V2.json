@@ -1,0 +1,29 @@
+{
+  "authority": {
+    "changes_primary_result": false,
+    "changes_selector": false,
+    "security_admission": false
+  },
+  "date": "2026-09-26",
+  "diagnostic_correction": {
+    "actual_mutation_set_different_fraction": 0.375,
+    "actual_mutation_set_different_winners": 9,
+    "exact_same_tuple_and_genome": 8,
+    "order_only_tuple_differences_with_same_genome": 7,
+    "ordered_tuple_different_winners": 16,
+    "same_genome_ties": 15
+  },
+  "interpretation": "All 15 primary-endpoint ties correspond to identical child genomes. Seven arose because the same two-locus set was returned in opposite order; order does not change the resulting genome.",
+  "primary_result_unchanged": {
+    "B_lower": 3,
+    "F_lower": 6,
+    "mean_F_minus_B": -0.010828894638561931,
+    "sign_test_two_sided_p": 0.5078125,
+    "success_rule_passed": false,
+    "ties": 15
+  },
+  "receipt_sha256": "bd83ae860776c9afe677097c55a086676ca1b6d5597904c9e902b22886f42a58",
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V4_VALIDATION_CORRECTION_V2",
+  "status": "FAIL_NO_PROMOTION_PRIMARY_RESULT_UNCHANGED",
+  "validation_commit": "a5aa58f2760e260239c8383030353270dd2e4f59"
+}
