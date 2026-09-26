@@ -1,0 +1,31 @@
+{
+  "schema": "DNCRYPT_NOEMA_PRIME_PHASE_SECURITY_CONTROL_ABCD_NOTE_V1",
+  "date": "2026-09-26",
+  "status": "NO_PROMOTION",
+  "execution": {
+    "replicates": 64,
+    "mode": "LOCAL_CONTROLLED_REPLAY",
+    "all_substrate_matches": true
+  },
+  "primary_result": {
+    "comparison": "D_ORBITAL_FLAVOUR_PHASE_V2 minus B_RANDOM_LOCUS_NULL",
+    "mean_paired_delta": 0.003277949680056284,
+    "D_lower_risk_count": 6,
+    "random_lower_risk_count": 11,
+    "ties": 47,
+    "paired_sign_test_two_sided_p": 0.332305908203125,
+    "success_rule_passed": false
+  },
+  "receipt_naming_correction": {
+    "legacy_field": "receipt_sha256",
+    "actual_algorithm": "SHA3-256",
+    "legacy_value": "c691ce99cccefd86bac50439dc5d3f48b67e7d01554e977eed26f039e72b0d32",
+    "sha3_256_verified": true,
+    "sha256_of_same_canonical_body": "4d709ae93f4ef63e5e8e50480f97299340df7e2e5b43ff111a814226a0efa431",
+    "interpretation": "Schema/name bug only; payload integrity is not contradicted."
+  },
+  "authority": {
+    "security_admission": false,
+    "changes_frozen_aead": false
+  }
+}

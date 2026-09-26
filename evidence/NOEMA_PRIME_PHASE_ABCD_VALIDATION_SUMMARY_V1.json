@@ -1,0 +1,57 @@
+{
+  "schema": "DNCRYPT_NOEMA_PRIME_PHASE_ABCD_VALIDATION_SUMMARY_V1",
+  "date": "2026-09-26",
+  "status": "FAIL_NO_PROMOTION",
+  "source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "experiment_commit": "c93caed3012b7ebce0c5407071ec8ffc090a0c54",
+  "semantic_equivalent_followup_commit": "1c24ef73ac06c24f014a066c200f48293bc61d16",
+  "followup_difference": "EOF_NEWLINE_ONLY",
+  "preregistration": {
+    "replicates": 24,
+    "population_size": 12,
+    "folds": 6,
+    "fold_messages": 16,
+    "holdout_messages": 64,
+    "message_bytes": 128,
+    "primary_comparison": "D_ORBITAL_FLAVOUR_PHASE_V2 minus B_RANDOM_LOCUS_NULL",
+    "success_rule": "mean(D-B)<0 AND paired two-sided sign-test p<0.05"
+  },
+  "execution": {
+    "mode": "LOCAL_CONTROLLED_REPLAY",
+    "all_integrity_paths_pass": true,
+    "all_substrate_matches": true,
+    "github_actions": "STARTUP_FAILURE_BEFORE_STEPS"
+  },
+  "primary_result": {
+    "mean_paired_delta": -0.004132518137925696,
+    "median_paired_delta": -0.0021400491449204417,
+    "D_lower_risk_count": 12,
+    "random_lower_risk_count": 10,
+    "ties": 2,
+    "paired_sign_test_two_sided_p": 0.8318119049072266,
+    "success_rule_passed": false
+  },
+  "secondary_results": {
+    "D_minus_A": {
+      "mean": 0.005614985961049271,
+      "p": 1,
+      "D_lower": 10,
+      "A_lower": 11,
+      "ties": 3
+    },
+    "D_minus_C": {
+      "mean": 0.010371108083781671,
+      "p": 1,
+      "D_lower": 12,
+      "C_lower": 11,
+      "ties": 1
+    }
+  },
+  "full_local_receipt": {
+    "filename": "DNCRYPT_ABCD_VALIDATION_RESULT_V0_1.json",
+    "file_sha256": "42c76309cb7a15b3c105aec814209c2a46d890efd36fbd926fa80a5c745b5e72",
+    "canonical_body_receipt_sha256": "077e6e2eaac948718e1cc6f5eea073b6400049bd946a01fdd48d6e7bd486608f",
+    "canonical_body_receipt_verified": true
+  },
+  "interpretation": "The preregistered v2 orbital locus-ordering hypothesis did not demonstrate an advantage over the matched random-locus null. v2 remains experimental and is not promoted."
+}
