@@ -1,0 +1,18 @@
+{
+  "schema": "DNCRYPT_NOEMA_MUTATION_WORD_NATIVE_EXECUTION_STATUS_V1",
+  "date": "2026-09-26",
+  "status": "EXECUTION_BLOCKED_BY_GITHUB_RUNNER_PRE_STEP",
+  "implementation_commit": "62eb571699cb6d97edc7b1d9592281fb04f7d7c2",
+  "noema_source_commit": "8126e777d92d4d059d2e75f8cc18404ebfda3c58",
+  "workflow_run_id": 36274413745,
+  "job_id": 108494254240,
+  "job_name": "native-closure",
+  "conclusion": "failure",
+  "steps": null,
+  "logs_available": false,
+  "local_static_validation": "PY_COMPILE_PASS",
+  "native_dncrypt_execution": "NOT_EXECUTED",
+  "closure_claim": false,
+  "security_admission_claim": false,
+  "next_gate": "RETRY_NATIVE_24_PERMUTATION_CLOSURE_WHEN_EXECUTION_SUBSTRATE_AVAILABLE"
+}
