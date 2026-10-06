@@ -1,0 +1,19 @@
+{
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V3_EXECUTION_STATUS_V1",
+  "date": "2026-09-26",
+  "status": "EXECUTION_BLOCKED_BY_GITHUB_RUNNER_PRE_STEP",
+  "challenge_commit": "5e1e41b9fae1a62d8c7696890a1dad8653ded0a5",
+  "workflow_run_id": 36271362588,
+  "workflow_job_id": 108485833415,
+  "github_actions": {
+    "conclusion": "failure",
+    "steps": null,
+    "logs_url": null,
+    "code_steps_executed": false
+  },
+  "local_conformance": "evidence/NOEMA_RELATIONAL_PHASE_FLOW_V3_LOCAL_CONFORMANCE.json",
+  "actual_ciphertext_result": null,
+  "benchmark_claim": false,
+  "promotion": false,
+  "interpretation": "GitHub Actions failed before checkout or any code/test step. This is execution-infrastructure evidence, not a negative V3 benchmark result."
+}
