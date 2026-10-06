@@ -1,0 +1,422 @@
+{
+  "authority": {
+    "changes_frozen_aead": false,
+    "native_dncrypt_execution": false,
+    "security_admission": false
+  },
+  "fixture_index": 0,
+  "fixture_sha256": "4b93de4f62e8ac07ac6d19d8e5ea1c8d19d4072af4e3f1d81af457fd12ad97dd",
+  "matched_null": {
+    "authority": {
+      "candidate_only": true,
+      "changes_frozen_aead": false,
+      "cryptographic_entropy": false,
+      "execution_authority": false,
+      "physical_neutrino_carrier_claim": false,
+      "security_admission": false
+    },
+    "execution_semantics": {
+      "flavour_neutral": true,
+      "full_z3_triplet_retained": true
+    },
+    "execution_state_sha256": "d28286fb157f9df0da9e5962c24c3628065c7611086746300e544194d6ab036d",
+    "fresh_entropy_commitment": "63e2ef74583e23ad433ccb4e3f751f597c31c42f8d5e26f457e053335179e871",
+    "schema": "NOEMA_TELEKOM_PRIME_GAP_MUTATION_CODON_WORD_V6_1",
+    "source_state_sha256": "bc6f1f81b7824e9b8fac14370c7889250b2492f69e29c3dbd082df0d97f193ac",
+    "strategy": "MATCHED_STATE_SHUFFLE_NULL_V6_1",
+    "tokens": [
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          2.0943951023931957,
+          4.188790204786391,
+          0.0
+        ],
+        "flavour_triplet_commitment": "83c206b61ac87e2614e56d98bdab9a2c7d9a725917e7bb9c3619694c270daedc",
+        "group_index": 0,
+        "observable_index": 0,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "f6fa96e58072fed439ed6fc69239326ddad48056db41689a1028687f5ece6488",
+        "parameter_u64": 3915321912016375150,
+        "shell_index": 0
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.005439987278943459,
+          2.0998350896721387,
+          4.1942301920653335
+        ],
+        "flavour_triplet_commitment": "693b1f7e1006132f1d3bdf4b3ee316067084afc01ae9977b47209f95b4345281",
+        "group_index": 10,
+        "observable_index": 1,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "b5ab22ec5f749874c4ce5c5931ebdc7feafb581e73f9b9913bcc53bde9922991",
+        "parameter_u64": 1307303706237057794,
+        "shell_index": 3
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.05983986006837716,
+          2.1542349624615724,
+          4.248630064854767
+        ],
+        "flavour_triplet_commitment": "7cef12aaafdbb43cd46e0701ed89f3eba2c49e28b7cca8bacffaed8c95cabbf0",
+        "group_index": 6,
+        "observable_index": 0,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "83b4db4779ba184fb1ddb5085e01cc51106b888aa0498941f8c699a46d1d2972",
+        "parameter_u64": 5306167327086469955,
+        "shell_index": 2
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.41887902047863923,
+          2.5132741228718345,
+          4.607669225265029
+        ],
+        "flavour_triplet_commitment": "6713999ede858a8db639ca341b9a657bddf96c21133a563dfdfde34c563217a8",
+        "group_index": 3,
+        "observable_index": 0,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "d4448e521a97b1e4d5247b056feb7470c5b5e40c1772801cbce41638980462d2",
+        "parameter_u64": 7944723168019032100,
+        "shell_index": 1
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.05983986006837716,
+          2.1542349624615724,
+          4.248630064854767
+        ],
+        "flavour_triplet_commitment": "4dbe8fc06546652b2fc8fbc13a514f850357981e993d10a16b08076526cacde7",
+        "group_index": 7,
+        "observable_index": 1,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "b5e8cb9e009aa776b021126b133830be809ccff0f3dba92d8d48d3651d53fec6",
+        "parameter_u64": 2755696167811983454,
+        "shell_index": 2
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          2.0943951023931966,
+          4.188790204786391,
+          8.881784197001252e-16
+        ],
+        "flavour_triplet_commitment": "e6732c105823947896b7d9902f65b7a5a9d9625479c6b4f74b3a3c09ce2860a7",
+        "group_index": 1,
+        "observable_index": 1,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "3da2acf72ea01c27b0f070ddf3854a2bf9d15103ce7d28c523482ca4c66e0123",
+        "parameter_u64": 9010144512065208668,
+        "shell_index": 0
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.005439987278943459,
+          2.0998350896721387,
+          4.1942301920653335
+        ],
+        "flavour_triplet_commitment": "a757b7701704c761a04c07d7fb763accd23e884213e1391b5b28fcc7a9cb0a40",
+        "group_index": 9,
+        "observable_index": 0,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "c2b5bb6f3ebade61cfe445f5733f053747656f70c2479eb97a8d9c2a39ab111b",
+        "parameter_u64": 5474173771437748480,
+        "shell_index": 3
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.4188790204786388,
+          2.513274122871834,
+          4.607669225265029
+        ],
+        "flavour_triplet_commitment": "64b7be965ac099627861815eb57bba48c67a15b8ca6e19e8581c179aec393e97",
+        "group_index": 4,
+        "observable_index": 1,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "da667ece7a71e7f34ac31afeb77861376ed3a90ea4bd57918e63dca5bc18aa09",
+        "parameter_u64": 9856969596157801878,
+        "shell_index": 1
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          0.2094395102393194,
+          2.3038346126325147,
+          4.39822971502571
+        ],
+        "flavour_triplet_commitment": "458e4e8b9c38f7ca91f73acfa11ae7070bc6495112bab85c65582e2968de8935",
+        "group_index": 5,
+        "observable_index": 2,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "560b8958b29b9bf3b413951f35ea9758ad586ce9c6b6366b0a0073e1600bb1e4",
+        "parameter_u64": 10296003490920877829,
+        "shell_index": 1
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          0.029919930034188358,
+          2.1243150324273836,
+          4.218710134820579
+        ],
+        "flavour_triplet_commitment": "0c10d147455a9406906f8bdb4273005415cda85bb0cb2f13272158f678a6c49b",
+        "group_index": 8,
+        "observable_index": 2,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "21de873c99666b8716703832a1b2b11515bcedb055a6d9c16c4634207877230d",
+        "parameter_u64": 4388800870415810711,
+        "shell_index": 2
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          1.0471975511965974,
+          3.1415926535897927,
+          5.235987755982988
+        ],
+        "flavour_triplet_commitment": "8d6f13843583981773372d72cdb8ecae91f3d2f616034a8c26fe3eb44f9129cb",
+        "group_index": 2,
+        "observable_index": 2,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "b9d61b83e01045a4fc85f53df535e0dd68c6c0bb8bcc6859701ac25ee9f5c6b2",
+        "parameter_u64": 17245048275086317812,
+        "shell_index": 0
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          0.0027199936394715074,
+          2.0971150960326668,
+          4.191510198425862
+        ],
+        "flavour_triplet_commitment": "c18ac344a6817a486a5ce86eef68a9c93b9fb6a5cca2e626aa97e8f993d5ba9d",
+        "group_index": 11,
+        "observable_index": 2,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "5125f30c104ce703db0ecfd4d5cd5f9f20d20842abdefb74de646e73d80c5f1c",
+        "parameter_u64": 3040178206751723743,
+        "shell_index": 3
+      }
+    ],
+    "word_sha256": "814fb0cc01264c1459bb812dc726a2c6b735898e9bedd602bdf628f3d905d5ee"
+  },
+  "noema_commit": "69b5fbcdcc37094831d04061ea88a876fe6b84af",
+  "noema_ref": "experiment/prime-gap-mutation-codons-v6-1-20260926",
+  "noema_repository": "AdrianLipa90/NOEMA-Telekom",
+  "relational": {
+    "authority": {
+      "candidate_only": true,
+      "changes_frozen_aead": false,
+      "cryptographic_entropy": false,
+      "execution_authority": false,
+      "physical_neutrino_carrier_claim": false,
+      "security_admission": false
+    },
+    "execution_semantics": {
+      "flavour_neutral": true,
+      "full_z3_triplet_retained": true
+    },
+    "execution_state_sha256": "d28286fb157f9df0da9e5962c24c3628065c7611086746300e544194d6ab036d",
+    "fresh_entropy_commitment": "63e2ef74583e23ad433ccb4e3f751f597c31c42f8d5e26f457e053335179e871",
+    "schema": "NOEMA_TELEKOM_PRIME_GAP_MUTATION_CODON_WORD_V6_1",
+    "source_state_sha256": "bc6f1f81b7824e9b8fac14370c7889250b2492f69e29c3dbd082df0d97f193ac",
+    "strategy": "RELATIONAL_CODON_ORDER_V6_1",
+    "tokens": [
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.05983986006837716,
+          2.1542349624615724,
+          4.248630064854767
+        ],
+        "flavour_triplet_commitment": "7cef12aaafdbb43cd46e0701ed89f3eba2c49e28b7cca8bacffaed8c95cabbf0",
+        "group_index": 6,
+        "observable_index": 0,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "83b4db4779ba184fb1ddb5085e01cc51106b888aa0498941f8c699a46d1d2972",
+        "parameter_u64": 5306167327086469955,
+        "shell_index": 2
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          2.0943951023931957,
+          4.188790204786391,
+          0.0
+        ],
+        "flavour_triplet_commitment": "83c206b61ac87e2614e56d98bdab9a2c7d9a725917e7bb9c3619694c270daedc",
+        "group_index": 0,
+        "observable_index": 0,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "f6fa96e58072fed439ed6fc69239326ddad48056db41689a1028687f5ece6488",
+        "parameter_u64": 3915321912016375150,
+        "shell_index": 0
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.005439987278943459,
+          2.0998350896721387,
+          4.1942301920653335
+        ],
+        "flavour_triplet_commitment": "a757b7701704c761a04c07d7fb763accd23e884213e1391b5b28fcc7a9cb0a40",
+        "group_index": 9,
+        "observable_index": 0,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "c2b5bb6f3ebade61cfe445f5733f053747656f70c2479eb97a8d9c2a39ab111b",
+        "parameter_u64": 5474173771437748480,
+        "shell_index": 3
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.005439987278943459,
+          2.0998350896721387,
+          4.1942301920653335
+        ],
+        "flavour_triplet_commitment": "693b1f7e1006132f1d3bdf4b3ee316067084afc01ae9977b47209f95b4345281",
+        "group_index": 10,
+        "observable_index": 1,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "b5ab22ec5f749874c4ce5c5931ebdc7feafb581e73f9b9913bcc53bde9922991",
+        "parameter_u64": 1307303706237057794,
+        "shell_index": 3
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.4188790204786388,
+          2.513274122871834,
+          4.607669225265029
+        ],
+        "flavour_triplet_commitment": "64b7be965ac099627861815eb57bba48c67a15b8ca6e19e8581c179aec393e97",
+        "group_index": 4,
+        "observable_index": 1,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "da667ece7a71e7f34ac31afeb77861376ed3a90ea4bd57918e63dca5bc18aa09",
+        "parameter_u64": 9856969596157801878,
+        "shell_index": 1
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          2.0943951023931966,
+          4.188790204786391,
+          8.881784197001252e-16
+        ],
+        "flavour_triplet_commitment": "e6732c105823947896b7d9902f65b7a5a9d9625479c6b4f74b3a3c09ce2860a7",
+        "group_index": 1,
+        "observable_index": 1,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "3da2acf72ea01c27b0f070ddf3854a2bf9d15103ce7d28c523482ca4c66e0123",
+        "parameter_u64": 9010144512065208668,
+        "shell_index": 0
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.41887902047863923,
+          2.5132741228718345,
+          4.607669225265029
+        ],
+        "flavour_triplet_commitment": "6713999ede858a8db639ca341b9a657bddf96c21133a563dfdfde34c563217a8",
+        "group_index": 3,
+        "observable_index": 0,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "d4448e521a97b1e4d5247b056feb7470c5b5e40c1772801cbce41638980462d2",
+        "parameter_u64": 7944723168019032100,
+        "shell_index": 1
+      },
+      {
+        "activity": 0.3333333333333333,
+        "flavour_phase_triplet": [
+          0.05983986006837716,
+          2.1542349624615724,
+          4.248630064854767
+        ],
+        "flavour_triplet_commitment": "4dbe8fc06546652b2fc8fbc13a514f850357981e993d10a16b08076526cacde7",
+        "group_index": 7,
+        "observable_index": 1,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "b5e8cb9e009aa776b021126b133830be809ccff0f3dba92d8d48d3651d53fec6",
+        "parameter_u64": 2755696167811983454,
+        "shell_index": 2
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          1.0471975511965974,
+          3.1415926535897927,
+          5.235987755982988
+        ],
+        "flavour_triplet_commitment": "8d6f13843583981773372d72cdb8ecae91f3d2f616034a8c26fe3eb44f9129cb",
+        "group_index": 2,
+        "observable_index": 2,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "b9d61b83e01045a4fc85f53df535e0dd68c6c0bb8bcc6859701ac25ee9f5c6b2",
+        "parameter_u64": 17245048275086317812,
+        "shell_index": 0
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          0.2094395102393194,
+          2.3038346126325147,
+          4.39822971502571
+        ],
+        "flavour_triplet_commitment": "458e4e8b9c38f7ca91f73acfa11ae7070bc6495112bab85c65582e2968de8935",
+        "group_index": 5,
+        "observable_index": 2,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "560b8958b29b9bf3b413951f35ea9758ad586ce9c6b6366b0a0073e1600bb1e4",
+        "parameter_u64": 10296003490920877829,
+        "shell_index": 1
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          0.0027199936394715074,
+          2.0971150960326668,
+          4.191510198425862
+        ],
+        "flavour_triplet_commitment": "c18ac344a6817a486a5ce86eef68a9c93b9fb6a5cca2e626aa97e8f993d5ba9d",
+        "group_index": 11,
+        "observable_index": 2,
+        "operation": "DUPLICATE_CHILD",
+        "parameter_commitment": "5125f30c104ce703db0ecfd4d5cd5f9f20d20842abdefb74de646e73d80c5f1c",
+        "parameter_u64": 3040178206751723743,
+        "shell_index": 3
+      },
+      {
+        "activity": 0.25,
+        "flavour_phase_triplet": [
+          0.029919930034188358,
+          2.1243150324273836,
+          4.218710134820579
+        ],
+        "flavour_triplet_commitment": "0c10d147455a9406906f8bdb4273005415cda85bb0cb2f13272158f678a6c49b",
+        "group_index": 8,
+        "observable_index": 2,
+        "operation": "TRANSLOCATE_CHILD",
+        "parameter_commitment": "21de873c99666b8716703832a1b2b11515bcedb055a6d9c16c4634207877230d",
+        "parameter_u64": 4388800870415810711,
+        "shell_index": 2
+      }
+    ],
+    "word_sha256": "d7b3d57a2e0498f020b13b3ce0731718a091b70a48af8281c80a7b659c21eb02"
+  },
+  "schema": "NOEMA_DNCRYPT_PRIME_GAP_CODON_V6_1_CROSS_REPO_FIXTURE_V1",
+  "structural_witness": {
+    "different": true,
+    "matched_null_final_sha256": "9b1d48d656e1d0d30f01d5bfd47c7c169b2d8414ddd27ae2a365f7f43905bad7",
+    "relational_final_sha256": "9c62ad35129b13d913892096c16877fc12b5cef0c2b4c430d1e86df0f2ec72d6"
+  }
+}
