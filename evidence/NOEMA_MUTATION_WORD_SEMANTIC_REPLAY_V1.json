@@ -1,0 +1,456 @@
+{
+  "all_closed": true,
+  "authority": {
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "native_dncrypt_execution": false,
+    "security_admission": false
+  },
+  "fixture_semantics": "restricted_no-relations replay of the exact operator semantics used by NOEMA_MUTATION_WORD_NATIVE_V1",
+  "noncommutative": true,
+  "orders_tested": 24,
+  "receipt_sha256": "e4419d10728b54d5f2cb6cad3bd8d903d4ae4c9f9e9823099be50600da863adc",
+  "rows": [
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN"
+      ],
+      "semantic_id": "e305e81d71f2104f073cf6e8ed0efeb769b22399e7c56125c2c76c557f81f55c"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN",
+        "TRANSLOCATE_CHILD"
+      ],
+      "semantic_id": "e305e81d71f2104f073cf6e8ed0efeb769b22399e7c56125c2c76c557f81f55c"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD",
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "INVERT_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD"
+      ],
+      "semantic_id": "e305e81d71f2104f073cf6e8ed0efeb769b22399e7c56125c2c76c557f81f55c"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "INVERT_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "INVERT_CHILDREN",
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "INVERT_CHILDREN",
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "TRANSLOCATE_CHILD"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "DUPLICATE_CHILD"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN",
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "DUPLICATE_CHILD"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "TRANSLOCATE_CHILD",
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "TRANSLOCATE_CHILD",
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "INVERT_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "TRANSLOCATE_CHILD",
+        "INVERT_CHILDREN",
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN"
+      ],
+      "semantic_id": "b5241da29806e644a74d94d98b452e7f954c03c27c34f0e02c106849049503c7"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "TRANSLOCATE_CHILD",
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN",
+        "DUPLICATE_CHILD"
+      ],
+      "semantic_id": "b5241da29806e644a74d94d98b452e7f954c03c27c34f0e02c106849049503c7"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN",
+        "INVERT_CHILDREN",
+        "DUPLICATE_CHILD"
+      ],
+      "semantic_id": "b5241da29806e644a74d94d98b452e7f954c03c27c34f0e02c106849049503c7"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "RECOMBINE_CHILDREN",
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD"
+      ],
+      "semantic_id": "e305e81d71f2104f073cf6e8ed0efeb769b22399e7c56125c2c76c557f81f55c"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "RECOMBINE_CHILDREN",
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD",
+        "INVERT_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "RECOMBINE_CHILDREN",
+        "INVERT_CHILDREN",
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r2",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "RECOMBINE_CHILDREN",
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "DUPLICATE_CHILD"
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1__dup_v5d",
+        "r1",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "RECOMBINE_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN"
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160"
+    },
+    {
+      "children": [
+        "r4",
+        "r3",
+        "r1",
+        "r1__dup_v5d",
+        "r2",
+        "r3__xo_v5r",
+        "r4__xo_v5r"
+      ],
+      "order": [
+        "RECOMBINE_CHILDREN",
+        "TRANSLOCATE_CHILD",
+        "INVERT_CHILDREN",
+        "DUPLICATE_CHILD"
+      ],
+      "semantic_id": "b5241da29806e644a74d94d98b452e7f954c03c27c34f0e02c106849049503c7"
+    }
+  ],
+  "schema": "DNCRYPT_NOEMA_MUTATION_WORD_SEMANTIC_REPLAY_V1",
+  "source_blob_shas": {
+    "genetic_ir.py": "fb1b57e1d0054b8e30575793cb962e9a74e5eaa2",
+    "genetic_operators.py": "359f94414639b4ad94b83550ab218c692670af2b",
+    "util.py": "81dbbcfb121a15810bb990431abb49d7fdf1d57c"
+  },
+  "source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "status": "PASS_SEMANTIC_REPLAY_NATIVE_GATE_STILL_BLOCKED",
+  "unique_final_semantic_states": 4
+}

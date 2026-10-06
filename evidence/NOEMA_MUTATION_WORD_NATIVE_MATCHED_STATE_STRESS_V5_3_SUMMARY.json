@@ -1,0 +1,44 @@
+{
+  "authority": {
+    "candidate_only": true,
+    "changes_frozen_aead": false,
+    "ciphertext_holdout_opened": false,
+    "cryptographic_entropy": false,
+    "security_admission": false
+  },
+  "date": "2026-09-26",
+  "execution": {
+    "all_closed": true,
+    "distinct_null_final_semantic_states": 4096,
+    "distinct_relational_final_semantic_states": 4096,
+    "orders_changed_count": 3505,
+    "orders_changed_fraction": 0.855712890625,
+    "state_changed_given_order_changed_count": 2168,
+    "state_changed_given_order_changed_fraction": 0.6185449358059915
+  },
+  "full_local_receipt": {
+    "canonical_receipt_sha256": "73995f2c29c6a454d179669a736b9e2f04a4e1856129b97c1c02f774e30765ae",
+    "file_sha256": "4e8e1c164bee5a330e3f5612a3adb7e152978752fa38030d19cc2140e9858223",
+    "filename": "NOEMA_MUTATION_WORD_NATIVE_MATCHED_STATE_STRESS_V5_3.json"
+  },
+  "matched_design": {
+    "batch_sha256": "86cb98cf9a300432271d19046580719d633872ab025890b4f2edc39a170b2857",
+    "candidate_token_multiset_matched": true,
+    "exact_order_distribution_match": true,
+    "exact_position_marginal_match": true,
+    "only_intended_variable": "OPERATOR_ORDER_ALIGNED_TO_CURRENT_RELATIONAL_STATE_VS_DONOR_STATE_ORDER",
+    "rotation_offset": 3912,
+    "semantic_parameter_map_matched": true
+  },
+  "next_gate": "FRESH_PREREGISTERED_MATCHED_EVALUATOR_ON_NATIVE_PARAMETERIZED_MUTATION_WORD_V5_3",
+  "samples": 4096,
+  "schema": "DNCRYPT_NOEMA_MUTATION_WORD_NATIVE_MATCHED_STATE_STRESS_V5_3_SUMMARY",
+  "source_blob_shas": {
+    "genetic_ir.py": "fb1b57e1d0054b8e30575793cb962e9a74e5eaa2",
+    "genetic_operators.py": "359f94414639b4ad94b83550ab218c692670af2b",
+    "util.py": "81dbbcfb121a15810bb990431abb49d7fdf1d57c"
+  },
+  "source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "status": "PASS_NATIVE_PARAMETERIZED_MATCHED_EXECUTION",
+  "summary_sha256": "ad1c6e80c0da16c0f21b35117497bad5827c9e6357d46a03fc94cc9bcb298aff"
+}

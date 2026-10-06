@@ -1,0 +1,273 @@
+{
+  "authority": {
+    "candidate_only": true,
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "security_admission": false
+  },
+  "date": "2026-09-26",
+  "dncrypt_source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "equivalence_classes": [
+    {
+      "orders": [
+        [
+          "DUPLICATE_CHILD",
+          "TRANSLOCATE_CHILD",
+          "INVERT_CHILDREN",
+          "RECOMBINE_CHILDREN"
+        ],
+        [
+          "DUPLICATE_CHILD",
+          "TRANSLOCATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "INVERT_CHILDREN"
+        ],
+        [
+          "DUPLICATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "INVERT_CHILDREN"
+        ],
+        [
+          "TRANSLOCATE_CHILD",
+          "DUPLICATE_CHILD",
+          "INVERT_CHILDREN",
+          "RECOMBINE_CHILDREN"
+        ],
+        [
+          "TRANSLOCATE_CHILD",
+          "DUPLICATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "INVERT_CHILDREN"
+        ],
+        [
+          "TRANSLOCATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "DUPLICATE_CHILD",
+          "INVERT_CHILDREN"
+        ],
+        [
+          "RECOMBINE_CHILDREN",
+          "DUPLICATE_CHILD",
+          "TRANSLOCATE_CHILD",
+          "INVERT_CHILDREN"
+        ],
+        [
+          "RECOMBINE_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "DUPLICATE_CHILD",
+          "INVERT_CHILDREN"
+        ]
+      ],
+      "semantic_id": "7203a8f2e40c1ca90eaa100449585e2484982a53eb645dab5ae8705ef2304160",
+      "size": 8
+    },
+    {
+      "orders": [
+        [
+          "INVERT_CHILDREN",
+          "DUPLICATE_CHILD",
+          "TRANSLOCATE_CHILD",
+          "RECOMBINE_CHILDREN"
+        ],
+        [
+          "INVERT_CHILDREN",
+          "DUPLICATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "TRANSLOCATE_CHILD"
+        ],
+        [
+          "INVERT_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "DUPLICATE_CHILD",
+          "RECOMBINE_CHILDREN"
+        ],
+        [
+          "INVERT_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "DUPLICATE_CHILD"
+        ],
+        [
+          "INVERT_CHILDREN",
+          "RECOMBINE_CHILDREN",
+          "DUPLICATE_CHILD",
+          "TRANSLOCATE_CHILD"
+        ],
+        [
+          "INVERT_CHILDREN",
+          "RECOMBINE_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "DUPLICATE_CHILD"
+        ],
+        [
+          "RECOMBINE_CHILDREN",
+          "INVERT_CHILDREN",
+          "DUPLICATE_CHILD",
+          "TRANSLOCATE_CHILD"
+        ],
+        [
+          "RECOMBINE_CHILDREN",
+          "INVERT_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "DUPLICATE_CHILD"
+        ]
+      ],
+      "semantic_id": "9019f5ea47b0d7a3b88de3f7e1ee359219971bfbd59af45e2ed62fe8e6017a03",
+      "size": 8
+    },
+    {
+      "orders": [
+        [
+          "TRANSLOCATE_CHILD",
+          "INVERT_CHILDREN",
+          "DUPLICATE_CHILD",
+          "RECOMBINE_CHILDREN"
+        ],
+        [
+          "TRANSLOCATE_CHILD",
+          "INVERT_CHILDREN",
+          "RECOMBINE_CHILDREN",
+          "DUPLICATE_CHILD"
+        ],
+        [
+          "TRANSLOCATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "INVERT_CHILDREN",
+          "DUPLICATE_CHILD"
+        ],
+        [
+          "RECOMBINE_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "INVERT_CHILDREN",
+          "DUPLICATE_CHILD"
+        ]
+      ],
+      "semantic_id": "b5241da29806e644a74d94d98b452e7f954c03c27c34f0e02c106849049503c7",
+      "size": 4
+    },
+    {
+      "orders": [
+        [
+          "DUPLICATE_CHILD",
+          "INVERT_CHILDREN",
+          "TRANSLOCATE_CHILD",
+          "RECOMBINE_CHILDREN"
+        ],
+        [
+          "DUPLICATE_CHILD",
+          "INVERT_CHILDREN",
+          "RECOMBINE_CHILDREN",
+          "TRANSLOCATE_CHILD"
+        ],
+        [
+          "DUPLICATE_CHILD",
+          "RECOMBINE_CHILDREN",
+          "INVERT_CHILDREN",
+          "TRANSLOCATE_CHILD"
+        ],
+        [
+          "RECOMBINE_CHILDREN",
+          "DUPLICATE_CHILD",
+          "INVERT_CHILDREN",
+          "TRANSLOCATE_CHILD"
+        ]
+      ],
+      "semantic_id": "e305e81d71f2104f073cf6e8ed0efeb769b22399e7c56125c2c76c557f81f55c",
+      "size": 4
+    }
+  ],
+  "execution": {
+    "all_closed": true,
+    "mode": "LOCAL_EXACT_SOURCE_SLICE",
+    "noncommutative": true,
+    "orders_tested": 24,
+    "pytest": "2/2 PASS",
+    "unique_final_semantic_states": 4
+  },
+  "fixture_relations": {
+    "commuting_pairs": [
+      [
+        "DUPLICATE_CHILD",
+        "TRANSLOCATE_CHILD"
+      ],
+      [
+        "DUPLICATE_CHILD",
+        "RECOMBINE_CHILDREN"
+      ],
+      [
+        "INVERT_CHILDREN",
+        "RECOMBINE_CHILDREN"
+      ],
+      [
+        "TRANSLOCATE_CHILD",
+        "RECOMBINE_CHILDREN"
+      ]
+    ],
+    "noncommuting_pairs": [
+      [
+        "DUPLICATE_CHILD",
+        "INVERT_CHILDREN"
+      ],
+      [
+        "INVERT_CHILDREN",
+        "TRANSLOCATE_CHILD"
+      ]
+    ],
+    "scope": "BOUNDED_NATIVE_FIXTURE_ONLY"
+  },
+  "interpretation": "All 24 single-use permutations of D/I/T/R close on the exact DNCrypt v0.6.2 Genetic IR operator source slice. They collapse to four final semantic states. On this fixture R commutes with D/I/T and D commutes with T, while D/I and I/T do not. This supports a trace-class representation for the next experimental mutation-word layer; it is not a universal operator theorem.",
+  "noema_source_commit": "8126e777d92d4d059d2e75f8cc18404ebfda3c58",
+  "pairwise_commutators": [
+    {
+      "a": "DUPLICATE_CHILD",
+      "ab_semantic_id": "3dfaf1bfd5d92221727c83ff5d50a3f46706a63ecc5622ac98369e53e964dfed",
+      "b": "INVERT_CHILDREN",
+      "ba_semantic_id": "d9519a7f8bcb3819076e92f2abee3e5cf498fece54e4288d95465f3562fb42fa",
+      "commute_on_fixture": false
+    },
+    {
+      "a": "DUPLICATE_CHILD",
+      "ab_semantic_id": "ee2a23fa0ba60b88ea296d070b0824d9f20fb2ead12262f999c4bec3c61bbddb",
+      "b": "TRANSLOCATE_CHILD",
+      "ba_semantic_id": "ee2a23fa0ba60b88ea296d070b0824d9f20fb2ead12262f999c4bec3c61bbddb",
+      "commute_on_fixture": true
+    },
+    {
+      "a": "DUPLICATE_CHILD",
+      "ab_semantic_id": "94e09c61eca3f67f5d8b584ced78e79b28da7750b0574b83acbf03edb8e8fd5a",
+      "b": "RECOMBINE_CHILDREN",
+      "ba_semantic_id": "94e09c61eca3f67f5d8b584ced78e79b28da7750b0574b83acbf03edb8e8fd5a",
+      "commute_on_fixture": true
+    },
+    {
+      "a": "INVERT_CHILDREN",
+      "ab_semantic_id": "ccfac69d86af3b3e9188e5326b1141aeaf455e4c5fb729919d141f60dbf6d4f4",
+      "b": "TRANSLOCATE_CHILD",
+      "ba_semantic_id": "513ee268af49d57ad1d557dae46cc6a284605f9ea7ffcad8c298a4c581db29f7",
+      "commute_on_fixture": false
+    },
+    {
+      "a": "INVERT_CHILDREN",
+      "ab_semantic_id": "f43c910046c96d3d95e127f73b9031df948babc28c0133e8bdf7ecabe243cd15",
+      "b": "RECOMBINE_CHILDREN",
+      "ba_semantic_id": "f43c910046c96d3d95e127f73b9031df948babc28c0133e8bdf7ecabe243cd15",
+      "commute_on_fixture": true
+    },
+    {
+      "a": "TRANSLOCATE_CHILD",
+      "ab_semantic_id": "f32f35865c8f037746a575896d1ba0c98d6c6a47a55d9714ad77172592e477a7",
+      "b": "RECOMBINE_CHILDREN",
+      "ba_semantic_id": "f32f35865c8f037746a575896d1ba0c98d6c6a47a55d9714ad77172592e477a7",
+      "commute_on_fixture": true
+    }
+  ],
+  "receipt_sha256": "fec718e3e1d482ee708e82345d4032d3e1c3c4e0a83cb3ace2a53f891e1620d6",
+  "schema": "DNCRYPT_NOEMA_MUTATION_WORD_NATIVE_CLOSURE_LOCAL_V2",
+  "source_git_blobs": {
+    "src/dncrypt/genetic_ir.py": "fb1b57e1d0054b8e30575793cb962e9a74e5eaa2",
+    "src/dncrypt/genetic_operators.py": "359f94414639b4ad94b83550ab218c692670af2b",
+    "src/dncrypt/util.py": "81dbbcfb121a15810bb990431abb49d7fdf1d57c"
+  },
+  "status": "PASS_NATIVE_CLOSURE"
+}

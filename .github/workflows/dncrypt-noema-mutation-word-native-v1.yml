@@ -1,0 +1,19 @@
+name: DNCrypt NOEMA mutation-word native v1
+on:
+  push:
+    branches: [experiment/noema-mutation-word-v5-native-20260926]
+    paths: [tools/noema_mutation_word_native_v1.py, tests/test_noema_mutation_word_native_v1.py, docs/NOEMA_MUTATION_WORD_NATIVE_V1.md, .github/workflows/dncrypt-noema-mutation-word-native-v1.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install -e ".[test]"
+      - run: python -m pytest -q tests/test_noema_mutation_word_native_v1.py
+      - run: python tools/noema_mutation_word_native_v1.py > native_closure_receipt.json
