@@ -1,0 +1,104 @@
+{
+  "candidate_pool_size_histogram": {
+    "1": 82,
+    "10": 822,
+    "11": 327,
+    "12": 100,
+    "13": 22,
+    "14": 2,
+    "17": 8,
+    "2": 335,
+    "3": 1057,
+    "4": 2102,
+    "5": 3317,
+    "6": 3798,
+    "7": 3658,
+    "8": 2710,
+    "9": 1660
+  },
+  "ciphertext_holdout_used": false,
+  "claim_boundary": "Exact-source mutation-substrate QA only; no ciphertext/security/physical-carrier claim.",
+  "exact_nuisance_match_fraction": 1.0,
+  "observable_shares_null": [
+    0.41111779147251865,
+    0.29778546019339647,
+    0.2910967483340849
+  ],
+  "observable_shares_v4": [
+    0.4367453279222406,
+    0.2868380179367704,
+    0.27641665414098904
+  ],
+  "phenotype": {
+    "allowed_loci": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      9,
+      17,
+      19,
+      20,
+      23,
+      28,
+      30,
+      32,
+      34,
+      35
+    ],
+    "authority": {
+      "cryptographic_entropy": false,
+      "search_control_only": true,
+      "security_admission": false
+    },
+    "genetic_ir_id": "4bae73a8e9c528034519500f68158f85ba84d321d43f63af353f94b6249ebc40",
+    "mutation_budget": 2,
+    "route_direction": -1,
+    "route_stride": 33,
+    "schema": "dncrypt.mutation-phenotype/v0.6.1-candidate",
+    "stats": {
+      "level_counts": [
+        [
+          "KAKU",
+          32
+        ],
+        [
+          "RADICAL",
+          32
+        ],
+        [
+          "CONCEPT",
+          1
+        ],
+        [
+          "SENTENCE",
+          0
+        ],
+        [
+          "PARAGRAPH",
+          0
+        ],
+        [
+          "CHAPTER",
+          0
+        ],
+        [
+          "BOOK",
+          0
+        ]
+      ],
+      "max_depth": 2,
+      "node_count": 65,
+      "payload_bytes": 1608,
+      "relation_count": 0
+    }
+  },
+  "phenotype_commitment": "af6553259688f3f1e1b40ecc3bf33d8ae305e4040a17105ac187bd2ed946d788",
+  "samples": 20000,
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V4_EXACT_SUBSTRATE_STRESS_V1",
+  "selection_changed_vs_null_fraction": 0.62485,
+  "status": "PASS_PREHOLDOUT_EXACT_SUBSTRATE_QA"
+}

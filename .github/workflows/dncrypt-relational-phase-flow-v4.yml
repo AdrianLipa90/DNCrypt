@@ -1,0 +1,28 @@
+name: DNCrypt NOEMA relational phase-flow v4
+on:
+  push:
+    branches: [experiment/relational-prime-phase-flow-v4-20260926]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  relational-v4:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -e ".[test]"
+      - run: python -m pip check
+      - name: Core and integration conformance
+        run: python -m pytest -q tests/test_relational_phase_flow_core_v4.py tests/test_exact_dncrypt_v061_harness.py tests/test_relational_phase_flow_v4_challenge.py
+      - name: Preregistered paired ciphertext validation
+        run: python tools/relational_phase_flow_v4_validation.py --output relational_v4_validation.json --replicates 24 --population-size 12 --folds 6 --fold-messages 16 --holdout-messages 64 --message-bytes 128
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dncrypt-noema-relational-v4-validation
+          path: relational_v4_validation.json
+          if-no-files-found: error

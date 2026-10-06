@@ -1,0 +1,48 @@
+{
+  "authority": {
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "physical_neutrino_carrier_verified": false,
+    "security_admission": false
+  },
+  "configuration": {
+    "fold_messages": 16,
+    "folds": 6,
+    "holdout_messages": 64,
+    "message_bytes": 128,
+    "population_size": 12,
+    "replicates": 24
+  },
+  "date": "2026-09-26",
+  "implementation_commit": "c69efcf3289fbce0c55adb546d6076e35848fb50",
+  "matched_design": {
+    "holdout_used_for_selection": false,
+    "only_operator_locus_ordering_varies": true,
+    "same_fresh_population_entropy": true,
+    "same_native_genetic_ir_phenotype": true,
+    "same_paired_ciphertext_entropy_schedule": true,
+    "same_parent": true,
+    "same_route_phase_seed_mutation_nonce": true,
+    "same_sealed_holdout": true,
+    "same_selection_corpora": true
+  },
+  "math": {
+    "activity": "q=0.5*abs(sin(d_now))+0.5*abs(sin(kappa))",
+    "relation": "d_prev=wrap(phi[t-1]-phi[t-2]); d_now=wrap(phi[t]-phi[t-1]); kappa=wrap(d_now-d_prev)",
+    "tensor": "4 shells x 3 observables x 3 flavour lanes = 36D"
+  },
+  "noema_relational_commit": "9ae2756ded849ab30494064c54ace681dcc6bd20",
+  "predecessor": {
+    "v2_mean_D_minus_B": -0.004132518137925696,
+    "v2_p": 0.8318119049072266,
+    "v2_status": "FAIL_NO_PROMOTION"
+  },
+  "preregistration_sha256": "561c76fe7e141ad6a848145b8eb023e9a6b3eedcb4380fd952d435eef68982e4",
+  "primary_comparison": "E_RELATIONAL_PHASE_FLOW_V3 minus B_RANDOM_LOCUS_NULL",
+  "result": null,
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V3_PREREGISTRATION_V2",
+  "seed_binding": "EXACT_MATCH_TO_CHALLENGE_DEFAULT_SEED_LABEL",
+  "seed_hex": "14af4554164a6d3ae0240f2fb51f383d85ff42369d4952db123701232e062b6c",
+  "status": "PREREGISTERED_NOT_RUN",
+  "success_rule": "mean(E-B)<0 AND paired two-sided sign-test p<0.05"
+}

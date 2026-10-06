@@ -1,0 +1,17 @@
+{
+  "authority": {
+    "changes_frozen_aead": false,
+    "changes_selector": false,
+    "security_admission": false
+  },
+  "date": "2026-09-26",
+  "exact_nuisance_match_fraction": 1.0,
+  "mutation_set_changed_fraction": 0.2513,
+  "ordered_tuple_changed_fraction": 0.6283,
+  "reason": "Mutation application is order-independent for the selected two loci. Reversed tuples produce the same child genome and must not count as a changed mutation set.",
+  "receipt_sha256": "d8f2ae5c3902e04661385be3a60f9ace428d74c4fb043f82580ef603d2fc9375",
+  "samples": 20000,
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V4_EXACT_SUBSTRATE_STRESS_CORRECTION_V2",
+  "status": "PASS_CORRECTED_METRIC_NO_PROMOTION",
+  "supersedes_metric_in": "evidence/RELATIONAL_PHASE_FLOW_V4_EXACT_SUBSTRATE_STRESS.json"
+}

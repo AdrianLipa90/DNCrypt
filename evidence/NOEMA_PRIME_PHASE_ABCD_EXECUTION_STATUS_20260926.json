@@ -1,0 +1,33 @@
+{
+  "schema": "DNCRYPT_NOEMA_PRIME_PHASE_ABCD_EXECUTION_STATUS_V1",
+  "date": "2026-09-26",
+  "branch": "experiment/noema-prime-phase-abcd-20260926",
+  "experiment_commit": "1c24ef73ac06c24f014a066c200f48293bc61d16",
+  "static_local_validation": {
+    "py_compile": "PASS",
+    "actual_ciphertext_pilot": "NOT_RUN"
+  },
+  "github_actions": {
+    "workflow": "DNCrypt NOEMA prime-phase A-B-C-D",
+    "run_id": 36268428269,
+    "attempts": 2,
+    "conclusion": "FAILURE_PRE_STEP",
+    "steps_observed": [],
+    "runner_assigned": false,
+    "logs_available": false,
+    "corroborating_repo_main_run": {
+      "run_id": 35958284276,
+      "head_sha": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+      "jobs": [
+        "test (3.10)",
+        "test (3.12)"
+      ],
+      "conclusion": "FAILURE_PRE_STEP",
+      "steps_observed": null
+    }
+  },
+  "verdict": "EXECUTION_BLOCKED_BY_GITHUB_RUNNER_PRE_STEP",
+  "benchmark_claim": false,
+  "security_admission_claim": false,
+  "interpretation": "No A/B/C/D ciphertext result is claimed. GitHub Actions failed before executing checkout or tests; this receipt records execution infrastructure state only."
+}

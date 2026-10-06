@@ -1,0 +1,61 @@
+{
+  "arms": [
+    "B_RANDOM_LOCUS_NULL",
+    "F_RELATIONAL_MATCHED_NUISANCE_V4"
+  ],
+  "authority": {
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "observation_only": true,
+    "physical_neutrino_carrier_verified": false,
+    "security_admission": false
+  },
+  "configuration": {
+    "fold_messages": 16,
+    "folds": 6,
+    "holdout_messages": 64,
+    "message_bytes": 128,
+    "population_size": 12,
+    "replicates": 24
+  },
+  "date": "2026-09-26",
+  "implementation_commit": "69dea33965d82996ffff529f2be9335d35a3f9b4",
+  "matched_design": {
+    "holdout_used_for_selection": false,
+    "only_arithmetic_observable_association_varies": true,
+    "same_flavour_marginals": true,
+    "same_fresh_population_entropy": true,
+    "same_native_genetic_ir_phenotype": true,
+    "same_paired_ciphertext_entropy_schedule": true,
+    "same_parent": true,
+    "same_route_phase_seed_mutation_nonce": true,
+    "same_sealed_holdout": true,
+    "same_selection_corpora": true,
+    "same_shell_marginals": true,
+    "same_unconstrained_mutation_candidate_pool": true
+  },
+  "predecessor": {
+    "v2_status": "FAIL_NO_PROMOTION",
+    "v3_holdout_used": false,
+    "v3_status": "FAIL_PREHOLDOUT_REPRESENTATION_BIAS_NO_CIPHERTEXT_RUN"
+  },
+  "preregistration_sha256": "624523b4043daa627647a0a94060e5b97ac93077b6f48638035d74e316cf6763",
+  "primary_comparison": "F_RELATIONAL_MATCHED_NUISANCE_V4 minus B_RANDOM_LOCUS_NULL",
+  "primary_endpoint": "paired sealed-holdout diagnostic adversarial-risk delta of selection-fold exploratory winner",
+  "result": null,
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V4_PREREGISTRATION_V1",
+  "seed_derivation": {
+    "algorithm": "SHA-256",
+    "domain": "DNCrypt NOEMA relational phase-flow v4 independent validation seed",
+    "implementation_commit_bound": true,
+    "not_used_in_development": true,
+    "seed_hex": "1a14d42f46c91e1f87b21d7a9da633462a3bde5bb55f2f7a4001a61d1a81748f"
+  },
+  "source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "status": "PREREGISTERED_NOT_RUN",
+  "success_rule": {
+    "direction": "F minus B < 0",
+    "mean_paired_delta_lt": 0.0,
+    "paired_sign_test_two_sided_p_lt": 0.05
+  }
+}

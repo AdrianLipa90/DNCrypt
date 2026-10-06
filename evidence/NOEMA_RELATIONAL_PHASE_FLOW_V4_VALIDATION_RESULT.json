@@ -1,0 +1,80 @@
+{
+  "arm_descriptives": {
+    "B_RANDOM_LOCUS_NULL": {
+      "mean_holdout_delta": 0.01244746315394899,
+      "median_holdout_delta": 0.003988498168196908
+    },
+    "F_RELATIONAL_MATCHED_NUISANCE_V4": {
+      "mean_holdout_delta": 0.0016185685153870578,
+      "median_holdout_delta": -0.008528537246366819
+    }
+  },
+  "authority": {
+    "changes_frozen_aead": false,
+    "cryptographic_entropy": false,
+    "physical_neutrino_carrier_verified": false,
+    "security_admission": false
+  },
+  "configuration": {
+    "fold_messages": 16,
+    "folds": 6,
+    "holdout_messages": 64,
+    "message_bytes": 128,
+    "population_size": 12,
+    "replicates": 24
+  },
+  "date": "2026-09-26",
+  "decision": {
+    "next_gate": "DIAGNOSE_TIE_MECHANISM_THEN_NEW_FRESH_HOLDOUT_ONLY",
+    "promote_v4": false,
+    "retain_as_provenance": true,
+    "reuse_v4_holdout_for_tuning": false
+  },
+  "diagnostics": {
+    "interpretation": "V4 removed shell/flavour nuisance bias, but the preregistered winner-level holdout endpoint produced too few non-ties for significance.",
+    "winner_selection_changed_count": 16,
+    "winner_selection_changed_fraction": 0.6666666666666666
+  },
+  "execution": {
+    "all_exact_nuisance_matches": true,
+    "all_integrity_paths_pass": true,
+    "all_substrate_matches": true,
+    "chunk_commitments": [
+      "929a0e65fe90484edd3d399563f276bffd0a16a2c7f3e900aaca55e940ba921d",
+      "fa261fe79ccf52a7d0810879719b4279f0d1195f5a1b5a1423059e089100ccaa",
+      "973d5d4393cc6f7849652c951f26f845e3af7b156353e04aabb1e62c40240219",
+      "476e69198edb5b222b8d0fcf80d5965b6ee9902c85ed618440987dd756f97808"
+    ],
+    "chunk_file_sha256": [
+      "7741c4dd5d208b0274701d44cfb85e7d3a261d03e3a224527c4df4e3c37fe455",
+      "f77dfc121dd215737559ac9a060ef65716c03a712a207e249478abb33cea360a",
+      "d8c086b66a3fce6095c65e8a2e1f868970e315984d3bcf83d45a1c77f0d0b265",
+      "60f47325bb8de90faeef5416203f1e75376eb5ae77667ddef3aa0c1f5cd7df9a"
+    ],
+    "holdout_used_for_selection": false,
+    "mode": "LOCAL_CONTROLLED_PAIRED_ACTUAL_CIPHERTEXT_REPLAY",
+    "replicate_count": 24
+  },
+  "implementation_commit": "69dea33965d82996ffff529f2be9335d35a3f9b4",
+  "preregistration_commit": "ba47a2844a8eb1c1c2102f5cf2c6cb86bf5fd370",
+  "primary_result": {
+    "B_lower_risk_count": 3,
+    "F_lower_risk_count": 6,
+    "comparison": "F_RELATIONAL_MATCHED_NUISANCE_V4 minus B_RANDOM_LOCUS_NULL",
+    "non_ties": 9,
+    "paired_delta": {
+      "max": 0.031425935267836325,
+      "mean": -0.010828894638561931,
+      "median": 0.0,
+      "min": -0.11847271799703663
+    },
+    "paired_sign_test_two_sided_p": 0.5078125,
+    "success_rule_passed": false,
+    "ties": 15
+  },
+  "receipt_sha256": "3d4018b5bf0b341ed18ac9d7510ed6f1193ffb9703acec3f0ca62f49af439a15",
+  "runner_sha256": "699b3193bb26de5f2edb590d8a36705c74792e714f962694a86d864bc5ad68a5",
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V4_VALIDATION_RESULT_V1",
+  "source_commit": "428fe3f0ac1707f935f833cc73be398fc136c2d3",
+  "status": "FAIL_NO_PROMOTION"
+}

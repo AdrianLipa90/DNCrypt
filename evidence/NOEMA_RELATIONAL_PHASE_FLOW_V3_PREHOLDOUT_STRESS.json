@@ -1,0 +1,46 @@
+{
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V3_PREHOLDOUT_STRESS_V1",
+  "date": "2026-09-26",
+  "status": "FAIL_PREHOLDOUT_REPRESENTATION_BIAS_NO_CIPHERTEXT_RUN",
+  "implementation_commit": "c69efcf3289fbce0c55adb546d6076e35848fb50",
+  "preregistration_commit": "42ebcb6a8da9643b00db6936f1d2f2ec153f9c8c",
+  "stress": {
+    "samples": 10000,
+    "top_k": 6,
+    "unique_states": 9988,
+    "coverage_loci": 26,
+    "normalized_locus_entropy": 0.8154221878642471,
+    "null_normalized_locus_entropy": 0.999920784930546,
+    "chi_square_uniform_loci": 65619.7944,
+    "null_chi_square_uniform_loci": 34.0752,
+    "shell_shares": [
+      0.29395,
+      0.4518666666666667,
+      0.2283,
+      0.025883333333333335
+    ],
+    "flavour_shares": [
+      0.4417,
+      0.2770666666666667,
+      0.28123333333333334
+    ],
+    "null_flavour_shares": [
+      0.3329166666666667,
+      0.33386666666666664,
+      0.33321666666666666
+    ]
+  },
+  "decision": {
+    "run_ciphertext_validation": false,
+    "use_holdout": false,
+    "promote_v3": false,
+    "successor": "V4_SCALE_COMPENSATED_FLAVOUR_NEUTRAL",
+    "rationale": "Pre-holdout representation QA exposed shell-scale and flavour-label bias. Stopping before ciphertext evaluation avoids wasting the frozen holdout and prevents interpreting encoding artefacts as search effects."
+  },
+  "authority": {
+    "security_admission": false,
+    "cryptographic_entropy": false,
+    "changes_frozen_aead": false,
+    "physical_neutrino_carrier_verified": false
+  }
+}

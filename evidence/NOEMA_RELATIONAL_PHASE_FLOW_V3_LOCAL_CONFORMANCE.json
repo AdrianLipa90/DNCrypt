@@ -1,0 +1,42 @@
+{
+  "authority": "NO_PROMOTION",
+  "claim_boundary": "No ciphertext result or security promotion is claimed. Full DNCrypt adapter execution requires the repository runtime or a functioning GitHub runner.",
+  "date": "2026-09-26",
+  "files": {
+    ".github/workflows/dncrypt-relational-phase-flow-v3.yml": {
+      "sha256": "644287933e03146fab58d3caf9c2609d3ff5e8e3920b8a2c7db55115207ad8db",
+      "size": 1365
+    },
+    "docs/RELATIONAL_PHASE_FLOW_V3_CHALLENGE.md": {
+      "sha256": "ab18463964f556a04361f7cb005f5a3afbeaec73ba4019352e122c60f753cea4",
+      "size": 1886
+    },
+    "tests/test_relational_phase_flow_core_v3.py": {
+      "sha256": "39f95c0d00d6c0683285cf482647b15c35f6343c2014eadfeeae2c4faa1883c9",
+      "size": 1736
+    },
+    "tests/test_relational_phase_flow_v3_challenge.py": {
+      "sha256": "441308314f2526a547e1ef58e97b531af845ac4746f9cfd772420b4c1e0616fd",
+      "size": 2531
+    },
+    "tools/relational_phase_flow_core_v3.py": {
+      "sha256": "d8e2c214a5d96cd1166e0b57bcdcbbdff325706bbf1c9647bc5d1637871503be",
+      "size": 5218
+    },
+    "tools/relational_phase_flow_v3_challenge.py": {
+      "sha256": "b5e56be73cc39783a3d8d8a04a1c6dd3af7f9a2e9f8bd3da894dddca59cd101b",
+      "size": 16242
+    }
+  },
+  "receipt_sha256": "9fa175f82f6bd2e3b025e30ac9efd7e51eb02896fd05396b18102767f5b64e95",
+  "schema": "DNCRYPT_NOEMA_RELATIONAL_PHASE_FLOW_V3_LOCAL_CONFORMANCE_V2",
+  "status": "PASS_CORE_CONFORMANCE_ADAPTER_NOT_EXECUTED",
+  "tests": {
+    "actual_ciphertext_validation": "NOT_RUN",
+    "challenge_py_compile": "PASS",
+    "challenge_pytest": "NOT_RUN_LOCAL_DNCRYPT_SOURCE_NOT_MATERIALIZED",
+    "noema_byte_exact_ranking": "PASS",
+    "noema_byte_exact_state_hash": "PASS",
+    "pure_core_pytest": "PASS_6_6"
+  }
+}
