@@ -4,10 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dncrypt"
-version = "0.9.0a0"
+version = "0.9.1a0"
 description = "DNCrypt — provenance-preserving AEAD with causal evolution, bounded Genetic IR operators, candidate policy compilation, signed rollback witness, hybrid key establishment, opaque secret backends, spectral evidence vaulting, external cryptanalysis provenance, and hierarchical 36D diagnostics"
 requires-python = ">=3.10"
 dependencies = ["cryptography>=42", "numpy>=1.26"]
+
+[project.scripts]
+dncrypt-local = "dncrypt.local_cli:main"
 
 [project.optional-dependencies]
 test = ["pytest>=8", "hypothesis>=6.112"]

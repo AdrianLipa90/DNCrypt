@@ -1,4 +1,4 @@
-# DNCrypt v0.6.1a0 candidate
+# DNCrypt v0.9.1a0 candidate
 
 **Dynamic Noncommutative Cryptography — provenance-preserving AEAD, causal adversarial evolution, typed Genetic IR, exact rollback and relational 36D diagnostics.**
 
@@ -14,6 +14,32 @@ The application-data cryptographic anchor remains intentionally conservative:
 - authenticated binding of genome generation, 36D surface commitment, internal tick, parent receipt and user AAD.
 
 The wire/protocol anchor remains `dncrypt.frozen-protocol/v0.2`. v0.6 does not replace or modify the standard AEAD primitive.
+
+## Local workstation encryption v1
+
+DNCrypt now has a local-first workstation layer that makes the frozen v0.2 AEAD anchor directly usable for files and directories.
+
+```text
+local file/directory
+-> streaming DNCrypt records
+-> .dncrypt container
+```
+
+The runtime path has no network or AI dependency. Original basenames and directory member names are encrypted; the public header contains only bounded public state needed to reconstruct the frozen DNCrypt envelope context.
+
+Windows `--backend auto` uses DPAPI CurrentUser **plus passphrase-derived optional entropy**. Portable profiles use scrypt + ChaCha20-Poly1305 key wrapping. Plain DPAPI remains available explicitly as a convenience mode but is weaker against a malicious same-user process.
+
+Quick start from a clone:
+
+```powershell
+py tools\dncrypt_local.py init --profile private --backend auto
+py tools\dncrypt_local.py doctor --profile private
+py tools\dncrypt_local.py encrypt "C:\Research\paper.tex" --profile private
+py tools\dncrypt_local.py verify "C:\Research\paper.tex.dncrypt" --profile private
+py tools\dncrypt_local.py decrypt "C:\Research\paper.tex.dncrypt" --profile private
+```
+
+DNCrypt does not auto-delete plaintext and makes no secure-erase claim. See `docs/LOCAL_WORKSTATION_ENCRYPTION_V1.md` for the threat boundary and operational details.
 
 ## Genetic IR v0.6
 
