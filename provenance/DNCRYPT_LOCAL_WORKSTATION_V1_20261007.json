@@ -1,0 +1,52 @@
+{
+  "schema": "DNCRYPT_LOCAL_WORKSTATION_V1_RECEIPT",
+  "date": "2026-10-07",
+  "repository": "AdrianLipa90/DNCrypt",
+  "branch": "feat/local-workstation-encryption-v1-20261007",
+  "base_main_sha": "cb62d0fff81ea999576427f0742f025377e57d01",
+  "implementation_commit": "f3bc5cef3e0a32431838fb58d9d2fb17849fd251",
+  "gremlin": {
+    "local_status": "ACTIVE",
+    "generation": "4f257968846cbcfb188f0e3d17c7e4eede8c51d9c381d273d634a0c07ed166cf",
+    "authority_order": [
+      "OPERATOR",
+      "GREMLIN",
+      "AI_CLIENT"
+    ],
+    "plan_receipt_sha256": "f9dff4db87ce86d0295830cf093a54a5f70ba7a834aef49c99f0137c2e514a86"
+  },
+  "cryptographic_boundary": {
+    "frozen_protocol": "dncrypt.frozen-protocol/v0.2",
+    "aead": "ChaCha20-Poly1305",
+    "kdf": "HKDF-SHA3-512",
+    "master_key_bits": 256,
+    "adaptive_layers_change_anchor": false
+  },
+  "local_layer": {
+    "network_dependency": false,
+    "ai_required_for_decrypt": false,
+    "original_basename_encrypted": true,
+    "directory_member_names_encrypted": true,
+    "source_auto_delete": false,
+    "secure_erase_claim": false,
+    "hsm_claim": false,
+    "default_chunk_bytes": 4194304,
+    "windows_auto_backend": "DPAPI_CURRENT_USER_PLUS_PASSPHRASE_DERIVED_OPTIONAL_ENTROPY",
+    "portable_backend": "SCRYPT_PLUS_CHACHA20_POLY1305_KEY_WRAP"
+  },
+  "validation": {
+    "local_targeted_pytest": "15/15 PASS",
+    "exact_byte_match_for_initial_implementation_files": "PASS",
+    "large_streaming_smoke": {
+      "plaintext_bytes": 20983865,
+      "data_records": 6,
+      "verify": true,
+      "roundtrip": true
+    },
+    "windows_dpapi_execution": "NOT_RUN_NON_WINDOWS_RUNNER",
+    "github_actions": "NOT_RUN",
+    "full_repository_pytest": "NOT_RUN"
+  },
+  "main_mutated": false,
+  "merge_to_main": false
+}

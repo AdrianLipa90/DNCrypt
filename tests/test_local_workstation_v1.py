@@ -286,3 +286,43 @@ def test_cli_passphrase_profile_encrypt_decrypt(tmp_path: Path, monkeypatch, cap
     assert "ENCRYPTED" in captured.out
     assert "VERIFIED" in captured.out
     assert "DECRYPTED" in captured.out
+
+
+def test_malicious_encrypted_tar_path_is_rejected(tmp_path: Path):
+    import io
+    import tarfile
+    from dncrypt.local_container import LocalContainerEncryptWriter
+
+    key = bytearray(os.urandom(32))
+    encrypted = tmp_path / "malicious.dncrypt"
+    with encrypted.open("wb") as out:
+        writer = LocalContainerEncryptWriter(
+            out,
+            key,
+            payload_kind="directory",
+            metadata={"kind": "directory", "name": "safe-name"},
+            chunk_size=64 * 1024,
+        )
+        with tarfile.open(fileobj=writer, mode="w|", format=tarfile.PAX_FORMAT) as archive:
+            info = tarfile.TarInfo(name="../escape.txt")
+            payload = b"escape"
+            info.size = len(payload)
+            archive.addfile(info, io.BytesIO(payload))
+        writer.finalize()
+
+    with pytest.raises(ValueError, match="unsafe path"):
+        decrypt_path(encrypted, key, destination=tmp_path / "out")
+    assert not (tmp_path / "out").exists()
+    assert not (tmp_path / "escape.txt").exists()
+
+
+def test_trailing_bytes_after_final_record_are_rejected(tmp_path: Path):
+    key = bytearray(os.urandom(32))
+    source = tmp_path / "trail.txt"
+    source.write_text("no trailing data")
+    encrypted = tmp_path / "trail.dncrypt"
+    encrypt_path(source, encrypted, key, chunk_size=64 * 1024)
+    with encrypted.open("ab") as handle:
+        handle.write(b"TRAIL")
+    with pytest.raises(ValueError, match="trailing data"):
+        verify_container(encrypted, key)

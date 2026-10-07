@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v0.9.1a0
+- Added local-first streaming workstation encryption for regular files and directories using the frozen DNCrypt v0.2 AEAD anchor.
+- Added Windows DPAPI CurrentUser + passphrase-derived optional entropy, plain DPAPI, and portable scrypt + ChaCha20-Poly1305 local key profiles.
+- Added authenticated per-record container metadata, parent-receipt chaining, final full-stream SHA-256/byte-count closure, atomic publication and no-overwrite defaults.
+- Encrypted original basenames and directory member names; rejected traversal, symlinks, hardlinks, sparse/special archive members and trailing data.
+- Added `dncrypt-local` / `tools/dncrypt_local.py` CLI with init, doctor, encrypt, decrypt and verify commands.
+- Local runtime path has no network/AI dependency; no secure-erase or HSM claim is made.
+
+
 ## v0.6.1a0
 - Added deterministic Genetic IR -> bounded mutation phenotype compilation while requiring fresh external mutation entropy.
 - Added program-shaped genome populations without changing the frozen v0.2 AEAD/key/salt/nonce boundary.
